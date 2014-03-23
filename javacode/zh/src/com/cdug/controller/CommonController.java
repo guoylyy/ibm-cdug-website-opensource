@@ -12,4 +12,6 @@ public class CommonController extends Controller{
 	public void about(){
 		render("/page/about.html");
 	}
+	
+	
 }
