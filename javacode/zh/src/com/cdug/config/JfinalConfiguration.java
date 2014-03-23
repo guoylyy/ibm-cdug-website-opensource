@@ -1,6 +1,6 @@
 package com.cdug.config;
 
-import com.cdug.controller.commonController;
+import com.cdug.controller.CommonController;
 import com.cdug.model.News;
 import com.jfinal.config.*;
 import com.jfinal.core.JFinal;
@@ -18,7 +18,7 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * Set up router
 	 */
 	public void configRoute(Routes me) {
-		me.add("/", commonController.class);
+		me.add("/", CommonController.class);
 		me.add(new FrontgroundRouter());
 		me.add(new BackgroundRouter());
 	}
