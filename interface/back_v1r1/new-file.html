@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cdug:The World DB2 User Community</title>	
+	<meta name="keywords" content="Cdug" />
+	<meta name="description" content="Cdug:The World DB2 User Community" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/site.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Cdug Website Management</a>
+          <div class="btn-group pull-right">
+			<a class="btn" href="my-profile.html"><i class="icon-user"></i> Admin</a>
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+			  <li><a href="my-profile.html">My Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav">
+			<li><a href="index.html">Home</a></li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="new-user.html">New User</a></li>
+					<li class="divider"></li>
+					<li><a href="users.html">User Management</a></li>
+				</ul>
+			  </li>
+			  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Post <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="new-user.html">New Post</a></li>
+					<li class="divider"></li>
+					<li><a href="users.html">Post Management</a></li>
+				</ul>
+			  </li>
+			  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">File <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="new-user.html">Upload File</a></li>
+					<li class="divider"></li>
+					<li><a href="users.html">File Management</a></li>
+				</ul>
+			  </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><i class="icon-wrench"></i> User Management</li>
+              <li><a href="new-user.html">New User</a></li>
+              <li><a href="users.html">Users</a></li>
+              
+              <li class="nav-header"><i class="icon-file"></i> Post Management</li>
+              <li><a href="new-post.html">New Post</a></li>
+              <li><a href="posts.html">Posts</a></li>
+
+              <li class="nav-header"><i class="icon-upload"></i> File Management</li>
+              <li><a href="new-file.html">New File</a></li>
+              <li><a href="files.html">Files</a></li>
+
+              <li class="nav-header"><i class="icon-user"></i> PROFILE</li>
+              <li><a href="my-profile.html">My Profile</a></li>
+              <!-- <li><a href="#">设置</a></li> -->
+			  <li><a href="#">Logout</a></li> 
+            </ul>
+          </div>
+        </div>
+        <div class="span9">
+		  <div class="row-fluid">
+			<div class="page-header">
+				<h1>New File <small>Upload File</small></h1>
+			</div>
+			<form class="form-horizontal">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label" for="name">Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="name" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="email">E-mail</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="email" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="pnohe">Phone</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="phone" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="city">City</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="city" />
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label" for="role">Role</label>
+						<div class="controls">
+							<select id="role">
+								<option value="admin">Admin</option>
+								<option value="mod">Moderator</option>
+								<option value="user" selected>User</option>
+							</select>
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label" for="active">Active?</label>
+						<div class="controls">
+							<input type="checkbox" id="active" value="1" />
+						</div>
+					</div>
+					<div class="form-actions">
+						<input type="submit" class="btn btn-success btn-large" value="Save User" /> <a class="btn" href="users.html">Cancel</a>
+					</div>					
+				</fieldset>
+			</form>
+		  </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer class="well">
+        &copy; Admin
+      </footer>
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
