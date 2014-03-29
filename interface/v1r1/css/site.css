@@ -11,6 +11,12 @@ a.image-link,a.image-link:hover{
 p.buttons{
     text-align: right;
 }
+#header-logo{
+    padding-top: 0px;
+}
+#logo{
+    height: 80px;
+}
 .english-tag{
     color: #aaa;
     font-size: 15px;
@@ -22,6 +28,10 @@ p.buttons{
 .nav > li{
 	padding-top:15px;
 	padding-bottom: 15px;
+    box-shadow: -1px 0px 1px #ddd;
+}
+.nav > li:last-child{
+    border-right: 1px #bbb solid;   
 }
 .nav > li:hover,.nav > li:focus{
 	background-color: #3498db;
