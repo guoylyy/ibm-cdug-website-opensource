@@ -26,6 +26,9 @@ p.buttons{
 .nav > li:hover,.nav > li:focus{
 	background-color: #3498db;
 	color: white;
+    padding-top: 23px;
+    padding-bottom: 7px;
+    transition:0.5s;
 }
 .nav > li.active{
 	background-color: #3498db;
@@ -69,7 +72,7 @@ p.buttons{
     color: #196090;
     margin-right: 10px;
 }
-.content{
+.flowcontent{
     padding-bottom: 30px;
 }
 .index-news-title{
@@ -81,6 +84,99 @@ p.buttons{
     border: none;
 }
 
+/*
+* about us page
+*/
+
+#highlighted{
+    margin-top:-20px;
+    padding-bottom: 10px;
+    border-bottom:1px #ccc solid;
+    background-color: #efefef;
+}
+#highlighted h2{
+    color:#196090;
+}
+
+.left-panel{
+    min-height: 500px;
+    margin-top: 30px;
+}
+.left-panel li{
+    font-size: 15px;
+    background-color: #196090;
+    color: white;
+    font-weight: 100;
+    margin-top: 5px;
+}
+.left-panel ul>a:hover{
+    text-decoration: none;
+}
+.left-panel li:hover{
+    margin-left: -15px;
+    transition:0.5s;
+}
+.content-panel{
+    min-height: 500px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+.content h3,.content h2,.content h1,.content h4{
+    border-bottom: 1px solid rgba(55, 124, 168, 0.3);
+    padding-bottom: 5px;
+    padding-left: 2px;
+    color:#196090;
+    margin-bottom: 10px;
+}
+.content p,.content h4{
+    font-family: Monaco, DejaVu Sans Mono, Bitstream Vera Sans Mono, Consolas, Courier New, monospace;
+    text-indent: 2em;
+}
+.content p{
+    line-height: 20px;
+}
+
+/*blog*/
+ul.post-properties{
+    padding-left: 0;
+    list-style: none;
+}
+ul.post-properties li{
+    display: inline-block;
+    padding-right: 15px;
+}
+.post-row{
+    margin: 0;
+    max-height: 115px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px #ccc solid;
+}
+.content-title{
+    padding-bottom: 10px;
+    color: #196090;
+    border-bottom: 1px #ccc solid;   
+}
+.content-title span{
+    padding-bottom: 9px;
+    border-bottom: 3px #196090 solid;
+}
+.content-title .title-view-more{
+    font-size: 15px;
+    cursor: pointer;
+    line-height: 50px;
+}
+
+/*history*/
+.history-panel{
+    padding-bottom: 50px;
+}
+.history-full-row{
+    padding: 20px 0 20px 0;
+}
+.history-half-row img{
+    width: 100%;
+}
 
 
 /*
@@ -95,7 +191,9 @@ p.buttons{
     }
 }
 
-
+footer{
+    text-align: center;
+}
 
 
 

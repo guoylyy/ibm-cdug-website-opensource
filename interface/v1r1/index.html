@@ -29,18 +29,26 @@
         </div>
         <div class="navbar-collapse collapse" style="height:100%">
           <ul class="nav navbar-nav navbar-right">
-            <li  class="active"><a href="../navbar/">首页</a></li>
-            <li><a href="./">关于CDUG</a></li>
-            <li><a href="../navbar-fixed-top/">新闻公告</a></li>
+            <li  class="active"><a href="index.html">首页</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于CDUG<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html">CDUG介绍</a></li>
+                <li><a href="#">CDUG简介</a></li>
+                <li><a href="#">愿景和使命</a></li>
+              </ul>
+            </li>
+            <li><a href="news.html">新闻公告</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">历年会议 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="history.html">CDUG年会简介</a></li>
+                <li><a href="#">2010年CDUG</a></li>
+                <li><a href="#">2009年CDUG</a></li>
+                <li><a href="#">2008年CDUG</a></li>
               </ul>
             </li>
-            <li><a href="../navbar-fixed-top/">资料库</a></li>
+            <li><a href="material.html">资料库</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-lock"></span></a>
                 <ul class="dropdown-menu" id="login-dropdown-menu" style="">
@@ -65,7 +73,7 @@
 	 
 
 	  <section class="news-section">
-	  	<div class="container content" >
+	  	<div class="container flowcontent" >
 			<div class="row">
 				<div class="col-md-8 pull-left" style="padding-right:0px;">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -208,7 +216,7 @@
       </footer>
 
 
-    <script src="js/jquery.js"></script>	
+  <script src="js/jquery.js"></script>	
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Library to support nav fixes in top-->
 	<script src="js/stickUp.min.js"></script>

@@ -93,8 +93,6 @@ function($) {
 				}
 			}
 
-
-
 			if(vartop < varscroll + topMargin){
 				$('.stuckMenu').addClass('isStuck');
 				$('.stuckMenu').next().closest('div').css({
