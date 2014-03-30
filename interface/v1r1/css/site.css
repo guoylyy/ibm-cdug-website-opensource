@@ -188,6 +188,36 @@ ul.post-properties li{
     width: 100%;
 }
 
+/*material*/
+
+.material-class-list{
+    list-style: none;
+    padding-bottom: 5px;
+    
+    height: 25px;
+    padding-left: 5px;
+}
+.material-class-list hr{
+    margin: 5px 0 5px 0;
+}
+.material-class-list li{
+    float: left;
+    padding-right: 20px;
+}
+#example{
+    width: 100%;
+}
+.table-content{
+    margin:15px 15px 0px 15px;
+    padding-top: 15px;
+    border-top: 2px #196090 solid;
+}
+.btn-search{
+    width: 110px;
+}
+#example{
+    margin-top:5px;
+}
 
 /*
 * Multiple media support
