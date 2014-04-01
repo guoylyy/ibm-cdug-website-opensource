@@ -1,0 +1,1406 @@
+
+2014-04-01 22:08:15
+[ERROR]-[Thread: main]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.start(JFinal.java:165)
+	at com.cdug.config.JfinalConfiguration.main(JfinalConfiguration.java:49)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:09:46
+[ERROR]-[Thread: JFinal-Scanner]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:09:56
+[ERROR]-[Thread: JFinal-Scanner]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:10:16
+[ERROR]-[Thread: JFinal-Scanner]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:10:21
+[ERROR]-[Thread: JFinal-Scanner]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:10:31
+[ERROR]-[Thread: JFinal-Scanner]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:10:51
+[ERROR]-[Thread: JFinal-Scanner]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:49)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:118)
+	at com.jfinal.core.Config.startPlugins(Config.java:78)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:68)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'cdug_zh.news' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+	at com.mchange.v2.c3p0.impl.NewProxyStatement.executeQuery(NewProxyStatement.java:35)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.doBuildTableInfo(TableInfoBuilder.java:61)
+	at com.jfinal.plugin.activerecord.TableInfoBuilder.buildTableInfo(TableInfoBuilder.java:44)
+	... 20 more
+
+2014-04-01 22:12:44
+[ERROR]-[Thread: qtp1491492554-20]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error parsing included template page/template/_layout.html
+Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+
+Error parsing included template page/template/_layout.html
+Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+The problematic instruction:
+----------
+==> include "/page/template/_layout.html" [on line 1, column 1 in page/index.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error parsing included template page/template/_layout.html
+Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+	at freemarker.core.Include.accept(Include.java:162)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.core.ParseException: Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+	at freemarker.template.Template.<init>(Template.java:152)
+	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:448)
+	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:361)
+	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:235)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:487)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 31 more
+
+2014-04-01 22:12:44
+[ERROR]-[Thread: qtp1491492554-20]-[com.jfinal.core.ActionHandler.handle()]: /
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error parsing included template page/template/_layout.html
+Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error parsing included template page/template/_layout.html
+Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+	at freemarker.core.Include.accept(Include.java:162)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: freemarker.core.ParseException: Token manager error: freemarker.core.TokenMgrError: Unknown directive: #macro on line: 24, column: 11, in template: page/template/_layout.html in page/template/_layout.html
+	at freemarker.template.Template.<init>(Template.java:152)
+	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:448)
+	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:361)
+	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:235)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:487)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 31 more
+
+2014-04-01 22:36:50
+[ERROR]-[Thread: qtp1491492554-19]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_breadcrumbs.html
+
+Error reading included file page/template/about/_about_breadcrumbs.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_breadcrumbs.html" [on line 4, column 9 in page/about/about_cdug.html]
+ in user-directive layout [on line 3, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:36:50
+[ERROR]-[Thread: qtp1491492554-19]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:37:34
+[ERROR]-[Thread: qtp1491492554-16]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_breadcrumbs.html
+
+Error reading included file page/template/about/_about_breadcrumbs.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_breadcrumbs.html" [on line 4, column 9 in page/about/about_cdug.html]
+ in user-directive layout [on line 3, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:37:34
+[ERROR]-[Thread: qtp1491492554-16]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:37:39
+[ERROR]-[Thread: qtp1491492554-18]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_breadcrumbs.html
+
+Error reading included file page/template/about/_about_breadcrumbs.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_breadcrumbs.html" [on line 4, column 9 in page/about/about_cdug.html]
+ in user-directive layout [on line 3, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:37:39
+[ERROR]-[Thread: qtp1491492554-18]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:38:11
+[ERROR]-[Thread: qtp1491492554-16]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_left_bar.html
+
+Error reading included file page/template/about/_about_left_bar.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_left_bar.html" [on line 7, column 25 in page/about/about_cdug.html]
+ in user-directive layout [on line 3, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_left_bar.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_left_bar.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:38:11
+[ERROR]-[Thread: qtp1491492554-16]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_left_bar.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_left_bar.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_left_bar.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:39:12
+[ERROR]-[Thread: qtp1491492554-19]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_breadcrumbs.html
+
+Error reading included file page/template/about/_about_breadcrumbs.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_breadcrumbs.html" [on line 2, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 31 more
+
+2014-04-01 22:39:12
+[ERROR]-[Thread: qtp1491492554-19]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 31 more
+
+2014-04-01 22:39:22
+[ERROR]-[Thread: qtp1491492554-16]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_breadcrumbs.html
+
+Error reading included file page/template/about/_about_breadcrumbs.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_breadcrumbs.html" [on line 2, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 31 more
+
+2014-04-01 22:39:22
+[ERROR]-[Thread: qtp1491492554-16]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 31 more
+
+2014-04-01 22:40:34
+[ERROR]-[Thread: qtp1491492554-15]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_breadcrumbs.html
+
+Error reading included file page/template/about/_about_breadcrumbs.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_breadcrumbs.html" [on line 4, column 9 in page/about/about_cdug.html]
+ in user-directive layout [on line 3, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:40:34
+[ERROR]-[Thread: qtp1491492554-15]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_breadcrumbs.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_breadcrumbs.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:42:17
+[ERROR]-[Thread: qtp1491492554-16]-[freemarker.log.Log4JLoggerFactory$Log4JLogger.error()]: Error reading included file page/template/about/_about_left_bar.html
+
+Error reading included file page/template/about/_about_left_bar.html
+The problematic instruction:
+----------
+==> include "/page/template/about/_about_left_bar.html" [on line 7, column 25 in page/about/about_cdug.html]
+ in user-directive layout [on line 3, column 1 in page/about/about_cdug.html]
+----------
+
+Java backtrace for programmers:
+----------
+freemarker.template.TemplateException: Error reading included file page/template/about/_about_left_bar.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_left_bar.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:42:17
+[ERROR]-[Thread: qtp1491492554-16]-[com.jfinal.core.ActionHandler.handle()]: /about
+com.jfinal.render.RenderException: freemarker.template.TemplateException: Error reading included file page/template/about/_about_left_bar.html
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.template.TemplateException: Error reading included file page/template/about/_about_left_bar.html
+	at freemarker.core.Include.accept(Include.java:167)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.visit(Environment.java:395)
+	at freemarker.core.BodyInstruction.accept(BodyInstruction.java:93)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Macro$Context.runMacro(Macro.java:172)
+	at freemarker.core.Environment.visit(Environment.java:603)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.MixedContent.accept(MixedContent.java:92)
+	at freemarker.core.Environment.visit(Environment.java:210)
+	at freemarker.core.Environment.process(Environment.java:190)
+	at freemarker.template.Template.process(Template.java:237)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
+	... 25 more
+Caused by: java.io.FileNotFoundException: Template page/template/about/_about_left_bar.html not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:489)
+	at freemarker.core.Environment.getTemplateForInclusion(Environment.java:1465)
+	at freemarker.core.Include.accept(Include.java:157)
+	... 42 more
+
+2014-04-01 22:48:25
+[WARN]-[Thread: qtp1491492554-22]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /about/architecutre/
+
+2014-04-01 23:15:58
+[ERROR]-[Thread: qtp2086227294-16]-[com.jfinal.core.ActionHandler.handle()]: /news
+com.jfinal.render.RenderException: freemarker.core.ParseException: Encountered "/" at line 46, column 3 in page/news/news-index.html.
+Was expecting one of:
+    <STRING_LITERAL> ...
+    <RAW_STRING> ...
+    "false" ...
+    "true" ...
+    <INTEGER> ...
+    <DECIMAL> ...
+    "." ...
+    "+" ...
+    "-" ...
+    "!" ...
+    "[" ...
+    "(" ...
+    "{" ...
+    <ID> ...
+    
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: freemarker.core.ParseException: Encountered "/" at line 46, column 3 in page/news/news-index.html.
+Was expecting one of:
+    <STRING_LITERAL> ...
+    <RAW_STRING> ...
+    "false" ...
+    "true" ...
+    <INTEGER> ...
+    <DECIMAL> ...
+    "." ...
+    "+" ...
+    "-" ...
+    "!" ...
+    "[" ...
+    "(" ...
+    "{" ...
+    <ID> ...
+    
+	at freemarker.core.FMParser.generateParseException(FMParser.java:4697)
+	at freemarker.core.FMParser.jj_consume_token(FMParser.java:4568)
+	at freemarker.core.FMParser.UnaryExpression(FMParser.java:323)
+	at freemarker.core.FMParser.MultiplicativeExpression(FMParser.java:435)
+	at freemarker.core.FMParser.AdditiveExpression(FMParser.java:385)
+	at freemarker.core.FMParser.RangeExpression(FMParser.java:556)
+	at freemarker.core.FMParser.RelationalExpression(FMParser.java:511)
+	at freemarker.core.FMParser.EqualityExpression(FMParser.java:476)
+	at freemarker.core.FMParser.AndExpression(FMParser.java:585)
+	at freemarker.core.FMParser.OrExpression(FMParser.java:608)
+	at freemarker.core.FMParser.Expression(FMParser.java:221)
+	at freemarker.core.FMParser.UnifiedMacroTransform(FMParser.java:1891)
+	at freemarker.core.FMParser.FreemarkerDirective(FMParser.java:2399)
+	at freemarker.core.FMParser.Content(FMParser.java:2618)
+	at freemarker.core.FMParser.OptionalBlock(FMParser.java:2786)
+	at freemarker.core.FMParser.UnifiedMacroTransform(FMParser.java:1972)
+	at freemarker.core.FMParser.FreemarkerDirective(FMParser.java:2399)
+	at freemarker.core.FMParser.Content(FMParser.java:2618)
+	at freemarker.core.FMParser.OptionalBlock(FMParser.java:2786)
+	at freemarker.core.FMParser.Root(FMParser.java:2958)
+	at freemarker.template.Template.<init>(Template.java:149)
+	at freemarker.cache.TemplateCache.loadTemplate(TemplateCache.java:448)
+	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:361)
+	at freemarker.cache.TemplateCache.getTemplate(TemplateCache.java:235)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:487)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:452)
+	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:124)
+	... 25 more

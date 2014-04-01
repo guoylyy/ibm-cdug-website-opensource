@@ -1,7 +1,8 @@
 package com.cdug.model;
+
 import com.jfinal.plugin.activerecord.Model;
 
 @SuppressWarnings("serial")
-public class News extends Model<News>{
-	public static final News dao = new News();
+public class Posts extends Model<Posts>{
+	public static Posts posts = new Posts();
 }

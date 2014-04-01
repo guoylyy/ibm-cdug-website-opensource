@@ -1,8 +1,13 @@
 package com.cdug.config;
 
 import com.cdug.controller.CommonController;
-import com.cdug.model.News;
-import com.jfinal.config.*;
+import com.cdug.model.Posts;
+import com.jfinal.config.Constants;
+import com.jfinal.config.Handlers;
+import com.jfinal.config.Interceptors;
+import com.jfinal.config.JFinalConfig;
+import com.jfinal.config.Plugins;
+import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
@@ -33,7 +38,7 @@ public class JfinalConfiguration extends JFinalConfig {
 
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
-		arp.addMapping("News", News.class);
+		arp.addMapping("posts", Posts.class);
 	}
 
 	public void configInterceptor(Interceptors me) {
