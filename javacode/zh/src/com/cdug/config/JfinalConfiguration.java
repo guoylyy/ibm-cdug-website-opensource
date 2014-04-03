@@ -1,7 +1,12 @@
 package com.cdug.config;
 
 import com.cdug.controller.CommonController;
+import com.cdug.model.Files;
+import com.cdug.model.Materials;
 import com.cdug.model.Posts;
+import com.cdug.model.Solutions;
+import com.cdug.model.Technicals;
+import com.cdug.model.Users;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -13,6 +18,10 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 
 public class JfinalConfiguration extends JFinalConfig {
+	
+	/*
+	 * Set up basic infomation
+	 */
 	public void configConstant(Constants me) {
 		loadPropertyFile("config.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", false));
@@ -32,13 +41,18 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * Config plugins
 	 */
 	public void configPlugin(Plugins me) {
+		//Add database plugin
 		C3p0Plugin c3p0Plugin = new C3p0Plugin(getProperty("jdbcUrl"),
 				getProperty("user"), getProperty("password").trim());
 		me.add(c3p0Plugin);
-
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 		arp.addMapping("posts", Posts.class);
+		arp.addMapping("materials", Materials.class);
+		arp.addMapping("files", Files.class);
+		arp.addMapping("users", Users.class);
+		arp.addMapping("solutions", Solutions.class);
+		arp.addMapping("technicals", Technicals.class);
 	}
 
 	public void configInterceptor(Interceptors me) {
@@ -48,9 +62,9 @@ public class JfinalConfiguration extends JFinalConfig {
 	}
 
 	/**
-	 * 
+	 * test interface
 	 */
 	public static void main(String[] args) {
-		JFinal.start("WebRoot", 8088, "/", 5);
+		JFinal.start("WebRoot", 8089, "/", 5);
 	}
 }

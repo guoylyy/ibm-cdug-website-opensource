@@ -1,0 +1,42 @@
+<#macro layout>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">  
+	<title>Cdug:The World DB2 User Community</title>	
+	<meta name="keywords" content="Cdug" />
+	<meta name="description" content="Cdug:The World DB2 User Community" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/resource/static/back_src/css/bootstrap.css" rel="stylesheet">
+	<link href="/resource/static/back_src/css/back_site.css" rel="stylesheet">
+    <link href="/resource/static/back_src/css/bootstrap-responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+    <style type="text/css">
+    html, body {
+        height: 100%;
+    }
+    </style>
+  </head>
+<body>
+	<#include "/backpage/template/_header.html"/>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<#include "/backpage/template/_left_bar.html"/>
+			<div class="span9">
+				<#nested>
+        	</div>
+		</div>
+		<hr>
+		<#include "/backpage/template/_footer.html"/>
+		
+	</div>
+    <script src="/resource/static/back_src/js/jquery.js"></script>
+	<script src="/resource/static/back_src/js/jquery.flot.js"></script>
+	<script src="/resource/static/back_src/js/jquery.flot.resize.js"></script>	
+	<script src="/resource/static/back_src/js/bootstrap.min.js"></script>
+</body>
+</html>
+</#macro>

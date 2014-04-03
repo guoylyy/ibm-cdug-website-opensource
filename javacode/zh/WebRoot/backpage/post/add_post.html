@@ -1,0 +1,59 @@
+<#include "/backpage/template/_layout.html"/>
+
+<@layout>
+<div class="span9">
+		  <div class="row-fluid">
+			<div class="page-header">
+				<h1>New User <small>User registration</small></h1>
+			</div>
+			<form class="form-horizontal">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label" for="name">Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="name" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="email">E-mail</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="email" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="pnohe">Phone</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="phone" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="city">City</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="city" />
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label" for="role">Role</label>
+						<div class="controls">
+							<select id="role">
+								<option value="admin">Admin</option>
+								<option value="mod">Moderator</option>
+								<option value="user" selected>User</option>
+							</select>
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label" for="active">Active?</label>
+						<div class="controls">
+							<input type="checkbox" id="active" value="1" />
+						</div>
+					</div>
+					<div class="form-actions">
+						<input type="submit" class="btn btn-success btn-large" value="Save User" /> <a class="btn" href="users.html">Cancel</a>
+					</div>					
+				</fieldset>
+			</form>
+		  </div>
+        </div>
+
+</@layout>

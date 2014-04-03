@@ -5,7 +5,4 @@ public class CommonController extends Controller{
 	public void index(){
 		render("/page/index.html");
 	}
-
-	
-	
 }
