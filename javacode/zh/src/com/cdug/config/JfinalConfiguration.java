@@ -53,18 +53,22 @@ public class JfinalConfiguration extends JFinalConfig {
 		arp.addMapping("users", Users.class);
 		arp.addMapping("solutions", Solutions.class);
 		arp.addMapping("technicals", Technicals.class);
+		
+		//add spring framework
+		
 	}
 
 	public void configInterceptor(Interceptors me) {
 	}
 
 	public void configHandler(Handlers me) {
+		
 	}
 
 	/**
 	 * test interface
 	 */
 	public static void main(String[] args) {
-		JFinal.start("WebRoot", 8089, "/", 5);
+		JFinal.start("WebRoot", 8092, "/", 5);
 	}
 }

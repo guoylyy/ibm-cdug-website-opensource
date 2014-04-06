@@ -96,7 +96,6 @@ a:hover {
   text-transform: uppercase;
 }
 span.user-actions, td div.btn-group {
-  visibility: hidden;
 }
 table {
   background-color: #fdfdfd;

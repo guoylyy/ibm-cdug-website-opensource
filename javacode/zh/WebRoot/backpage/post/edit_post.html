@@ -1,0 +1,56 @@
+<#include "/backpage/template/_editor_layout.html"/>
+
+<@layout>
+<div class="span11">
+		  <div class="row-fluid">
+			<div class="page-header">
+				<h1>New Post <small>add post</small></h1>
+			</div>
+			<form class="form-horizontal" method="post" action="/private/post/edit">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label" for="title">Title</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="title" name="title" value="${post.title}"/>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="content">Content</label>
+						<div class="controls">
+						<textarea class="ckeditor" name="content">${post.content}</textarea>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="role">Type</label>
+						<div class="controls">
+							<select id="role" name="type">
+								<#if post.type == 'NOTICE'>
+								<option value="NOTICE" selected>Notice</option>
+								<option value="NEWS">News</option>
+								<#else>
+								<option value="NOTICE">Notice</option>
+								<option value="NEWS" selected>News</option>
+								</#if>
+							</select>
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label" for="active">Draft?</label>
+						<div class="controls">
+							<#if post.isDraft == 1>
+							<input type="checkbox" id="active" value="off" checked name="draft"/>
+							<#else>
+							<input type="checkbox" id="active" value="off" name="draft"/>
+							</#if>
+						</div>
+					</div>
+					<div class="form-actions">
+						<input type="submit" class="btn btn-success btn-large" value="Save User" /> <a class="btn" href="/private/post">Cancel</a>
+					</div>					
+				</fieldset>
+			</form>
+		  </div>
+        </div>
+
+</@layout>

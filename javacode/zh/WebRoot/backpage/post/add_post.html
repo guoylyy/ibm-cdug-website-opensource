@@ -1,55 +1,43 @@
-<#include "/backpage/template/_layout.html"/>
+<#include "/backpage/template/_editor_layout.html"/>
 
 <@layout>
-<div class="span9">
+<div class="span11">
 		  <div class="row-fluid">
 			<div class="page-header">
-				<h1>New User <small>User registration</small></h1>
+				<h1>New Post <small>add post</small></h1>
 			</div>
-			<form class="form-horizontal">
+			<form class="form-horizontal" method="post" action="/private/post/addPost">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="name">Name</label>
+						<label class="control-label" for="title">Title</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge" id="name" />
+							<input type="text" class="input-xlarge" id="title" name="title"/>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="email">E-mail</label>
+						<label class="control-label" for="content">Content</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge" id="email" />
+						<textarea class="ckeditor" name="content"></textarea>
 						</div>
 					</div>
+					
 					<div class="control-group">
-						<label class="control-label" for="pnohe">Phone</label>
+						<label class="control-label" for="role">Type</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge" id="phone" />
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="city">City</label>
-						<div class="controls">
-							<input type="text" class="input-xlarge" id="city" />
-						</div>
-					</div>	
-					<div class="control-group">
-						<label class="control-label" for="role">Role</label>
-						<div class="controls">
-							<select id="role">
-								<option value="admin">Admin</option>
-								<option value="mod">Moderator</option>
-								<option value="user" selected>User</option>
+							<select id="role" name="type">
+								<option value="NOTICE">Notice</option>
+								<option value="NEWS" selected>News</option>
 							</select>
 						</div>
 					</div>	
 					<div class="control-group">
-						<label class="control-label" for="active">Active?</label>
+						<label class="control-label" for="active">Draft?</label>
 						<div class="controls">
-							<input type="checkbox" id="active" value="1" />
+							<input type="checkbox" id="active" value="off" name="draft"/>
 						</div>
 					</div>
 					<div class="form-actions">
-						<input type="submit" class="btn btn-success btn-large" value="Save User" /> <a class="btn" href="users.html">Cancel</a>
+						<input type="submit" class="btn btn-success btn-large" value="Save User" /> <a class="btn" href="/private/post">Cancel</a>
 					</div>					
 				</fieldset>
 			</form>

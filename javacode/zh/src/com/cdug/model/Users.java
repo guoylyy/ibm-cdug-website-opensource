@@ -1,6 +1,7 @@
 package com.cdug.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import com.jfinal.plugin.activerecord.Model;
@@ -14,7 +15,7 @@ public class Users extends Model<Users> {
 	}
 
 	public boolean addUser(String email, String password, String name,
-			String role, String reg_time) {
+			String role, Date reg_time) {
 		// Set datetime
 		return new Users().set("email", email).set("password", password)
 				.set("name", name).set("role", role).set("reg_time", reg_time)

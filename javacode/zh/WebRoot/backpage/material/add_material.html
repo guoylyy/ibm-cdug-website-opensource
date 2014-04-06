@@ -1,39 +1,37 @@
-<#include "/backpage/template/_layout.html"/>
+<#include "/backpage/template/_editor_layout.html"/>
 
 <@layout>
-<div class="span9">
+<div class="span11">
 		  <div class="row-fluid">
 			<div class="page-header">
-				<h1>New User <small>User registration</small></h1>
+				<h1>New Material <small>add material</small></h1>
 			</div>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="name">Name</label>
+						<label class="control-label" for="name">Title</label>
 						<div class="controls">
 							<input type="text" class="input-xlarge" id="name" />
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="email">E-mail</label>
+						<label class="control-label" for="role">Type</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge" id="email" />
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="pnohe">Phone</label>
-						<div class="controls">
-							<input type="text" class="input-xlarge" id="phone" />
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="city">City</label>
-						<div class="controls">
-							<input type="text" class="input-xlarge" id="city" />
+							<select id="role">
+								<option value="admin" selected>Post</option>
+								<option value="mod">File Only</option>
+							</select>
 						</div>
 					</div>	
 					<div class="control-group">
-						<label class="control-label" for="role">Role</label>
+						<label class="control-label" for="name">Content</label>
+						<div class="controls">
+						<textarea class="ckeditor" name="editor1"></textarea>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="role">Technology Type</label>
 						<div class="controls">
 							<select id="role">
 								<option value="admin">Admin</option>
@@ -43,7 +41,17 @@
 						</div>
 					</div>	
 					<div class="control-group">
-						<label class="control-label" for="active">Active?</label>
+						<label class="control-label" for="role">Category</label>
+						<div class="controls">
+							<select id="role">
+								<option value="admin">Admin</option>
+								<option value="mod">Moderator</option>
+								<option value="user" selected>User</option>
+							</select>
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label" for="active">Draft?</label>
 						<div class="controls">
 							<input type="checkbox" id="active" value="1" />
 						</div>
