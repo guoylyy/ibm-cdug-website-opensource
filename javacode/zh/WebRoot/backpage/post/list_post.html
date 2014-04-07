@@ -25,7 +25,7 @@
 				<tr class="list-users">
 					<td>${post.id}</td>
 					<td>${post.title}</td>
-					<td>${post.content}</td>
+					<td class="tr-content">${post.getContentPreview()}</td>
 					<td>${post.author}</td>
 					<td>
 						<#if post.isDraft == 1>

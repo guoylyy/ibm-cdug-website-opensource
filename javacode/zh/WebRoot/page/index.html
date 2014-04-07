@@ -51,34 +51,22 @@
 							<h3 class="index-news-title"><span class="glyphicon glyphicon-envelope color-lead"></span>新闻
 								<span class="english-tag">news</span></h3>
 							<ul class="list-group slider-right-list">
-								   <li class="list-group-item">
+								 <#list news.getList() as n>
+								  <li class="list-group-item">
  								   <a href="#">
-  								   2014年cdug年会成功召开,同济大学........</a>
+  								   ${n.title}</a>
  								 </li>
- 								  <li class="list-group-item">
- 								   <a href="#">
-  								   2014年cdug年会成功召开........</a>
- 								 </li>
- 								  <li class="list-group-item">
- 								  <a href="#"> 
-  								   2014年cdug年会成功召开........</a>
- 								 </li>
+ 								 </#list>
 							</ul>
 							<h3 class="index-news-title"><span class="glyphicon glyphicon-pushpin color-lead"></span>公告
 							<span class="english-tag">announcement</span></h3>
-							<ul class="list-group">
+							<ul class="list-group slider-right-list" >
+								  <#list notices.getList() as no>
 								  <li class="list-group-item">
- 								   <a href="#">
-  								   2014年cdug年会成功召开........</a>
+ 								   <a href="#">${no.title}</a>
  								 </li>
- 								  <li class="list-group-item">
- 								   <a href="#">
-  								   2014年cdug年会成功召开........</a>
- 								 </li>
- 								  <li class="list-group-item">
- 								  <a href="#"> 
-  								   2014年cdug年会成功召开........</a>
- 								 </li>
+ 								 </#list>
+ 								  
 							</ul>
 						</div>
 					</div>

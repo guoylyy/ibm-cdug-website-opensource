@@ -32,7 +32,7 @@ p.buttons{
 .nav > li{
 	padding-top:15px;
 	padding-bottom: 15px;
-    box-shadow: -1px 0px 1px #ddd;
+    border-left: 1px #bbb solid;
 }
 .nav > li:last-child{
     border-right: 1px #bbb solid;   

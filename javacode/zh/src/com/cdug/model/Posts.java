@@ -3,7 +3,10 @@ package com.cdug.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.cdug.config.GlobalConfig;
+import com.cdug.tool.DataHanlder;
 import com.jfinal.plugin.activerecord.Model;
+import com.jfinal.plugin.activerecord.Page;
 
 @SuppressWarnings("serial")
 public class Posts extends Model<Posts> {
@@ -21,4 +24,33 @@ public class Posts extends Model<Posts> {
 				.set("update_time", new Date()).save();
 	}
 
+	public String getContentPreview() {
+		return getPreview(20);
+	}
+	
+	public String getListPreview(){
+		return getPreview(100);
+	}
+
+	private String getPreview(int size){
+		String content = DataHanlder.htmlRemoveTag(this.get("content").toString());
+		if (content.length() > size) {
+			return (content.substring(0, size) + "...").replaceAll("\n", "");
+		} else {
+			return content.replaceAll("\n", "");
+		}
+	}
+	public Page<Posts> getPostsByPage(int pageIndex, String type) {
+		return dao.paginate(pageIndex, GlobalConfig.postsPageSize, "select *",
+				"from posts where type=?", type);
+	}
+
+	public int countNews() {
+		return dao.find("select * from posts where type='NEWS'").size();
+	}
+
+	public int countNotice() {
+		return dao.find("select * from posts where type='NOTICE'").size();
+	}
+	
 }

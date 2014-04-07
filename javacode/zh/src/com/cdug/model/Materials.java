@@ -3,6 +3,7 @@ package com.cdug.model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import com.jfinal.aop.Before;
 import com.jfinal.plugin.activerecord.Db;
@@ -13,9 +14,71 @@ import com.jfinal.plugin.activerecord.tx.Tx;
 @SuppressWarnings("serial")
 public class Materials extends Model<Materials> {
 	public static Materials dao = new Materials();
+	private String solution;
+	private String technical;
+	public String getTechnical() {
+		return technical;
+	}
+
+	public void setTechnical(String technical) {
+		this.technical = technical;
+	}
+
+	public String getSolution() {
+		return solution;
+	}
+
+	public void setSolution(String solution) {
+		this.solution = solution;
+	}
 
 	public ArrayList<Materials> getMaterials() {
 		return (ArrayList<Materials>) dao.find("select * from materials");
+	}
+
+	public ArrayList<Materials> getAllMaterial() {
+		HashMap<String, String> ms_map = new HashMap<>();
+		HashMap<String, String> mt_map = new HashMap<>();
+
+		ArrayList<MaterialSolution> ms_list = (ArrayList<MaterialSolution>) MaterialSolution.dao
+				.find("select a.material_id,b.name from material_solution a inner join solutions b where a.solution_id = b.id");
+		// Cast to map
+		for (MaterialSolution ms : ms_list) {
+			String key = ms.get("material_id") + "";
+			if (ms_map.containsKey(key)) {
+				ms_map.put(key, ms_map.get(key) + "," + ms.getStr("name"));
+			} else {
+				ms_map.put(key, ms.getStr("name"));
+			}
+		}
+
+		ArrayList<MaterialTechnical> mt_list = (ArrayList<MaterialTechnical>) MaterialTechnical.dao
+				.find("select a.material_id,b.name from material_technical a inner join technicals b where a.technical_id = b.id");
+		// Cast to map
+		for (MaterialTechnical mt : mt_list) {
+			String key = mt.get("material_id") + "";
+			if (mt_map.containsKey(key)) {
+				mt_map.put(key, mt_map.get(key) + "," + mt.getStr("name"));
+			} else {
+				mt_map.put(key, mt.getStr("name"));
+			}
+		}
+
+		ArrayList<Materials> list = (ArrayList<Materials>) dao
+				.find("select * from materials");
+
+		for (Materials m : list) {
+			String id = m.get("id") + "";
+			m.setSolution("");
+			m.setTechnical("");
+			if (ms_map.containsKey(id)) {
+				m.setSolution(ms_map.get(id));
+			}
+			if (mt_map.containsKey(id)) {
+				m.setTechnical(mt_map.get(id));
+			}
+		}
+		return list;
 	}
 
 	@Before(Tx.class)
@@ -27,7 +90,6 @@ public class Materials extends Model<Materials> {
 				.set("mtype", type).set("user_id", user_id)
 				.set("isDraft", isDraft).set("update_time", new Date())
 				.set("create_time", new Date()).set("author", author).save();
-
 		int mid = dao.get("id");
 		if (msave_reuslt) {
 			for (String id : fileids) {
@@ -41,7 +103,7 @@ public class Materials extends Model<Materials> {
 			}
 
 			for (String id : teids) {
-				MaterialTechinical.dao.set("material_id", mid)
+				MaterialTechnical.dao.set("material_id", mid)
 						.set("technical_id", Integer.parseInt(id)).save();
 			}
 		} else {
@@ -55,7 +117,7 @@ public class Materials extends Model<Materials> {
 		final int mid = id;
 		final int fileCount = MaterialFile.dao.count(mid);
 		final int solutionCount = MaterialSolution.dao.count(mid);
-		final int techincalCount = MaterialTechinical.dao.count(mid);
+		final int techincalCount = MaterialTechnical.dao.count(mid);
 
 		boolean succeed = Db.tx(new IAtom() {
 

@@ -116,6 +116,13 @@ tr.pending-user:hover span.user-actions, tr.list-users:hover td div.btn-group, t
   padding-right: 20px;
 }
 
+
+.tr-content{
+	max-height:50px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
 /*
  * Responsive table
  */
