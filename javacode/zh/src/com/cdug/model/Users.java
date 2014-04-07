@@ -13,7 +13,7 @@ public class Users extends Model<Users> {
 	public ArrayList<Users> getUsers() {
 		return (ArrayList<Users>) Users.dao.find("select * from users");
 	}
-
+	
 	public boolean addUser(String email, String password, String name,
 			String role, Date reg_time) {
 		// Set datetime

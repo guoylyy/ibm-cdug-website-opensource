@@ -17,12 +17,12 @@ public class Materials extends Model<Materials> {
 	public ArrayList<Materials> getMaterials() {
 		return (ArrayList<Materials>) dao.find("select * from materials");
 	}
-	
+
 	@Before(Tx.class)
 	// Transaction support
 	public int addMaterial(String title, String content, String type,
-			String author, int user_id, int isDraft, String fileids,
-			String teids, String soids) {
+			String author, int user_id, int isDraft, String[] fileids,
+			String[] teids, String[] soids) {
 		boolean msave_reuslt = dao.set("title", title).set("content", content)
 				.set("mtype", type).set("user_id", user_id)
 				.set("isDraft", isDraft).set("update_time", new Date())
@@ -30,28 +30,19 @@ public class Materials extends Model<Materials> {
 
 		int mid = dao.get("id");
 		if (msave_reuslt) {
-			if (!fileids.equals("")) {
-				String[] fids = fileids.split(",");
-				for (String id : fids) {
-					MaterialFile.dao.set("material_id", mid)
-							.set("file_id", Integer.parseInt(id)).save();
-				}
+			for (String id : fileids) {
+				MaterialFile.dao.set("material_id", mid)
+						.set("file_id", Integer.parseInt(id)).save();
 			}
 
-			if (!soids.equals("")) {
-				String[] sids = soids.split(",");
-				for (String id : sids) {
-					MaterialSolution.dao.set("material_id", mid)
-							.set("solution_id", Integer.parseInt(id)).save();
-				}
+			for (String id : soids) {
+				MaterialSolution.dao.set("material_id", mid)
+						.set("solution_id", Integer.parseInt(id)).save();
 			}
 
-			if (!teids.equals("")) {
-				String[] tids = teids.split(",");
-				for (String id : tids) {
-					MaterialTechinical.dao.set("material_id", mid)
-							.set("technical_id", Integer.parseInt(id)).save();
-				}
+			for (String id : teids) {
+				MaterialTechinical.dao.set("material_id", mid)
+						.set("technical_id", Integer.parseInt(id)).save();
 			}
 		} else {
 			return -1;

@@ -15,48 +15,54 @@ $(document).ready(function(){
 	
 	$("#save").click(function(){
 		
-		var data =[];
-		
-		var title = $("input[name='title']").val();
-		var type = $("select[name='type']").val();
-		var content = CKEDITOR.instances.content.getData();
-		var files = $(".file-id");
-		var file_ids = [];
-		for(var i=0; i<files.length;i++){
-			file_ids.push($(files[i]).val());
+		//var data =[];
+		for (instance in CKEDITOR.instances){ 
+			CKEDITOR.instances[instance].updateElement(); 
 		}
-		var so_ids = getCheckTexts("solution");
-		var te_ids = getCheckTexts("technical");
-		var isDraft = $("input[name='draft']").attr("checked");
+		//alert($("#form").serialize());
+		$("#form").submit();
 		
-		data.push("title="+title);
-		data.push("type="+type);
-		data.push("file_ids="+file_ids.join(","));
-		data.push("so_ids="+so_ids);
-		data.push("te_ids="+te_ids);
-		data.push("isDraft="+isDraft);
-		data.push("content="+content);
-		
-		data = data.join("&");
-		
-		//save to db
-		$.ajax({
-			url:'/private/material/addMaterial',
-			type:'post',
-			data:data,
-			dataType:'json',
-			success:function(data){
-				if(data.result='success'){
-					alert("Success add material");
-					window.location.href= data.redirect;
-				}else{
-					alert("Unexpected error happen!");
-				}
-			},
-			error:function(data){
-				alert("Unexpected error happen!");
-			}
-		});
+		return '';
+//		var title = $("input[name='title']").val();
+//		var type = $("select[name='type']").val();
+//		var content = CKEDITOR.instances.content.getData();
+//		var files = $(".file-id");
+//		var file_ids = [];
+//		for(var i=0; i<files.length;i++){
+//			file_ids.push($(files[i]).val());
+//		}
+//		var so_ids = getCheckTexts("solution");
+//		var te_ids = getCheckTexts("technical");
+//		var isDraft = $("input[name='draft']").attr("checked");
+//		
+//		data.push("title="+title);
+//		data.push("type="+type);
+//		data.push("file_ids="+file_ids.join(","));
+//		data.push("so_ids="+so_ids);
+//		data.push("te_ids="+te_ids);
+//		data.push("isDraft="+isDraft);
+//		data.push("content="+content);
+//		
+//		data = data.join("&");
+//		
+//		//save to db
+//		$.ajax({
+//			url:'/private/material/addMaterial',
+//			type:'post',
+//			data:data,
+//			dataType:'json',
+//			success:function(data){
+//				if(data.result='success'){
+//					alert("Success add material");
+//					window.location.href= data.redirect;
+//				}else{
+//					alert("Unexpected error happen!");
+//				}
+//			},
+//			error:function(data){
+//				alert("Unexpected error happen!");
+//			}
+//		});
 		
 	});
 	
@@ -100,7 +106,7 @@ function appendFileName(data){
 	var str = "<li><span class=\"badge filename\">"+
 				data.file.file_name+
 				"<i class=\"icon-remove\"></i></span><input type=\"text\" value=\""
-				+data.file.id+"\" class=\"file-id\" style=\"display:none;\"/></li>";
+				+data.file.id+"\" name=\"file\" class=\"file-id\" style=\"display:none;\"/></li>";
 	
 	list.append(str);
 }

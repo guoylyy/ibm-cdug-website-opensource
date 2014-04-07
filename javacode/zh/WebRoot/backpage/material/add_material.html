@@ -6,7 +6,7 @@
 			<div class="page-header">
 				<h1>New Material <small>add material</small></h1>
 			</div>
-			<form class="form-horizontal" method="post" id="form">
+			<form class="form-horizontal" method="post" id="form" action="/private/material/addMaterial">
 			<!-- <form class="form-horizontal"> -->
 				<fieldset>
 					<div class="control-group">
@@ -52,7 +52,7 @@
 							<ul class="list_ul">
 								<#list technicals as te>
 								<li>
-									<input type="checkbox" class="technical" class="technical" value="${te.id}"/>
+									<input type="checkbox" class="technical" name="technical" value="${te.id}"/>
 									<span>${te.name}</span>
 								</li>
 								</#list>
@@ -65,7 +65,7 @@
 							<ul class="list_ul">
 								<#list solutions as so>
 								<li>
-									<input type="checkbox" class="solution" class="solution" value="${so.id}"/>
+									<input type="checkbox"  name="solution" class="solution" value="${so.id}"/>
 									<span>${so.name}</span>
 								</li>
 								</#list>

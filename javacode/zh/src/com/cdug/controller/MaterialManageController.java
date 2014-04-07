@@ -60,34 +60,27 @@ public class MaterialManageController extends Controller {
 	public void addMaterial() {
 		if ("POST".equals(getRequest().getMethod())) {
 			String title = getPara("title");
-
-			System.out.println(title);
 			String type = getPara("type");
 			String content = getPara("content");
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
 			int user_id = 100001;
-			String file_ids = getPara("file_ids");
-			String te_ids = getPara("te_ids");
-			String so_ids = getPara("so_ids");
-
+			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
+			String[] te_ids = UITools.convertIdsValue(getParaValues("technical"));
+			String[] so_ids = UITools.convertIdsValue(getParaValues("solution"));
+			
 			try {
 				int rc = Materials.dao.addMaterial(title, content, type,
 						"mark", user_id, draft, file_ids, te_ids, so_ids);
 				if (rc != -1) {
-					setAttr("result", "success");
-					setAttr("redirect", "/private/material/editView?id=" + rc);
+					redirect("/private/material/editView?id=" + rc);
 				} else {
-					setAttr("result", "fail");
+					render("/backpage/feedback/error.html");
 				}
 
 			} catch (Exception e) {
 				// TODO: handle exception
-				setAttr("result", "fail");
-			} finally {
-
-			}
-			// Handle the ids
-			renderJson();
+				render("/backpage/feedback/error.html");
+			} 
 		}
 	}
 

@@ -12,4 +12,13 @@ public class UITools {
 		}
 	}
 	
+	public static String[] convertIdsValue(String[] val){
+		String[] rc = {};
+		if(val == null||val.length==0){
+			return rc;
+		}else{
+			return val;
+		}
+	}
+	
 }

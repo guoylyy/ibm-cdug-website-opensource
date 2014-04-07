@@ -74,6 +74,6 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * test interface
 	 */
 	public static void main(String[] args) {
-		JFinal.start("WebRoot", 8084, "/", 5);
+		JFinal.start("WebRoot", 8085, "/", 5);
 	}
 }

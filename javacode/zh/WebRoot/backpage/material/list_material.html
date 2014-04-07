@@ -28,7 +28,7 @@
 					<td>${m.update_time}</td>
 					<td>${m.author}</td>
 					<td>
-						<#if m.isDraft == 1>
+						<#if m.isDraft == 0>
 							<span class="label label-success">Active</span>						
 						<#else>
 							<span class="label">Draft</span>
@@ -38,7 +38,7 @@
 						<div class="btn-group">
 							<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">Actions <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/private/material/edit/${m.id}"><i class="icon-pencil"></i> Edit</a></li>
+								<li><a href="/private/material/editView/${m.id}"><i class="icon-pencil"></i> Edit</a></li>
 								<li><a href="/private/material/delete/${m.id}"><i class="icon-trash"></i> Delete</a></li>
 								<!-- <li class="nav-header">Active</li>
 								<#if m.isDraft == 1>
