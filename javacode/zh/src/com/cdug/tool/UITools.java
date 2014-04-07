@@ -5,10 +5,11 @@ public class UITools {
 		if(val == null){
 			return 0;
 		}
-		if(val.equals("on")){
+		if(val.equals("on")||val.equals("checked")){
 			return 1;
 		}else{
 			return 0;
 		}
 	}
+	
 }
