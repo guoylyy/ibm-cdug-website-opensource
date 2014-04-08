@@ -13,7 +13,8 @@ public class Posts extends Model<Posts> {
 	public static Posts dao = new Posts();
 
 	public ArrayList<Posts> getPosts() {
-		return (ArrayList<Posts>) Posts.dao.find("select * from posts order by id desc");
+		return (ArrayList<Posts>) Posts.dao
+				.find("select * from posts order by id desc");
 	}
 
 	public boolean addPost(String title, String content, String author,
@@ -24,22 +25,30 @@ public class Posts extends Model<Posts> {
 				.set("update_time", new Date()).save();
 	}
 
+	public boolean updatePost(String id, String title, String content,
+			String type, int isDraft) {
+		return dao.findById(id).set("title", title).set("content", content)
+				.set("type", type).set("isDraft", isDraft).update();
+	}
+
 	public String getContentPreview() {
 		return getPreview(20);
 	}
-	
-	public String getListPreview(){
+
+	public String getListPreview() {
 		return getPreview(100);
 	}
 
-	private String getPreview(int size){
-		String content = DataHanlder.htmlRemoveTag(this.get("content").toString());
+	private String getPreview(int size) {
+		String content = DataHanlder.htmlRemoveTag(this.get("content")
+				.toString());
 		if (content.length() > size) {
 			return (content.substring(0, size) + "...").replaceAll("\n", "");
 		} else {
 			return content.replaceAll("\n", "");
 		}
 	}
+
 	public Page<Posts> getPostsByPage(int pageIndex, String type) {
 		return dao.paginate(pageIndex, GlobalConfig.postsPageSize, "select *",
 				"from posts where type=? order by create_time desc", type);
@@ -52,5 +61,5 @@ public class Posts extends Model<Posts> {
 	public int countNotice() {
 		return dao.find("select * from posts where type='NOTICE'").size();
 	}
-	
+
 }

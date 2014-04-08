@@ -57,7 +57,8 @@
 								<tbody>
 									<#list materials as m>
 									<tr class="gradeX">
-										<td><a href="material/content/${m.id}">${m.title}</a></td>
+										<!-- <td><a href="material/content/${m.id}">${m.title}</a></td> -->
+										<td>${m.title}</td>
 										<td>${m.getTechnical()}</td>
 										<td>${m.getSolution()}</td>
 										<td>${m.create_time?string('yyyy-MM-dd')}</td>

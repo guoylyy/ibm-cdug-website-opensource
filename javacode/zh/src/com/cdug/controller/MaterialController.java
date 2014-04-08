@@ -1,5 +1,6 @@
 package com.cdug.controller;
 
+import com.cdug.config.GlobalConfig;
 import com.cdug.model.Materials;
 import com.cdug.model.Solutions;
 import com.cdug.model.Technicals;
@@ -8,7 +9,7 @@ import com.jfinal.core.Controller;
 
 public class MaterialController extends Controller {
 	public void index() {
-
+		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_MATERIAL);
 		setAttr("solutions", new Solutions().getSolutions());
 		setAttr("technicals", new Technicals().getTechnicals());
 		// get all material
@@ -25,6 +26,7 @@ public class MaterialController extends Controller {
 	}
 
 	public void content() {
+		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_MATERIAL);
 		render("/page/material/material-content.html");
 	}
 }

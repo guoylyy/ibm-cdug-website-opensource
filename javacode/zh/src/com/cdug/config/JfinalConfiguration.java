@@ -28,7 +28,7 @@ public class JfinalConfiguration extends JFinalConfig {
 		loadPropertyFile("config.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", false));
 		me.setDevMode(true);
-	}
+	}	
 
 	/*
 	 * Set up router

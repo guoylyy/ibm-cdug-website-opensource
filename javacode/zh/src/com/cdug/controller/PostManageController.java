@@ -19,7 +19,7 @@ public class PostManageController extends Controller {
 			String type = getPara("type");
 			String author = "同济大学";
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
-			if (new Posts().addPost(title, content, author, type, isDraft)) {
+			if (Posts.dao.addPost(title, content, author, type, isDraft)) {
 				render("/backpage/feedback/success.html");
 			} else {
 				render("/backpage/feedback/fail.html");
@@ -38,13 +38,22 @@ public class PostManageController extends Controller {
 	}
 
 	public void edit() {
-		String id = getPara(0);
 		if ("GET".equals(getRequest().getMethod())) {
+			String id = getPara(0);
 			setAttr("post", new Posts().findById(id));
 			render("/backpage/post/edit_post.html");
-		}else{
-			//update
-			render("/backpage/feedback/success.html");
+		} else {
+			// update
+			String pid = getPara("id");
+			String title = getPara("title");
+			String content = getPara("content");
+			String type = getPara("type");
+			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
+			if(Posts.dao.updatePost(pid, title, content, type, isDraft)){
+				render("/backpage/feedback/success.html");
+			}else{
+				render("/backpage/feedback/error.html");
+			}
 		}
 	}
 }

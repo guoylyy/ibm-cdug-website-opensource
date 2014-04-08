@@ -12,6 +12,7 @@
 						<label class="control-label" for="title">Title</label>
 						<div class="controls">
 							<input type="text" class="input-xlarge" id="title" name="title" value="${post.title}"/>
+							<input type="text" name="id" value="${post.id}" style="display: none;"/>
 						</div>
 					</div>
 					<div class="control-group">
@@ -46,7 +47,7 @@
 						</div>
 					</div>
 					<div class="form-actions">
-						<input type="submit" class="btn btn-success btn-large" value="Save User" /> <a class="btn" href="/private/post">Cancel</a>
+						<input type="submit" class="btn btn-success btn-large" value="Save" /> <a class="btn" href="private/post">Cancel</a>
 					</div>					
 				</fieldset>
 			</form>

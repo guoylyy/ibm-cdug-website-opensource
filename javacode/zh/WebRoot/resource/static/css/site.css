@@ -149,7 +149,7 @@ p.buttons{
     color:#196090;
     margin-bottom: 10px;
 }
-.content p,.content h4{
+.content p{
     font-family: Monaco, DejaVu Sans Mono, Bitstream Vera Sans Mono, Consolas, Courier New, monospace;
     text-indent: 2em;
 }

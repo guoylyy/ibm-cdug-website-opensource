@@ -2,16 +2,25 @@
   	 <div class="navbar navbar-default navbar-static-top" role="navigation" style="width:100%;min-height:80px;background-color: #196090;">
       <div class="container">
         <div class="navbar-header" id="header-logo">
-          <a class="" href=""><img id="logo" src="resource/static/image/logo.png"/></a>
+          <a href=""><img id="logo" src="resource/static/image/logo.png"/></a>
         </div>
         <div class="navbar-collapse collapse" style="height:100%">
           <ul class="nav navbar-nav navbar-right">
-            <li  class="active"><a href="">首页</a></li>
+          	<#if controller == "index">
+            <li  class="active">
+            <#else>
+            <li>
+            </#if>
+            <a href="">首页</a></li>
+            <#if controller == "about">
+            <li  class="dropdown active">
+            <#else>
             <li class="dropdown">
+            </#if>
               <a href="about" class="dropdown-toggle" data-toggle="dropdown">关于CDUG<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="about">CDUG介绍</a></li>
-                <li><a href="about/introduction">CDUG简介</a></li>
+                <!-- <li><a href="about/introduction">CDUG简介</a></li> -->
                 <li><a href="about/mission">愿景和使命</a></li>
                 <li><a href="about/history">CDUG历史</a></li>
                 <li><a href="about/statics">统计资料</a></li>
@@ -20,17 +29,34 @@
                 <li><a href="about/contract">联系我们</a></li>
               </ul>
             </li>
-            <li><a href="news">新闻公告</a></li>
+            
+			<#if controller == "news">
+            <li class="active">
+            <#else>
+            <li>
+            </#if>
+            <a href="news">新闻公告</a></li>
+            
+            
+            <#if controller == "history">
+            <li  class="dropdown active">
+            <#else>
             <li class="dropdown">
+            </#if>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">历年会议 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="history">CDUG年会简介</a></li>
-                <li><a href="http://www.google.com.hk" target="_blank">2010年CDUG</a></li>
-                <li><a href="http://www.google.com.hk" target="_blank">2009年CDUG</a></li>
-                <li><a href="http://www.google.com.hk" target="_blank">2008年CDUG</a></li>
+                <!-- <li><a href="history">CDUG年会简介</a></li> -->
+                <li><a href="http://www.google.com.hk" target="_blank">2013年CDUG</a></li>
+                <li><a href="http://www.google.com.hk" target="_blank">2012年CDUG</a></li>
+                <!-- <li><a href="http://www.google.com.hk" target="_blank">2008年CDUG</a></li> -->
               </ul>
             </li>
-            <li><a href="material">资料库</a></li>
+            <#if controller == "material">
+            <li class="active">
+            <#else>
+            <li>
+            </#if>
+            <a href="material">资料库</a></li>
             <li><a href="about/contract">联系我们</a></li>
             <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-lock"></span></a>
