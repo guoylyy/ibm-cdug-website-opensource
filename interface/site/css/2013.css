@@ -1,0 +1,47 @@
+.container {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+.navMenuContainer {
+	padding-top: 20px;
+	padding-left: 50px;
+}
+
+.scheduleContainer {
+	padding-top: 20px;
+}
+
+.scheduleContainer .title {
+	text-align: center;
+}
+
+.nav > li > a {
+	font-size: 16px;
+	line-height: 30px;
+}
+
+.nav li a {
+	font-size: 16px;
+	line-height: 30px;
+}
+
+.nav>li>a {
+	background-color: #eee;
+	border-color: #428bca;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+	text-decoration: none;
+	background-color: #196090;
+}
+
+.nav .open>a:hover, .nav .open>a:focus {
+	background-color: #196090;
+	border-color: none;
+}
+.meetingContainer{
+	padding-bottom: 50px;
+}
