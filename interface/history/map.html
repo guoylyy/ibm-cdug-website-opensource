@@ -1,6 +1,10 @@
-<#include "/page/template/_layout.html"/>
-
-<@css>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
+<meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
+<title>百度地图API自定义地图</title>
 <!--引用百度地图API-->
 <style type="text/css">
     html,body{margin:0;padding:0;}
@@ -8,54 +12,12 @@
     .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
 </style>
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
-</@css>
+</head>
 
-<@layout> <#include
-"/page/about/_about_breadcrumbs.html"/>
-<section class="normal-section">
-	<div class="container">
-		<#include "/page/about/_about_left_bar.html"/>
-		<div class="col-md-9 mainpanel">
-			<div class="inner content-panel">
-				<h2 class="content-title">
-					<span>联系我们<span>
-				</h2>
-				<div class="content">
-					<p>&nbsp;</p>
-					<div style="width:500px;height:400px;border:#ccc solid 1px;margin-left:20px;" id="dituContent"></div>				
-					<p>&nbsp;</p>
-					<p>网址：cdug.tongji.edu.cn</p>
-
-					<p>电邮：mail2cdug@gmail.com</p>
-
-					<p>电话：(86) 21 - 6958 9975</p>
-
-					<p>地址：中国上海市曹安公路4800号同济大学软件学院（邮编：201804）</p>
-
-					<p>（配地图，包括Google或百度地图、自行制作的JPG格式局部地图及可下载的PDF格式局部地图）</p>
-
-					<p>&nbsp;</p>
-
-					<p>Website: cdug.tongji.edu.cn</p>
-
-					<p>Email: mail2cdug@gmail.com</p>
-
-					<p>Tel: (86) 21 - 6958 9975</p>
-
-					<p>Address: School of Software Engineering, Tongji University,
-						4800 Cao&rsquo;an Highway, Shanghai 201804, China.</p>
-
-					<p>&nbsp;(Maps attached, including a Google/Baidu map, a local
-						map in JPG &amp; a downloadable local map in PDF)</p>
-
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-</@layout>
-
-<@javascript>
+<body>
+  <!--百度地图容器-->
+  <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+</body>
 <script type="text/javascript">
     //创建和初始化地图函数：
     function initMap(){
@@ -96,5 +58,4 @@
     
     initMap();//创建和初始化地图
 </script>
-</@javascript>
-
+</html>

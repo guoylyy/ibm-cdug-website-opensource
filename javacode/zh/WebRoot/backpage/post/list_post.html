@@ -6,7 +6,7 @@
 			<div class="page-header">
 				<h1>Posts <small>All posts</small></h1>
 			</div>
-			<a href="new-user.html" class="btn btn-success">New Post</a>
+			<a href="private/post/addPost" class="btn btn-success">New Post</a>
 			<div style="padding-bottom:10px;"></div>			
 			<table class="table table-striped table-bordered table-condensed">
 				<thead>
@@ -14,7 +14,7 @@
 						<th>ID</th>
 						<th>Title</th>
 						<th>Preview</th>
-						<th>Author</th>
+						<th>Type</th>
 						<th>Status</th>
 						<th>DateTime</th>
 						<th>Operations</th>
@@ -26,7 +26,7 @@
 					<td>${post.id}</td>
 					<td>${post.title}</td>
 					<td class="tr-content">${post.getContentPreview()}</td>
-					<td>${post.author}</td>
+					<td>${post.type}</td>
 					<td>
 						<#if post.isDraft == 1>
 							<span class="label">Draft</span>

@@ -24,5 +24,8 @@ public class AboutController extends Controller{
 	public void contract(){
 		render("/page/about/contract.html");
 	}
+	public void member(){
+		render("/page/about/member.html");
+	}
 
 }

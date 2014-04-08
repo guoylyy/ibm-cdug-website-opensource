@@ -9,11 +9,11 @@
              <div class="col-md-9 mainpanel">
               <div class="inner content-panel">
                <!-- the actual blog post: title/author/date/content -->
-                <h1>A Simple Blog Template for Bootstrap 3</h1>
-                <p class="lead">by <a href="index.php">Start Bootstrap</a>
+                <h1>${post.title}</h1>
+                <p class="lead">by <a href="index.php">${post.author}</a>
                 </p>
                 <hr>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on ${post.create_time}</p>
+                <p><span class="glyphicon glyphicon-time"></span> 发布于 ${post.create_time}</p>
 				<hr>
                 <div class="content">
                 	${post.content}

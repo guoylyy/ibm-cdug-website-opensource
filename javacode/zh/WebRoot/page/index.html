@@ -53,7 +53,7 @@
 							<ul class="list-group slider-right-list">
 								 <#list news.getList() as n>
 								  <li class="list-group-item">
- 								   <a href="#">
+ 								   <a href="news/content/${n.id}">
   								   ${n.title}</a>
  								 </li>
  								 </#list>
@@ -63,7 +63,7 @@
 							<ul class="list-group slider-right-list" >
 								  <#list notices.getList() as no>
 								  <li class="list-group-item">
- 								   <a href="#">${no.title}</a>
+ 								   <a href="notice/content/${no.id}">${no.title}</a>
  								 </li>
  								 </#list>
  								  

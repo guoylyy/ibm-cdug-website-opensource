@@ -1,33 +1,89 @@
-<#include "/page/template/_layout.html"/>
-
-<@layout>
-	<#include "/page/about/_about_breadcrumbs.html"/>
-	<section class="normal-section">
-        <div class="container">
-			<#include "/page/about/_about_left_bar.html"/>
-			           <div class="col-md-9 mainpanel">
-              <div class="inner content-panel">
-                <h2 class="content-title"><span>CDUG介绍<span></h2>
-                <div class="content">
-
-                    <p>大中华区主机用户协会,简称CDUG(System z User Group in Great China)由同济大学发起,从2007年开始筹备并于2008年7月17日在中国无锡宣布正式成立并举办第一次CDUG年会.CDUG初始作为国际DB2用户协会,IDUG(International DB2 Users Group)http://www.idug.org 的区域性组织, 以DB2 for z/OS技术的讨论与分享为主. 至今已经举办了7次全国性大会,并且把会议内容扩展到包括IMS, CICS, z/OS,z/VM,Linux on System z等主机平台的信息与技术产品,目前是大中华区影响力最大的一个System z User Group. CDUG是一个由用户发起的非营利性组织,致力建立一个中国范围内的主机技术信息服务 社区,提供高质量的主机技术交流平台以及相关服务,以此来帮助主机用户;并通过该平台宣传主机技术,培养主机方向的技术性人才,以此来推动主机技术在中国的发展。CDUG的主办方同济大学软件学院，作为国家首批示范性软件学院之一，同济软院在教育成果以及办学方式上走在国家同类院校的前沿，具有优良的学生素质和教学质量。同济软学院以“企业合作”和“国际合作”为发展基石，与IT界各大知名企业有良好且紧密的合作，并一向致力于推动学校与企业间，合作伙伴企业相互之间创建双赢的关系。作为一个国家知名的学术机构，以中立和共赢的立场，能在最大程度上弱化公司间的竞争特性，促进行业间的交流。同济软院支持以主机技术为核心，构建CDUG社区，使之作为主机开发者、使用者和学习者的经验分享及学习交流的平台。
-</p>
-                  <img src="image/index1.png"/>
-                    <h3>CDUG内容和形式</h3>
-                    <p>CDUG会议目前涵盖主机平台的全方位技术,适用于主机平台的开发、管理人员、咨询以及研究人员。CDUG 提供多重形式的活动供同行们参与并交流经验。包括：</p>
-                    <h4>(1) 用户会议</h4>
-                    <p>每年秋季举行的CDUG会议是CDUG一年一度的盛会。 会议邀请海内外主机领域知名专家,包括IBM硅谷实验的主机技术专家/DB2创始者/IBM中国专家、IDUG专家、主机技术企业专家、高校教授进行新知识/新技能讲座以及经验分享。会议除了丰富的技术讲座与动手实验指导, 还特地安排了专家面对面环节,让世界级的专家们当面为我们的用户答疑解惑。</p>
-                    咨询以及研究人员。CDUG 提供多重形式的活动供同行们参与并交流经验。包括：</p>
-                    <h4>(2) 远程会议 </h4>
-                    <p>每年秋季举行的CDUG会议是CDUG一年一度的盛会。 会议邀请海内外主机领域知名专家,包括IBM硅谷实验的主机技术专家/DB2创始者/IBM中国专家、IDUG专家、主机技术企业专家、高校教授进行新知识/新技能讲座以及经验分享。会议除了丰富的技术讲座与动手实验指导, 还特地安排了专家面对面环节,让世界级的专家们当面为我们的用户答疑解惑。</p>
-                       <h4>(3) 资源共享平台 </h4>
-                    <p>每年秋季举行的CDUG会议是CDUG一年一度的盛会。 会议邀请海内外主机领域知名专家,包括IBM硅谷实验的主机技术专家/DB2创始者/IBM中国专家、IDUG专家、主机技术企业专家、高校教授进行新知识/新技能讲座以及经验分享。会议除了丰富的技术讲座与动手实验指导, 还特地安排了专家面对面环节,让世界级的专家们当面为我们的用户答疑解惑。</p>
-                       <h4>(4) 人才孵化 </h4>
-                    <p>每年秋季举行的CDUG会议是CDUG一年一度的盛会。 会议邀请海内外主机领域知名专家,包括IBM硅谷实验的主机技术专家/DB2创始者/IBM中国专家、IDUG专家、主机技术企业专家、高校教授进行新知识/新技能讲座以及经验分享。会议除了丰富的技术讲座与动手实验指导, 还特地安排了专家面对面环节,让世界级的专家们当面为我们的用户答疑解惑。</p>
-
-                </div>                
-              </div>
-            </div>
+<#include "/page/template/_layout.html"/> <@layout> <#include
+"/page/about/_about_breadcrumbs.html"/>
+<section class="normal-section">
+	<div class="container">
+		<#include "/page/about/_about_left_bar.html"/>
+		<div class="col-md-9 mainpanel">
+			<div class="inner content-panel">
+				<h2 class="content-title">
+					<span>统计资料<span>
+				</h2>
+				<div class="content">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>年会</th>
+									<th>参与人数</th>
+									<th>演讲数目</th>
+									<th>演讲人数</th>
+									<th>演讲者主要所在机构</th>
+									<th>设计产品</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>CDUG 2008</td>
+									<td>170</td>
+									<td>26</td>
+									<td>17</td>
+									<td>IBM,同济,CCUA,IDUG等</td>
+									<td>DB2 for z/OS</td>
+								</tr>
+								<tr>
+									<td>CDUG 2009 Jan</td>
+									<td>90</td>
+									<td>10</td>
+									<td>8</td>
+									<td>IBM,同济,ICBC,ABC等</td>
+									<td>DB2 for z/OS</td>
+								</tr>
+								<tr>
+									<td>CDUG 2009 Sep</td>
+									<td>180</td>
+									<td>17</td>
+									<td>22</td>
+									<td>IBM,同济等</td>
+									<td>DB2 for z/OS</td>
+								</tr>
+								<tr>
+									<td>CDUG 2010</td>
+									<td>180</td>
+									<td>34</td>
+									<td>28</td>
+									<td>IBM,同济,Morgan Stanley等</td>
+									<td>DB2 for z/OS,IMS,CICS</td>
+								</tr>
+								<tr>
+									<td>CDUG 2011</td>
+									<td>180</td>
+									<td>34</td>
+									<td>38</td>
+									<td>IBM,同济,ICBC,OGS等</td>
+									<td>DB2 for z/OS,IMS,CICS,z/OS</td>
+								</tr>
+								<tr>
+									<td>CDUG 2012</td>
+									<td>220</td>
+									<td>40</td>
+									<td>46</td>
+									<td>IBM,同济,ICBC,Morgan Stanley,State Street,OGS等</td>
+									<td>DB2 for z/OS,IMS,CICS,z/OS,z/VM,zLinux</td>
+								</tr>
+								<tr>
+									<td>CDUG 2013</td>
+									<td>190</td>
+									<td>44</td>
+									<td>54</td>
+									<td>IBM,同济,ICBC,BOC,Morgan Stanley,ATOS等</td>
+									<td>DB2 for z/OS,z/OS,CICS,z/VM,zLinux</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
-	</section>
+	</div>
+</section>
 </@layout>

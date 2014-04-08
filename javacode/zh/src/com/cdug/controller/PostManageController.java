@@ -14,7 +14,6 @@ public class PostManageController extends Controller {
 		if ("GET".equals(getRequest().getMethod())) {
 			render("/backpage/post/add_post.html");
 		} else {
-
 			String title = getPara("title");
 			String content = getPara("content");
 			String type = getPara("type");
@@ -32,7 +31,7 @@ public class PostManageController extends Controller {
 	public void delete() {
 		String id = getPara(0);
 		if (Posts.dao.deleteById(id)) {
-			renderText("success");
+			redirect("/private/post");
 		} else {
 			renderText("fail");
 		}

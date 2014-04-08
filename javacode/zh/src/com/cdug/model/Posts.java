@@ -13,7 +13,7 @@ public class Posts extends Model<Posts> {
 	public static Posts dao = new Posts();
 
 	public ArrayList<Posts> getPosts() {
-		return (ArrayList<Posts>) Posts.dao.find("select * from posts");
+		return (ArrayList<Posts>) Posts.dao.find("select * from posts order by id desc");
 	}
 
 	public boolean addPost(String title, String content, String author,
@@ -42,7 +42,7 @@ public class Posts extends Model<Posts> {
 	}
 	public Page<Posts> getPostsByPage(int pageIndex, String type) {
 		return dao.paginate(pageIndex, GlobalConfig.postsPageSize, "select *",
-				"from posts where type=?", type);
+				"from posts where type=? order by create_time desc", type);
 	}
 
 	public int countNews() {
