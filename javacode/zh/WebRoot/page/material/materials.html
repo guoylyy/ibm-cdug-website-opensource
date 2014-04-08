@@ -1,5 +1,5 @@
 <#include "/page/template/_layout.html"/> <@css>
-<link href="/resource/static/css/datatables.css" rel="stylesheet">
+<link href="resource/static/css/datatables.css" rel="stylesheet">
 </@css> <@layout> <#include
 "/page/material/_material_breadcrumbs.html"/>
 <section class="normal-section">
@@ -78,8 +78,120 @@
 </section>
 
 </@layout> <@javascript>
-<script src="/resource/static/js/jquery.dataTables.js"></script>
-<script src="/resource/static/js/datatables.js" type="text/javascript"></script>
+<script src="resource/static/js/jquery.dataTables.js"></script>
+<script src="resource/static/js/datatables.js" type="text/javascript"></script>
+<!-- ######################################## -->
+<script type="text/javascript">
+	jQuery(function($) {
+		$(document).ready(
+				function() {
+					$('#example').dataTable({
+						"sPaginationType" : "bs_four_button"
+					});
+					$('#example').each(
+							function() {
+								var datatable = $(this);
+								// SEARCH - Add the placeholder for Search and Turn this into in-line form control
+								var search_input = datatable.closest(
+										'.dataTables_wrapper').find(
+										'div[id$=_filter] input');
+								search_input.attr('placeholder', 'Search');
+								search_input.addClass('form-control input-sm');
+								// LENGTH - Inline-Form control
+								var length_sel = datatable.closest(
+										'.dataTables_wrapper').find(
+										'div[id$=_length] select');
+								length_sel.addClass('form-control input-sm');
+							});
+
+				});
+	});
+</script>
+</@javascript>
+
+
+<#include "/page/template/_layout.html"/> <@css>
+<link href="resource/static/css/datatables.css" rel="stylesheet">
+</@css> <@layout> <#include
+"/page/material/_material_breadcrumbs.html"/>
+<section class="normal-section">
+	<div class="container">
+		<!-- <div class="col-md-3">
+              <div class="inner left-panel">
+                <ul class="list-group">
+                  <a href="#"><li class="list-group-item"><i class="glyphicon glyphicon-chevron-right"></i> 技术资料库</li></a>
+                  <a href="#"><li class="list-group-item"><i class="glyphicon glyphicon-chevron-right"></i> 资料检索</li></a>
+                </ul>
+              </div>
+            </div> -->
+		<div class="col-md-12 mainpanel">
+			<div class="inner content-panel">
+				<h2 class="content-title">
+					<span>技术资料检索<span>
+				</h2>
+				<div class="content">
+					<form action="material" method="post">
+					<div>
+						<ul class="material-class-list">
+							<li>技术类别：</li>
+							<#list solutions as so>
+							<li><input type="checkbox" name="solution" value="${so.id}"><span> ${so.name}</span></li>
+							</#list>
+						</ul>
+					</div>
+					<div class="">
+						<ul class="material-class-list">
+							<li>解决方案：</li>
+							<#list technicals as te>
+								<li><input type="checkbox" name="technical" value="${te.id}" "><span> ${te.name}</span></li>
+							</#list>
+						</ul>
+					</div>
+					<div>
+						<button class="btn btn-primary btn-search">搜索</button>
+					</div>
+				   </form>
+
+					<div class="row">
+						<div class="table-content">
+							<div class="divide"></div>
+							<table cellpadding="0" cellspacing="0" border="0"
+								class="datatable table table-striped table-bordered"
+								id="example" width="100%">
+								<thead>
+									<tr>
+										<th>标题</th>
+										<th>技术类别</th>
+										<th>产品类别</th>
+										<th>发表时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<#list materials as m>
+									<tr class="gradeX">
+										<!-- <td><a href="material/content/${m.id}">${m.title}</a></td> -->
+										<td>${m.title}</td>
+										<td>${m.getTechnical()}</td>
+										<td>${m.getSolution()}</td>
+										<td>${m.create_time?string('yyyy-MM-dd')}</td>
+									</tr>
+									</#list>
+								</tbody>
+								<tfoot>
+
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</@layout> <@javascript>
+<script src="resource/static/js/jquery.dataTables.js"></script>
+<script src="resource/static/js/datatables.js" type="text/javascript"></script>
 <!-- ######################################## -->
 <script type="text/javascript">
 	jQuery(function($) {
