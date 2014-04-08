@@ -1,6 +1,5 @@
 package com.cdug.config;
 
-import com.cdug.controller.CommonController;
 import com.cdug.model.Files;
 import com.cdug.model.MaterialFile;
 import com.cdug.model.MaterialSolution;
@@ -58,8 +57,8 @@ public class JfinalConfiguration extends JFinalConfig {
 		arp.addMapping("material_file", MaterialFile.class);
 		arp.addMapping("material_technical", MaterialTechnical.class);
 		arp.addMapping("material_solution", MaterialSolution.class);
-		
 		//add spring framework
+		
 	}
 
 	public void configInterceptor(Interceptors me) {
@@ -73,6 +72,6 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * test interface
 	 */
 	public static void main(String[] args) {
-		JFinal.start("WebRoot", 8086, "/", 5);
+		JFinal.start("WebRoot", 8081, "/", 5);
 	}
 }

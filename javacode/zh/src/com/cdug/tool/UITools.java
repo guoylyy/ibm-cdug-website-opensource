@@ -13,32 +13,37 @@ public class UITools {
 			return 0;
 		}
 	}
-	
-	public static int getPageSize(int count){
-		int size = count/GlobalConfig.postsPageSize;
-		if(count%GlobalConfig.postsPageSize == 0){
+
+	public static int getPageSize(int count) {
+		int size = count / GlobalConfig.postsPageSize;
+		if (count % GlobalConfig.postsPageSize == 0) {
 			return size;
-		}else{
+		} else {
 			return size + 1;
 		}
 	}
 
-	public static String[] convertIdsValue(String[] val) {
-		String[] rc = {};
-		if (val == null || val.length == 0) {
+	public static String[] convertIdsValue(Object val) {
+
+		if (val instanceof String) {
+			String[] rc = new String[1];
+			rc[0] = val.toString();
 			return rc;
+		} else if (val instanceof String[]) {
+			String[] input = (String[]) val;
+			return input;
 		} else {
-			return val;
+			String[] rc = {};
+			return rc;
 		}
 	}
 
 	public static int getPageIndex(String val) {
-		if (val == null || val.length() == 0 || Integer.parseInt(val)==0) {
+		if (val == null || val.length() == 0 || Integer.parseInt(val) == 0) {
 			return 1;
 		} else {
 			return Integer.parseInt(val);
 		}
 	}
-
 
 }

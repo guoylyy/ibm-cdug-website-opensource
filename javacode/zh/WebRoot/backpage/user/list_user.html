@@ -29,13 +29,13 @@
 						<div class="btn-group">
 							<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">Actions <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/private/user/profile/${user.id}"><i class="icon-pencil"></i> Edit</a></li>
-								<li><a href="/private/user/delete/${user.id}"><i class="icon-trash"></i> Delete</a></li>
+								<li><a href="private/user/profile/${user.id}"><i class="icon-pencil"></i> Edit</a></li>
+								<li><a href="private/user/delete/${user.id}"><i class="icon-trash"></i> Delete</a></li>
 								<li class="nav-header">Permissions</li>
 								<#if user.role == 'USER'>
-									<li><a href="/private/user/mark/${user.id}-ADMIN"><i class="icon-lock"></i> Make <strong>Admin</strong></a></li>
+									<li><a href="private/user/mark/${user.id}-ADMIN"><i class="icon-lock"></i> Make <strong>Admin</strong></a></li>
 								<#elseif user.role == 'ADMIN'>
-									<li><a href="/private/user/mark/${user.id}-USER""><i class="icon-lock"></i> Make <strong>User</strong></a></li>
+									<li><a href="private/user/mark/${user.id}-USER""><i class="icon-lock"></i> Make <strong>User</strong></a></li>
 								</#if>
 							</ul>
 						</div>
@@ -57,7 +57,7 @@
 					<li><a href="#">Next</a></li>
 				</ul>
 			</div> -->
-			<a href="/private/user/addUser" class="btn btn-success">New User</a>
+			<a href="private/user/addUser" class="btn btn-success">New User</a>
 		  </div>
         </div>
 

@@ -3,6 +3,7 @@ package com.cdug.controller;
 import com.cdug.model.Materials;
 import com.cdug.model.Solutions;
 import com.cdug.model.Technicals;
+import com.cdug.tool.UITools;
 import com.jfinal.core.Controller;
 
 public class MaterialController extends Controller {
@@ -15,8 +16,10 @@ public class MaterialController extends Controller {
 			setAttr("materials", Materials.dao.getAllMaterial());
 			render("/page/material/materials.html");
 		}else{
+			String[] teids = UITools.convertIdsValue(getParaValues("technical"));
+			String[] soids = UITools.convertIdsValue(getParaValues("solution"));
 			
-			setAttr("materials", Materials.dao.getAllMaterial());
+			setAttr("materials", Materials.dao.getAllMaterial(teids,soids));
 			render("/page/material/materials.html");
 		}
 	}

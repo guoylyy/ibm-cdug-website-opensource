@@ -9,12 +9,10 @@
 				<h2 class="content-title">
 					<span>新闻列表</span>
 				</h2>
-				
-				
 				<#list news.getList() as n>
 				<div class="post-row">
 					<h3 class="post-title-in-list">
-						<a href="/news/content/${n.id}">${n.title}</a>
+						<a href="news/content/${n.id}">${n.title}</a>
 					</h3>
 					<ul class="inline post-properties">
 						<li><i class="glyphicon glyphicon-calendar"></i>${n.create_time}</li>
@@ -23,25 +21,23 @@
 					<p class="new-preview-text">${n.getListPreview()}</p>
 				</div>
 				</#list>
-				
-
 				<ul class="pagination">
 					<#if isFirstPage>
 						<li class="disabled"><a>«</a></li>
 					<#else>
-						<li><a href="/news/${pageIndex-1}">«</a></li>
+						<li><a href="news/${pageIndex-1}">«</a></li>
 					</#if>
 					<#list pages as p>
 						<#if pageIndex == p>
-							<li class="active"><a href="/news/${p}">${p} <span class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="news/${p}">${p} <span class="sr-only">(current)</span></a></li>
 						<#else>
-							<li><a href="/news/${p}">${p}</a></li>
+							<li><a href="news/${p}">${p}</a></li>
 						</#if>
 					</#list>
 					<#if isLastPage>
 						<li class="disable"><a>»</a></li>
 					<#else>
-						<li><a href="/news/${pageIndex+1}">»</a></li>
+						<li><a href="news/${pageIndex+1}">»</a></li>
 					</#if>
 				</ul>
 			</div>

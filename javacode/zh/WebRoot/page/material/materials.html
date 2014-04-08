@@ -18,7 +18,7 @@
 					<span>技术资料检索<span>
 				</h2>
 				<div class="content">
-					<form action="/material" method="post">
+					<form action="material" method="post">
 					<div>
 						<ul class="material-class-list">
 							<li>技术类别：</li>
@@ -31,7 +31,7 @@
 						<ul class="material-class-list">
 							<li>解决方案：</li>
 							<#list technicals as te>
-								<li><input type="checkbox" name="techinical" value="${te.id}" "><span> ${te.name}</span></li>
+								<li><input type="checkbox" name="technical" value="${te.id}" "><span> ${te.name}</span></li>
 							</#list>
 						</ul>
 					</div>
@@ -52,7 +52,6 @@
 										<th>技术类别</th>
 										<th>产品类别</th>
 										<th>发表时间</th>
-
 									</tr>
 								</thead>
 								<tbody>
@@ -64,7 +63,6 @@
 										<td>${m.create_time?string('yyyy-MM-dd')}</td>
 									</tr>
 									</#list>
-
 								</tbody>
 								<tfoot>
 

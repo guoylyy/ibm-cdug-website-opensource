@@ -6,9 +6,10 @@
 	<meta name="keywords" content="Cdug" />
 	<meta name="description" content="Cdug:The World DB2 User Community" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/resource/static/back_src/css/bootstrap.css" rel="stylesheet">
-	<link href="/resource/static/back_src/css/back_site.css" rel="stylesheet">
-    <link href="/resource/static/back_src/css/bootstrap-responsive.css" rel="stylesheet">
+    <#include "/page/template/_baseurl.html"/>
+    <link href="resource/static/back_src/css/bootstrap.css" rel="stylesheet">
+	<link href="resource/static/back_src/css/back_site.css" rel="stylesheet">
+    <link href="resource/static/back_src/css/bootstrap-responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -31,13 +32,12 @@
 		</div>
 		<hr>
 		<#include "/backpage/template/_footer.html"/>
-	
 	</div>
 </#macro>
-    <script src="/resource/static/back_src/js/jquery.js"></script>
-	<script src="/resource/static/back_src/js/jquery.flot.js"></script>
-	<script src="/resource/static/back_src/js/jquery.flot.resize.js"></script>	
-	<script src="/resource/static/back_src/js/bootstrap.min.js"></script>
+    <script src="resource/static/back_src/js/jquery.js"></script>
+	<script src="resource/static/back_src/js/jquery.flot.js"></script>
+	<script src="resource/static/back_src/js/jquery.flot.resize.js"></script>	
+	<script src="resource/static/back_src/js/bootstrap.min.js"></script>
 	<#macro javascript>
 		<#nested>
 	</#macro>
