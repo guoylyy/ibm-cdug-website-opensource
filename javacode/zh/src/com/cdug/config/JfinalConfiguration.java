@@ -35,7 +35,6 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * Set up router
 	 */
 	public void configRoute(Routes me) {
-		me.add("/", CommonController.class);
 		me.add(new FrontgroundRouter());
 		me.add(new BackgroundRouter());
 	}
