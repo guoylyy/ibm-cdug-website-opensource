@@ -12,11 +12,11 @@ public class AboutController extends Controller{
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/cdug_introduction.html");
 	}
-	public void mission(){
+	public void visionandmission(){
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/mission.html");
 	}
-	public void architecture(){
+	public void organization(){
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/architecture.html");
 	}
@@ -24,11 +24,11 @@ public class AboutController extends Controller{
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/history.html");
 	}
-	public void statics(){
+	public void statistics(){
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/statics.html");
 	}
-	public void contract(){
+	public void contact(){
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/contract.html");
 	}

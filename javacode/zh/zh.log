@@ -7456,3 +7456,9 @@ Caused by: freemarker.core.InvalidReferenceException: Expression controller is u
 	at freemarker.template.Template.process(Template.java:237)
 	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:126)
 	... 25 more
+
+2014-04-10 03:19:35
+[WARN]-[Thread: qtp646130567-18]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /resource/dynamic/upload/2014-04-08/1396954495532s3testmodel1
+
+2014-04-10 03:20:26
+[WARN]-[Thread: qtp646130567-16]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /resource/dynamic/upload/2014-04-08/1396954495532s3testmodel1

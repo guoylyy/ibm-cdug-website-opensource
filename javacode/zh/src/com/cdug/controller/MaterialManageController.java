@@ -21,26 +21,26 @@ public class MaterialManageController extends Controller {
 		setAttr("materials", Materials.dao.getMaterials());
 		render("/backpage/material/list_material.html");
 	}
-	
-	public void delete(){
-		//try {
-			String id = getPara(0);
-			if(Materials.dao.deleteMaterial(Integer.parseInt(id))){
-				setAttr("result", "success");
-				redirect("/private/material");
-			}else{
-				setAttr("result","fail");
-				render("/backpage/feedback/error.html");
-			}
-			//renderJson();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			System.out.print(e);
-//			setAttr("result","fail");
-//		}finally{
-//			renderJson();
-//		}
-		
+
+	public void delete() {
+		// try {
+		String id = getPara(0);
+		if (Materials.dao.deleteMaterial(Integer.parseInt(id))) {
+			setAttr("result", "success");
+			redirect("/private/material");
+		} else {
+			setAttr("result", "fail");
+			render("/backpage/feedback/error.html");
+		}
+		// renderJson();
+		// } catch (Exception e) {
+		// // TODO: handle exception
+		// System.out.print(e);
+		// setAttr("result","fail");
+		// }finally{
+		// renderJson();
+		// }
+
 	}
 
 	public void addMaterialView() {
@@ -65,9 +65,11 @@ public class MaterialManageController extends Controller {
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
 			int user_id = 100001;
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
-			String[] te_ids = UITools.convertIdsValue(getParaValues("technical"));
-			String[] so_ids = UITools.convertIdsValue(getParaValues("solution"));
-			
+			String[] te_ids = UITools
+					.convertIdsValue(getParaValues("technical"));
+			String[] so_ids = UITools
+					.convertIdsValue(getParaValues("solution"));
+
 			try {
 				int rc = Materials.dao.addMaterial(title, content, type,
 						"mark", user_id, draft, file_ids, te_ids, so_ids);
@@ -79,8 +81,9 @@ public class MaterialManageController extends Controller {
 
 			} catch (Exception e) {
 				// TODO: handle exception
+				System.out.println(e);
 				render("/backpage/feedback/error.html");
-			} 
+			}
 		}
 	}
 
@@ -144,11 +147,12 @@ public class MaterialManageController extends Controller {
 			file.mkdir();
 		}
 		UploadFile uploadFile = getFile("file", savePath);
+		String originName = uploadFile.getFileName();
 		String newName = System.currentTimeMillis() + uploadFile.getFileName();
 		uploadFile.getFile().renameTo(new File(savePath + newName));
 
-		Files file1 = new Files().addFile(uploadFile.getFileName(), dateString
-				+ "/" + newName, "txt");
+		Files file1 = new Files().addFile(originName, dateString + "/"
+				+ newName, "txt");
 		setAttr("file", file1);
 		renderJson();
 	}

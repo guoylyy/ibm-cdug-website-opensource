@@ -150,8 +150,12 @@ p.buttons{
     margin-bottom: 10px;
 }
 .content p{
-    font-family: Monaco, DejaVu Sans Mono, Bitstream Vera Sans Mono, Consolas, Courier New, monospace;
-    text-indent: 2em;
+}
+.about-content p{
+	text-indent: 2em;
+}
+table p{
+	text-indent: 0em;
 }
 .content p{
     line-height: 20px;

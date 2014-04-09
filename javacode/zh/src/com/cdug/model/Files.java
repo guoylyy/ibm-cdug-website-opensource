@@ -1,5 +1,7 @@
 package com.cdug.model;
 
+import java.util.ArrayList;
+
 import com.jfinal.plugin.activerecord.Model;
 
 @SuppressWarnings("serial")
@@ -11,5 +13,11 @@ public class Files extends Model<Files> {
 				.set("file_type", type);
 		file.save();
 		return file;
+	}
+
+	public ArrayList<Files> getFilesByMaterialId(int id) {
+		return (ArrayList<Files>) dao
+				.find("select * from files where id in (select file_id from material_file where material_id="
+						+ id + ")");
 	}
 }

@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 
 import com.cdug.tool.DataHanlder;
-import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.IAtom;
@@ -158,6 +157,7 @@ public class Materials extends Model<Materials> {
 		return list;
 	}
 
+	
 	@Before(Tx.class)
 	// Transaction support
 	public int addMaterial(String title, String content, String type,
