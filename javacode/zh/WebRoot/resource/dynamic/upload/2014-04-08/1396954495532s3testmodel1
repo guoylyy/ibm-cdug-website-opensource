@@ -1,5 +1,0 @@
-s3testmodel1 <- function(lmmro, x1, x2) {
-  result <- predict(lmmro, data.frame(x1=x1, x2=x2))
-  result <- paste(result, collapse=";")
-  return (result)
-}
