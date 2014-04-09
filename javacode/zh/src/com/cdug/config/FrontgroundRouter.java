@@ -2,6 +2,7 @@ package com.cdug.config;
 
 import com.cdug.controller.AboutController;
 import com.cdug.controller.CommonController;
+import com.cdug.controller.DownloadController;
 import com.cdug.controller.HistoryController;
 import com.cdug.controller.MaterialController;
 import com.cdug.controller.NewsController;
@@ -16,5 +17,6 @@ public class FrontgroundRouter extends Routes{
 		add("/material",MaterialController.class);
 		add("/about",AboutController.class);
 		add("/history",HistoryController.class);
+		add("/download",DownloadController.class);
 	}
 }
