@@ -163,11 +163,12 @@ public class Materials extends Model<Materials> {
 	public int addMaterial(String title, String content, String type,
 			String author, int user_id, int isDraft, String[] fileids,
 			String[] teids, String[] soids) {
-		boolean msave_reuslt = dao.set("title", title).set("content", content)
+		Materials material = new Materials().set("title", title).set("content", content)
 				.set("mtype", type).set("user_id", user_id)
 				.set("isDraft", isDraft).set("update_time", new Date())
-				.set("create_time", new Date()).set("author", author).save();
-		int mid = dao.get("id");
+				.set("create_time", new Date()).set("author", author);
+		boolean msave_reuslt = material.save();
+		int mid = material.get("id");
 		if (msave_reuslt) {
 			for (String id : fileids) {
 				MaterialFile.dao.set("material_id", mid)
