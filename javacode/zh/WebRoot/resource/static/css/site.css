@@ -1,14 +1,11 @@
-html, body {
-    background-color: #CCCCCC;
-}
 body{
     font-family: "Microsoft YaHei";
     letter-spacing:1px;
 }
-a{
+.carousel-inner a,.nav a{
     color:white;
 }
-a.image-link,a.image-link:hover{
+.nav a.image-link,.nav a.image-link:hover{
     color: white;
 }
 
@@ -33,7 +30,6 @@ p.buttons{
 	padding-top:15px;
 	padding-bottom: 15px;
     border-left: 1px #bbb solid;
-    font-family:Verdana,"BitStream vera Sans",Helvetica,sans-serif;
 }
 .nav > li:last-child{
     border-right: 1px #bbb solid;   
