@@ -63,7 +63,7 @@ public class MaterialManageController extends Controller {
 			String type = getPara("type");
 			String content = getPara("content");
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
-			int user_id = 100001;
+			int user_id = 100001;//todo getid from session
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
 			String[] te_ids = UITools
 					.convertIdsValue(getParaValues("technical"));

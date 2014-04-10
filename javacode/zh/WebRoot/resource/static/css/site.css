@@ -1,7 +1,7 @@
 html, body {
     background-color: #CCCCCC;
 }
-body.cn{
+body{
     font-family: "Microsoft YaHei";
     letter-spacing:1px;
 }
@@ -33,6 +33,7 @@ p.buttons{
 	padding-top:15px;
 	padding-bottom: 15px;
     border-left: 1px #bbb solid;
+    font-family:Verdana,"BitStream vera Sans",Helvetica,sans-serif;
 }
 .nav > li:last-child{
     border-right: 1px #bbb solid;   

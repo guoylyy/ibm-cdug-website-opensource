@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CDUG2012</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="jquery/jquery-navgoco/jquery.navgoco.css"/>
+    <link rel="stylesheet" href="css/2013.css">
+    <link rel="shortcut icon" href="http://cdug.tongji.edu.cn/zh/favicon.ico">
+  </head>
+  <body>
+  	<div class="container">
+	    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+		    <div class="item active">
+		      <img src="img/bander1.png" alt="...">
+		    </div>
+		    <div class="item">
+		      <img src="img/bander2.png" alt="...">
+		    </div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div>
+		<div class="row" style="margin:10px 0 0 0;min-height:500px;padding-bootom:50px;">
+			<div class="col-md-2">
+						<h3>导航</h3>
+						<hr>
+				        <ul class="nav">
+				            <li><a href="index.html">会议首页</a></li>
+				            <li><a href="schedule.html">会议议程</a></li>
+				            <li class="active"><a href="#">会议图片</a></li>
+				            <!-- <li><a href="vedio.html">会议视频</a></li> -->
+				        </ul>
+				        <br>
+				        <h3>联系我们</h3>
+				 <hr>
+				 <p>.电话 (+86) 21 - 6958 9975</p>
+				 <p>.邮箱 mail2cdug@gmail.com</p>
+				 <p>.地址 中国上海市曹安公路4800号同济大学软件学院（邮编：201804）</p>
+			</div>
+			<div class="col-md-10">
+				<div class="row" style="margin:0;">
+					<div class="col-md-12 meetingContainer">
+						<div class="row">
+							<div class="col-md-8">
+								<h3>2012年主机用户大会视频</h3>
+								<hr>
+								<video width="100%" controls="controls" autoplay="autoplay">
+  <source src="src/vedio.mp4" type="video/mp4" />
+</video>
+
+							</div>
+							
+							<div class="col-md-4">
+								<h3>主题演讲者</h3>
+								<hr>
+								<img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/speakers/jiang.png" style="width: 140px; height: 140px; margin:0 auto;display: block;">
+								<h2 style="text-align:center;">姜富明</h2>
+								<p style="text-align:center;">同济大学党委副书记、纪委书记</p>
+								<!-- <p style="text-align:center;"><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+								<hr>
+								<img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/speakers/desens.png" style="width: 140px; height: 140px; margin:0 auto;display: block;">
+								<h2 style="text-align:center;">Michael A. Desens </h2>
+								<p style="text-align:center;">IBM Enterprise Systems全球研发副总裁，IBM中国系统和科技研发中心总经理</p>
+								<!-- <p style="text-align:center;"><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+								<hr>
+								<img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/speakers/danny.png" style="width: 140px; height: 140px; margin:0 auto;display: block;">
+								<h2 style="text-align:center;">Danny Kilis </h2>
+								<p style="text-align:center;">摩根士丹利的执行董事</p>
+								<!-- <p style="text-align:center;"><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+								<hr>
+								<img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/speakers/yuan.png" style="width: 140px; height: 140px; margin:0 auto;display: block;">
+								<h2 style="text-align:center;">Yuan, Jun De </h2>
+								<p style="text-align:center;">中国银行信息中心助理总监</p>
+								<!-- <p style="text-align:center;"><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+
+								
+							</div>
+				    	</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+      <footer class="well">
+        &copy;2014 Cdug Website Admin 
+      </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Load jquery.cookie plugin (optional) -->
+    <script type="text/javascript" src="jquery/jquery-navgoco/jquery.cookie.js"></script>
+    <!-- Load jquery.navgoco plugin js and css files -->
+    <script type="text/javascript" src="jquery/jquery-navgoco/jquery.navgoco.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$(document).ready(function() {
+		        $('.nav').navgoco();
+		    });
+    	});
+    </script>
+  </body>
+</html>

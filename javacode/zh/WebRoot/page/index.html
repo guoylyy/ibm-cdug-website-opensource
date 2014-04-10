@@ -49,7 +49,8 @@
 					<div class="lastest-news">
 						<div class="col-md-12">
 							<h3 class="index-news-title"><span class="glyphicon glyphicon-envelope color-lead"></span>新闻
-								<span class="english-tag">news</span></h3>
+								<!-- <span class="english-tag">news</span> -->
+								</h3>
 							<ul class="list-group slider-right-list">
 								 <#list news.getList() as n>
 								  <li class="list-group-item">
@@ -57,16 +58,19 @@
   								   ${n.title}</a>
  								 </li>
  								 </#list>
+ 								 <span class="pull-right"><a href="news">更多新闻&nbsp;&nbsp;&nbsp;</a></span>
 							</ul>
+							
 							<h3 class="index-news-title"><span class="glyphicon glyphicon-pushpin color-lead"></span>公告
-							<span class="english-tag">announcement</span></h3>
+							<!-- <span class="english-tag">announcement</span> -->
+							</h3>
 							<ul class="list-group slider-right-list" >
 								  <#list notices.getList() as no>
 								  <li class="list-group-item">
  								   <a href="notice/content/${no.id}">${no.title}</a>
  								 </li>
  								 </#list>
- 								  
+ 								  <span class="pull-right"><a href="notice">更多公告&nbsp;&nbsp;&nbsp;</a></span>
 							</ul>
 						</div>
 					</div>
@@ -85,7 +89,8 @@
 
               <div class="caption bordered background-white">
                  <h3 class="h3-refine"><span class="glyphicon glyphicon-info-sign color-lead"></span>关于我们
-                  	<span class="english-tag">aboutus</span></h3>
+                  	<!-- <span class="english-tag">aboutus</span> -->
+                  	</h3>
                   <p class="description" style="height: 154px;">大中华区主机用户协会,简称CDUG由同济大学发起,从2007年开始筹备并于2008年7月17日在中国无锡宣布正式成立并举办第一次CDUG年会. CDUG以DB2 for z/OS技术的讨论与分享为主. 至今已经举办了7次全国性大会,并且把会议内容扩展到包括IMS、CICS、z/OS、z/VM、zLinux等主机平台的信息与技术产品</p>
                 <p class="buttons"><a href="about" class="btn btn-lead">查看更多</a></p>
               </div>
@@ -99,7 +104,8 @@
 
               <div class="caption bordered background-white">
                <h3 class="h3-refine"><span class="glyphicon glyphicon-eye-open color-lead"></span>愿景和使命
-                  	<span class="english-tag">mission</span></h3>
+                  	<!-- <span class="english-tag">mission</span> -->
+                  	</h3>
                   <p class="description" style="height: 154px;">CDUG将秉承开放融合、技术创新的基本愿景，力求为主机客户和主机人才的成长创造价值。</p>
                 <p class="buttons"><a href="about/visionandmission" class="btn btn-lead">查看更多</a></p>
               </div>
@@ -114,7 +120,8 @@
  
               <div class="caption bordered background-white">
                <h3 class="h3-refine"><span class="glyphicon glyphicon-road color-lead"></span> 会议历史
-                  <span class="english-tag">history</span></h3>
+                  <!-- <span class="english-tag">history</span> -->
+                  </h3>
                   <p class="description" style="height: 154px;">CDUG组织于2008年成立，再每年都会组织至少一次用户大会，至今已经成功举办了7届会议，会议议题已经从开始的DB2技术发展成为大型主机相关技术，成为了大中华区较为知名的主机用户会议。</p>
                 <p class="buttons"><a href="about/history" class="btn btn-lead">查看更多</a></p>
               </div>
