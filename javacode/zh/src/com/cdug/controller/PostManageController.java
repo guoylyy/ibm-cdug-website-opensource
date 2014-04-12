@@ -1,9 +1,13 @@
 package com.cdug.controller;
 
+import com.cdug.interceptor.AdminRequiredInterceptor;
+import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.model.Posts;
 import com.cdug.tool.UITools;
+import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 
+@Before({LoginInterceptor.class,AdminRequiredInterceptor.class})
 public class PostManageController extends Controller {
 	public void index() {
 		setAttr("posts", new Posts().getPosts());

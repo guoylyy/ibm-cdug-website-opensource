@@ -2,12 +2,18 @@ package com.cdug.controller;
 
 import java.util.Date;
 
+import com.cdug.interceptor.AdminRequiredInterceptor;
+import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.UserManagementInterceptor;
 import com.cdug.model.Users;
+import com.cdug.tool.MD5Tool;
+import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.core.Controller;
 
-@Before(UserManagementInterceptor.class)
+@Before({ UserManagementInterceptor.class, LoginInterceptor.class,
+		AdminRequiredInterceptor.class })
 public class UserManageController extends Controller {
 
 	/*
@@ -25,42 +31,61 @@ public class UserManageController extends Controller {
 			String email = getPara("email");
 			String password = getPara("password");
 			String name = getPara("name");
-			String isActive = getPara("active");
-			String role = "USER";
-
-			if (new Users().addUser(email, password, name, role, new Date())) {
+			int isActive = UITools.convertCheckboxValue(getPara("active"));
+			String role = getPara("role");
+			password = MD5Tool.GetMd5(password);
+			if (new Users().addUser(email, password, name, role, new Date(),
+					isActive)) {
 				render("/backpage/feedback/success.html");
 			} else {
 				render("/backpage/feedback/error.html");
 			}
 		}
 	}
-	
-	public void delete(){
+
+	public void delete() {
 		String uid = getPara(0);
-		if(new Users().deleteById(uid)){
+		if (new Users().deleteById(uid)) {
 			renderText("success");
-		}else{
+		} else {
 			renderText("fail");
 		}
-		
+
 	}
-	
-	public void update(){
-		if("GET".equals(getRequest().getMethod())){
+
+	public void mark() {
+		int uid = Integer.parseInt(getPara(0));
+		String role = getPara(1);
+		if (Users.dao.updateUserRole(uid, role)) {
+			redirect("/private/user");
+		} else {
+			redirect("/private/user");
+		}
+	}
+
+	public void update() {
+		if ("GET".equals(getRequest().getMethod())) {
 			render("/backpage/feedback/error.html");
-		}else{
-			String uid = getPara("id");
+		} else {
+			int id = getParaToInt("id");
 			String email = getPara("email");
 			String password = getPara("password");
 			String name = getPara("name");
-			String isActive = getPara("active");
-			String role = "USER";
-			renderText("success");
+			int isActive = UITools.convertCheckboxValue(getPara("active"));
+			String role = getPara("role");
+
+			if (Users.dao.updateUser(id, email, password, name, role, isActive)) {
+				renderText("success");
+			} else {
+				renderText("fail");
+			}
+
 		}
 	}
 	
+	@ClearInterceptor
 	public void myprofile() {
+		setAttr("user", getSessionAttr("loginUser"));
 		render("/backpage/user/myprofile.html");
 	}
 

@@ -1,5 +1,19 @@
 <#include "/backpage/template/_login_layout.html"/>
 
 <@layout>
+	<div class="container">
 
+      <form class="form-signin" action="private/login" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level"  name="email" placeholder="Email address">
+        ${emailMsg}
+        <input type="password" class="input-block-level" placeholder="Password" name="password">
+        ${passwordMsg}
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-success" type="submit">Sign in</button>
+      </form>
+
+    </div>
 </@layout>

@@ -4,6 +4,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.cdug.interceptor.AdminRequiredInterceptor;
+import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.MaterialManagementInterceptor;
 import com.cdug.model.Files;
 import com.cdug.model.Materials;
@@ -15,7 +17,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.core.JFinal;
 import com.jfinal.upload.UploadFile;
 
-@Before(MaterialManagementInterceptor.class)
+@Before({MaterialManagementInterceptor.class,LoginInterceptor.class})
 public class MaterialManageController extends Controller {
 	public void index() {
 		setAttr("materials", Materials.dao.getMaterials());
@@ -50,7 +52,8 @@ public class MaterialManageController extends Controller {
 			render("/backpage/material/add_material.html");
 		}
 	}
-
+	
+	
 	public void editView() {
 		setAttr("solutions", new Solutions().getSolutions());
 		setAttr("technicals", new Technicals().getTechnicals());
@@ -86,7 +89,8 @@ public class MaterialManageController extends Controller {
 			}
 		}
 	}
-
+	
+	@Before(AdminRequiredInterceptor.class)
 	public void solutions() {
 		if ("GET".equals(getRequest().getMethod())) {
 			setAttr("solutions", new Solutions().getSolutions());
@@ -102,6 +106,7 @@ public class MaterialManageController extends Controller {
 		}
 	}
 
+	@Before(AdminRequiredInterceptor.class)
 	public void solutionDelete() {
 		int id = getParaToInt(0);
 		if (Solutions.dao.deleteById(id)) {
@@ -110,7 +115,7 @@ public class MaterialManageController extends Controller {
 			render("/backpage/feedback/error.html");
 		}
 	}
-
+	@Before(AdminRequiredInterceptor.class)
 	public void technicals() {
 		if ("GET".equals(getRequest().getMethod())) {
 			setAttr("technicals", new Technicals().getTechnicals());
@@ -125,7 +130,7 @@ public class MaterialManageController extends Controller {
 			}
 		}
 	}
-
+	@Before(AdminRequiredInterceptor.class)
 	public void technicalDelete() {
 		int id = getParaToInt(0);
 		if (Technicals.dao.deleteById(id)) {
