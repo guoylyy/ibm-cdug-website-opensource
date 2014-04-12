@@ -21,7 +21,7 @@
 					<form action="material" method="post">
 					<div>
 						<ul class="material-class-list">
-							<li>技术类别：</li>
+							<li>产品类别：</li>
 							<#list solutions as so>
 								<#if so.isChecked()>
 								<li><input type="checkbox" checked name="solution" value="${so.id}"><span> ${so.name}</span></li>
@@ -33,14 +33,13 @@
 					</div>
 					<div class="">
 						<ul class="material-class-list">
-							<li>解决方案：</li>
+							<li>技术类别：</li>
 							<#list technicals as te>
 								<#if te.isChecked()>
 									<li><input type="checkbox" checked name="technical" value="${te.id}" "><span> ${te.name}</span></li>
 								<#else>
 									<li><input type="checkbox" name="technical" value="${te.id}" "><span> ${te.name}</span></li>
 								</#if>
-								
 							</#list>
 						</ul>
 					</div>

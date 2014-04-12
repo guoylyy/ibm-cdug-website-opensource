@@ -63,46 +63,17 @@
 				<div class="col-md-12 scheduleContainer">
 
 				<div class="row specialist-row">
-        <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+         <div class="col-md-4 specialists">
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/speakers/fu.png" style="width: 140px; height: 140px;">
+          <h2>Gene Fuh</h2>
+          <p>IBM 杰出工程师,IBM全球主机技术研究院院长</p>
+          <p class="specialist-details">傅毓勤（Gene Fuh）博士，IBM杰出工程师与全球主机技术研究院院长，曾任IBM硅谷实验室（加州圣何塞）高级技术经理，负责DB2 for z/OS 最前沿的数据查询技术，以适应各种关键任务数据库应用的需求。傅博士在过去领导或参与了许多产品的研究开发，包括DB2 LUW版本2到版本6、DB2 for z/OS 版本7到版本10、DB2空间扩展器（Spatial Extender）、VHDL编译器和并行Fortran/90编译器等。他擅长的技术领域包括：云计算、查询优化、自主运算、DBMS对象关系技术、空间数据库、数据仓储、编译器构建和自动测试模式生成等。他已拥有和正在审批的专利达50项，发表论文15余篇。傅博士是相关学术会议上活跃的演讲者，也喜欢和高校师生一同分享他在技术领域的新发现与成果。傅博士是多个高校的荣誉教授，包括上海同济大学、成都电子科大、华中科技大学、华南理工大学、 美国 San Jose State University 等。目前傅博士被外派到中国任全球主机技术研究院院长。目前的研究方向包括﹕主机混合平台计算、主机商务智能、主机数据库优化、主机灾备与高可用性、大数据库的集成与优化、云计算平台的查询优化、数据生命周期管理监控与优化的工具、以及主机数据库的优化等。</p>
+          <p><a class="btn btn-default view-details" role="button">View details</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+        
       </div>				
 
-      <div class="row specialist-row">
-        <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div>			
+      		
 				</div>
 				
 			</div>
@@ -123,6 +94,16 @@
     	$(function(){
     		$(document).ready(function() {
 		        $('.nav').navgoco();
+            $('.view-details').click(function(){
+                $($(this).parent().parent().children()[3]).toggleClass("specialist-show");
+                var hidden = "hide";
+                var view = "View details";
+                if($(this).text() == hidden){
+                    $(this).text(view);
+                }else{
+                    $(this).text(hidden);
+                }
+            });
 		    });
     	});
     </script>

@@ -3,7 +3,9 @@
 	padding-left: 0;
 	padding-right: 0;
 }
-
+footer{
+	text-align: center;
+}
 
 .navMenuContainer {
 	padding-top: 20px;
@@ -45,6 +47,18 @@
 .meetingContainer{
 	padding-bottom: 50px;
 }
-.specialist-row .col-lg-4{
+.specialist-row .col-md-4{
 	text-align: center;;
 }
+
+.specialist-details{
+	height: 60px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	word-spacing: nowrap;
+}
+
+.specialist-show{
+	height: auto;
+}
+
