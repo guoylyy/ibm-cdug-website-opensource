@@ -62,3 +62,8 @@ footer{
 	height: auto;
 }
 
+#links img.thumbnails{
+	width: 140px;
+	height: 140px;
+}
+
