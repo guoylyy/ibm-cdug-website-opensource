@@ -9,7 +9,6 @@ import com.jfinal.core.Controller;
 public class NewsController extends Controller {
 	public void index() {
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_NEWS);
-		
 		int pageIndex = UITools.getPageIndex(getPara(0));
 		int pageScale = UITools.getPageSize(Posts.dao.countNews());
 		boolean isLastPage = false;

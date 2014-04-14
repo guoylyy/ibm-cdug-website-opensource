@@ -6,6 +6,13 @@
 			<div class="page-header">
 				<h1>User Profile <small>edit user</small></h1>
 			</div>
+			<#if result??>
+				<#if result=="Fail">
+					<div class="alert alert-danger">Update user fail!</div>
+				<#else>
+					<div class="alert alert-success">Update user success!</div>
+				</#if>		
+			</#if>
 			<form class="form-horizontal" method="post" action="private/user/update">
 				<fieldset>
 					
@@ -19,7 +26,7 @@
 					<div class="control-group">
 						<label class="control-label" for="password">Password</label>
 						<div class="controls">
-							<input type="text" class="input-xlarge" id="password" name="password"  value="${user.password}"/>
+							<input type="password" class="input-xlarge" id="password" name="password"  value="${user.password}"/>
 						</div>
 					</div>
 					<div class="control-group">

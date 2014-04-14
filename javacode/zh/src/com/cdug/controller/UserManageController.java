@@ -73,20 +73,47 @@ public class UserManageController extends Controller {
 			String name = getPara("name");
 			int isActive = UITools.convertCheckboxValue(getPara("active"));
 			String role = getPara("role");
-
+			setAttr("user", new Users().findById(id));
 			if (Users.dao.updateUser(id, email, password, name, role, isActive)) {
-				renderText("success");
+				setAttr("result", "Success");
+				render("/backpage/user/profile.html");
 			} else {
-				renderText("fail");
+				setAttr("result", "Fail");
+				redirect("/private/user/profile/" + id);
 			}
 
 		}
 	}
-	
+
 	@ClearInterceptor
 	public void myprofile() {
-		setAttr("user", getSessionAttr("loginUser"));
-		render("/backpage/user/myprofile.html");
+		if ("GET".equals(getRequest().getMethod())) {
+			setAttr("user", getSessionAttr("loginUser"));
+			render("/backpage/user/myprofile.html");
+		} else {
+			// update my profile
+			String email = getPara("email");
+			String password = getPara("password");
+			String name = getPara("name");
+			Users user = getSessionAttr("loginUser");
+			password = MD5Tool.GetMd5(password);
+			if (email.equals(user.get("email"))
+					&& password.equals(user.get("password"))
+					&& name.equals(user.get("name"))) {
+				setAttr("result", "Success");
+			} else {
+				if (Users.dao.updateUser(user.getInt("id"), email, password,
+						name)) {
+					setAttr("result", "Success");
+				} else {
+					setAttr("result", "Fail");
+				}
+			}
+			Users new_user = Users.dao.findById(user.getInt("id"));
+			setAttr("user", new_user);
+			setSessionAttr("loginUser", new_user);
+			render("/backpage/user/myprofile.html");
+		}
 	}
 
 	public void profile() {

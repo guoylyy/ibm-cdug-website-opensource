@@ -34,6 +34,16 @@ public class Users extends Model<Users> {
 		}
 	}
 
+	public boolean updateUser(int id, String email, String password, String name) {
+		Users user = dao.findById(id);
+		if (user != null) {
+			return user.set("email", email).set("password", password)
+					.set("name", name).update();
+		} else {
+			return false;
+		}
+	}
+
 	public Users getUserById(int id) {
 		return new Users().findById(id);
 	}
@@ -60,10 +70,11 @@ public class Users extends Model<Users> {
 		}
 	}
 
-	public boolean updateUserRole(int id,String role){
-		if(role.equals(GlobalConfig.USER_ROLES[0]) || role.equals(GlobalConfig.USER_ROLES[1])){
+	public boolean updateUserRole(int id, String role) {
+		if (role.equals(GlobalConfig.USER_ROLES[0])
+				|| role.equals(GlobalConfig.USER_ROLES[1])) {
 			return dao.findById(id).set("role", role).update();
-		}else{
+		} else {
 			return false;
 		}
 	}

@@ -6,6 +6,13 @@
 			<div class="page-header">
 				<h1>New Post <small>add post</small></h1>
 			</div>
+			<#if result??>
+				<#if result=="Fail">
+					<div class="alert alert-danger">Update post fail!</div>
+				<#else>
+					<div class="alert alert-success">Update post success!</div>
+				</#if>		
+			</#if>
 			<form class="form-horizontal" method="post" action="private/post/edit">
 				<fieldset>
 					<div class="control-group">

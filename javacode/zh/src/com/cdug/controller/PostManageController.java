@@ -3,6 +3,7 @@ package com.cdug.controller;
 import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.model.Posts;
+import com.cdug.model.Users;
 import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -21,7 +22,8 @@ public class PostManageController extends Controller {
 			String title = getPara("title");
 			String content = getPara("content");
 			String type = getPara("type");
-			String author = "同济大学";
+			Users user = getSessionAttr("loginUser");
+			String author = user.get("name");
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
 			if (Posts.dao.addPost(title, content, author, type, isDraft)) {
 				render("/backpage/feedback/success.html");
@@ -53,11 +55,14 @@ public class PostManageController extends Controller {
 			String content = getPara("content");
 			String type = getPara("type");
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
+			
 			if(Posts.dao.updatePost(pid, title, content, type, isDraft)){
-				render("/backpage/feedback/success.html");
+				setAttr("result", "Success");
 			}else{
-				render("/backpage/feedback/error.html");
+				setAttr("result", "Fail");
 			}
+			setAttr("post", new Posts().findById(Integer.parseInt(pid)));
+			render("/backpage/post/edit_post.html");
 		}
 	}
 }

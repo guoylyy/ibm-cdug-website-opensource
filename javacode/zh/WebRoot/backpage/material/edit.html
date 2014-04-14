@@ -6,6 +6,13 @@
 			<div class="page-header">
 				<h1>Edit Material <small></small></h1>
 			</div>
+			<#if result??>
+				<#if result=="Fail">
+					<div class="alert alert-danger">Update user fail!</div>
+				<#else>
+					<div class="alert alert-success">Update user success!</div>
+				</#if>		
+			</#if>
 			<form class="form-horizontal" method="post" id="form">
 			<!-- <form class="form-horizontal"> -->
 				<fieldset>
@@ -92,6 +99,5 @@
 <@javascript>
 	<script src="/resource/static/back_src/js/ajaxfileupload.js"></script>
 	<script src="/resource/static/back_src/js/page/add_material.js"></script>	
-
 </@javascript>
 

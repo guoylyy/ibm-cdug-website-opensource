@@ -5,6 +5,10 @@
 
       <form class="form-signin" action="private/login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
+        <#if msg != "">
+        <div class="alert alert-danger">${msg}</div>
+        </#if>
+        
         <input type="text" class="input-block-level"  name="email" placeholder="Email address">
         ${emailMsg}
         <input type="password" class="input-block-level" placeholder="Password" name="password">

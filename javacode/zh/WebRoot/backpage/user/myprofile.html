@@ -6,14 +6,20 @@
 			<div class="page-header">
 				<h1>User Profile <small>edit user</small></h1>
 			</div>
-			<form class="form-horizontal" method="post" action="private/user/update">
+			<#if result??>
+				<#if result=="Fail">
+					<div class="alert alert-danger">Update profile fail!</div>
+				<#else>
+					<div class="alert alert-success">Update profile success!</div>
+				</#if>		
+			</#if>
+			<form class="form-horizontal" method="post" action="private/user/myprofile">
 				<fieldset>
 					
 					<div class="control-group">
 						<label class="control-label" for="email">E-mail</label>
 						<div class="controls">
 							<input type="text" class="input-xlarge" id="email"  name="email" value="${user.email}"/>
-							<input type="text" name="id" value="${user.id}" style="display:none"/>
 						</div>
 					</div>
 					<div class="control-group">
