@@ -171,5 +171,9 @@ tr.pending-user:hover span.user-actions, tr.list-users:hover td div.btn-group, t
 	.list-roles td:nth-of-type(5):before { content: "Actions"; }
 }
 
+#example_wrapper .row{
+	margin-left:0px;
+}
+
 
 
