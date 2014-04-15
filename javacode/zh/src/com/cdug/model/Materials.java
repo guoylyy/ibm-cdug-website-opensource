@@ -35,7 +35,37 @@ public class Materials extends Model<Materials> {
 	}
 
 	public ArrayList<Materials> getMaterials() {
-		return (ArrayList<Materials>) dao.find("select * from materials");
+		return (ArrayList<Materials>) dao
+				.find("select * from materials order by id desc");
+	}
+
+	@Before(Tx.class)
+	public int updateMaterial(int mid, String title, String content,
+			int isDraft, String[] fileids, String[] teids, String[] soids) {
+		// update files
+		if (deleteRelatedRows(mid)) {
+			for (String id : fileids) {
+				MaterialFile.dao.set("material_id", mid)
+						.set("file_id", Integer.parseInt(id)).save();
+			}
+
+			for (String id : soids) {
+				MaterialSolution.dao.set("material_id", mid)
+						.set("solution_id", Integer.parseInt(id)).save();
+			}
+			for (String id : teids) {
+				MaterialTechnical.dao.set("material_id", mid)
+						.set("technical_id", Integer.parseInt(id)).save();
+			}
+			if (dao.findById(mid).set("title", title).set("content", content)
+					.set("isDraft", isDraft).update()) {
+				return mid;
+			} else {
+				return -1;
+			}
+		} else {
+			return -1;
+		}
 	}
 
 	public ArrayList<Materials> getAllMaterial() {
@@ -157,14 +187,13 @@ public class Materials extends Model<Materials> {
 		return list;
 	}
 
-	
 	@Before(Tx.class)
 	// Transaction support
-	public int addMaterial(String title, String content, String type,
-			String author, int user_id, int isDraft, String[] fileids,
-			String[] teids, String[] soids) {
-		Materials material = new Materials().set("title", title).set("content", content)
-				.set("mtype", type).set("user_id", user_id)
+	public int addMaterial(String title, String content, String author,
+			int user_id, int isDraft, String[] fileids, String[] teids,
+			String[] soids) {
+		Materials material = new Materials().set("title", title)
+				.set("content", content).set("user_id", user_id)
 				.set("isDraft", isDraft).set("update_time", new Date())
 				.set("create_time", new Date()).set("author", author);
 		boolean msave_reuslt = material.save();
@@ -191,6 +220,33 @@ public class Materials extends Model<Materials> {
 		return mid;
 	}
 
+	private boolean deleteRelatedRows(int id) {
+		final int mid = id;
+		final int fileCount = MaterialFile.dao.count(mid);
+		final int solutionCount = MaterialSolution.dao.count(mid);
+		final int techincalCount = MaterialTechnical.dao.count(mid);
+
+		boolean succeed = Db.tx(new IAtom() {
+
+			@Override
+			public boolean run() throws SQLException {
+				int count1 = Db
+						.update("delete from material_solution where material_id="
+								+ mid + "");
+				int count2 = Db
+						.update("delete from material_file where material_id="
+								+ mid);
+				int count3 = Db
+						.update("delete from material_technical where material_id="
+								+ mid);
+
+				return (count1 == solutionCount) && (count2 == fileCount)
+						&& (count3 == techincalCount);
+			}
+		});
+		return succeed;
+	}
+
 	public boolean deleteMaterial(int id) {
 		final int mid = id;
 		final int fileCount = MaterialFile.dao.count(mid);
@@ -201,7 +257,6 @@ public class Materials extends Model<Materials> {
 
 			@Override
 			public boolean run() throws SQLException {
-
 				int count1 = Db
 						.update("delete from material_solution where material_id="
 								+ mid + "");

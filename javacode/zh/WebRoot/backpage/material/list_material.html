@@ -26,8 +26,8 @@
 				<tr class="list-users">
 					<td>${m.id}</td>
 					<td>${m.title}</td>
-					<td>${m.create_time}</td>
-					<td>${m.update_time}</td>
+					<td>${m.create_time?string('yyyy-MM-dd')}</td>
+					<td>${m.update_time?string('yyyy-MM-dd')}</td>
 					<td>${m.author}</td>
 					<td>
 						<#if m.isDraft == 0>

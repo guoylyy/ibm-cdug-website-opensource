@@ -11,13 +11,14 @@ import com.cdug.model.Files;
 import com.cdug.model.Materials;
 import com.cdug.model.Solutions;
 import com.cdug.model.Technicals;
+import com.cdug.model.Users;
 import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import com.jfinal.core.JFinal;
 import com.jfinal.upload.UploadFile;
 
-@Before({MaterialManagementInterceptor.class,LoginInterceptor.class})
+@Before({ MaterialManagementInterceptor.class, LoginInterceptor.class })
 public class MaterialManageController extends Controller {
 	public void index() {
 		setAttr("materials", Materials.dao.getMaterials());
@@ -25,7 +26,6 @@ public class MaterialManageController extends Controller {
 	}
 
 	public void delete() {
-		// try {
 		String id = getPara(0);
 		if (Materials.dao.deleteMaterial(Integer.parseInt(id))) {
 			setAttr("result", "success");
@@ -34,15 +34,6 @@ public class MaterialManageController extends Controller {
 			setAttr("result", "fail");
 			render("/backpage/feedback/error.html");
 		}
-		// renderJson();
-		// } catch (Exception e) {
-		// // TODO: handle exception
-		// System.out.print(e);
-		// setAttr("result","fail");
-		// }finally{
-		// renderJson();
-		// }
-
 	}
 
 	public void addMaterialView() {
@@ -52,21 +43,20 @@ public class MaterialManageController extends Controller {
 			render("/backpage/material/add_material.html");
 		}
 	}
-	
-	
-	public void editView() {
-		setAttr("solutions", new Solutions().getSolutions());
-		setAttr("technicals", new Technicals().getTechnicals());
-		render("/backpage/material/edit.html");
-	}
 
-	public void addMaterial() {
-		if ("POST".equals(getRequest().getMethod())) {
+	public void editView() {
+		if ("GET".equals(getRequest().getMethod())) {
+			int mid = getParaToInt(0);
+			setAttr("material", Materials.dao.findById(mid));
+			setAttr("solutions", Solutions.dao.getSolutionsFromMaterial(mid));
+			setAttr("technicals", Technicals.dao.getTechnicalsFromMaterial(mid));
+			setAttr("files", Files.dao.getFilesByMaterialId(mid));
+			render("/backpage/material/edit.html");
+		} else {
+			int mid = getParaToInt("id");
 			String title = getPara("title");
-			String type = getPara("type");
 			String content = getPara("content");
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
-			int user_id = 100001;//todo getid from session
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
 			String[] te_ids = UITools
 					.convertIdsValue(getParaValues("technical"));
@@ -74,8 +64,38 @@ public class MaterialManageController extends Controller {
 					.convertIdsValue(getParaValues("solution"));
 
 			try {
-				int rc = Materials.dao.addMaterial(title, content, type,
-						"mark", user_id, draft, file_ids, te_ids, so_ids);
+				int rc = Materials.dao.updateMaterial(mid, title, content,
+						draft, file_ids, te_ids, so_ids);
+				if (rc != -1) {
+					redirect("/private/material/editView/" + rc);
+				} else {
+					render("/backpage/feedback/error.html");
+				}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				render("/backpage/feedback/error.html");
+			}
+		}
+
+	}
+
+	public void addMaterial() {
+		if ("POST".equals(getRequest().getMethod())) {
+			String title = getPara("title");
+			String content = getPara("content");
+			int draft = UITools.convertCheckboxValue(getPara("draft"));
+			Users user = (Users) getSessionAttr("loginUser");
+			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
+			String[] te_ids = UITools
+					.convertIdsValue(getParaValues("technical"));
+			String[] so_ids = UITools
+					.convertIdsValue(getParaValues("solution"));
+
+			try {
+				int rc = Materials.dao.addMaterial(title, content,
+						user.getStr("name"), user.getInt("id"), draft,
+						file_ids, te_ids, so_ids);
 				if (rc != -1) {
 					redirect("/private/material/editView?id=" + rc);
 				} else {
@@ -84,12 +104,11 @@ public class MaterialManageController extends Controller {
 
 			} catch (Exception e) {
 				// TODO: handle exception
-				System.out.println(e);
 				render("/backpage/feedback/error.html");
 			}
 		}
 	}
-	
+
 	@Before(AdminRequiredInterceptor.class)
 	public void solutions() {
 		if ("GET".equals(getRequest().getMethod())) {
@@ -115,6 +134,7 @@ public class MaterialManageController extends Controller {
 			render("/backpage/feedback/error.html");
 		}
 	}
+
 	@Before(AdminRequiredInterceptor.class)
 	public void technicals() {
 		if ("GET".equals(getRequest().getMethod())) {
@@ -130,6 +150,7 @@ public class MaterialManageController extends Controller {
 			}
 		}
 	}
+
 	@Before(AdminRequiredInterceptor.class)
 	public void technicalDelete() {
 		int id = getParaToInt(0);

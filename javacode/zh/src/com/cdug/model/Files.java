@@ -20,4 +20,5 @@ public class Files extends Model<Files> {
 				.find("select * from files where id in (select file_id from material_file where material_id="
 						+ id + ")");
 	}
+	
 }

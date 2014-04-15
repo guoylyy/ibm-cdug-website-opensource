@@ -24,4 +24,19 @@ public class Technicals extends Model<Technicals>{
 	public void setChecked(boolean isChecked) {
 		this.isChecked = isChecked;
 	}
+	
+	public ArrayList<Technicals> getTechnicalsFromMaterial(int materialID) {
+		ArrayList<Technicals> list = (ArrayList<Technicals>) dao
+				.find("select * from technicals");
+		ArrayList<MaterialTechnical> msList = MaterialTechnical.dao
+				.getMaterialSolutionIds(materialID);
+		for (Technicals technical : list) {
+			for (MaterialTechnical ms : msList) {
+				if (technical.getInt("id") == ms.getInt("technical_id")) {
+					technical.setChecked(true);
+				}
+			}
+		}
+		return list;
+	}
 }
