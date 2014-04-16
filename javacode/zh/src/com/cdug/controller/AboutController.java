@@ -12,6 +12,11 @@ public class AboutController extends Controller{
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/cdug_introduction.html");
 	}
+	
+	public void sponsorship(){
+		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
+		render("/page/about/sponsorship.html");
+	}
 	public void visionandmission(){
 		setAttr(GlobalConfig.NAV_KEY,GlobalConfig.NAV_ABOUT);
 		render("/page/about/mission.html");

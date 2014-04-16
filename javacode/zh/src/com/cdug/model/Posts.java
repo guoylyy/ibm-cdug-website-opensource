@@ -17,12 +17,18 @@ public class Posts extends Model<Posts> {
 				.find("select * from posts order by id desc");
 	}
 
-	public boolean addPost(String title, String content, String author,
-			String type, int isDraft) {
+	public ArrayList<Posts> getPosts(int uid) {
+		return (ArrayList<Posts>) Posts.dao
+				.find("select * from posts where publisher=" + uid);
+	}
+
+	public boolean addPost(String title, String content, String type,
+			int isDraft, Users user) {
 		return new Posts().set("title", title).set("content", content)
-				.set("author", author).set("type", type)
+				.set("author", user.getStr("name")).set("type", type)
 				.set("isDraft", isDraft).set("create_time", new Date())
-				.set("update_time", new Date()).save();
+				.set("update_time", new Date())
+				.set("publisher", user.getInt("id")).save();
 	}
 
 	public boolean updatePost(String id, String title, String content,

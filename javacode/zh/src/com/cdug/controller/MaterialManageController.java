@@ -6,7 +6,6 @@ import java.util.Date;
 
 import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
-import com.cdug.interceptor.MaterialManagementInterceptor;
 import com.cdug.model.Files;
 import com.cdug.model.Materials;
 import com.cdug.model.Solutions;
@@ -18,10 +17,15 @@ import com.jfinal.core.Controller;
 import com.jfinal.core.JFinal;
 import com.jfinal.upload.UploadFile;
 
-@Before({ MaterialManagementInterceptor.class, LoginInterceptor.class })
+@Before({ LoginInterceptor.class })
 public class MaterialManageController extends Controller {
 	public void index() {
-		setAttr("materials", Materials.dao.getMaterials());
+		Users user = getSessionAttr("loginUser");
+		if(user.isAdmin()){
+			setAttr("materials", Materials.dao.getMaterials());
+		}else{
+			setAttr("materials", Materials.dao.getMaterials(user.getInt("id")));
+		}
 		render("/backpage/material/list_material.html");
 	}
 
@@ -97,7 +101,7 @@ public class MaterialManageController extends Controller {
 						user.getStr("name"), user.getInt("id"), draft,
 						file_ids, te_ids, so_ids);
 				if (rc != -1) {
-					redirect("/private/material/editView?id=" + rc);
+					redirect("/private/material/editView/" + rc);
 				} else {
 					render("/backpage/feedback/error.html");
 				}

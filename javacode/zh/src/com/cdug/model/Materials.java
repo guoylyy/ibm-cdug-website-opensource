@@ -39,6 +39,12 @@ public class Materials extends Model<Materials> {
 				.find("select * from materials order by id desc");
 	}
 
+	public ArrayList<Materials> getMaterials(int uid) {
+		return (ArrayList<Materials>) dao
+				.find("select * from materials where user_id =" + uid
+						+ " order by id desc");
+	}
+
 	@Before(Tx.class)
 	public int updateMaterial(int mid, String title, String content,
 			int isDraft, String[] fileids, String[] teids, String[] soids) {

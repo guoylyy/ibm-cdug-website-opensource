@@ -8,10 +8,15 @@ import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 
-@Before({LoginInterceptor.class,AdminRequiredInterceptor.class})
+@Before({ LoginInterceptor.class, AdminRequiredInterceptor.class })
 public class PostManageController extends Controller {
 	public void index() {
-		setAttr("posts", new Posts().getPosts());
+		Users user = getSessionAttr("loginUser");
+		if (user.isAdmin()) {
+			setAttr("posts", Posts.dao.getPosts());
+		} else {
+			setAttr("posts", Posts.dao.getPosts(user.getInt("id")));
+		}
 		render("/backpage/post/list_post.html");
 	}
 
@@ -23,9 +28,8 @@ public class PostManageController extends Controller {
 			String content = getPara("content");
 			String type = getPara("type");
 			Users user = getSessionAttr("loginUser");
-			String author = user.get("name");
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
-			if (Posts.dao.addPost(title, content, author, type, isDraft)) {
+			if (Posts.dao.addPost(title, content, type, isDraft, user)) {
 				render("/backpage/feedback/success.html");
 			} else {
 				render("/backpage/feedback/fail.html");
@@ -55,10 +59,10 @@ public class PostManageController extends Controller {
 			String content = getPara("content");
 			String type = getPara("type");
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
-			
-			if(Posts.dao.updatePost(pid, title, content, type, isDraft)){
+
+			if (Posts.dao.updatePost(pid, title, content, type, isDraft)) {
 				setAttr("result", "Success");
-			}else{
+			} else {
 				setAttr("result", "Fail");
 			}
 			setAttr("post", new Posts().findById(Integer.parseInt(pid)));
