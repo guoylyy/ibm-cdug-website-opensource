@@ -6,11 +6,9 @@
 				Edit Material <small></small>
 			</h1>
 		</div>
-		<#if result??> <#if result=="Fail">
-		<div class="alert alert-danger">Update user fail!</div>
-		<#else>
-		<div class="alert alert-success">Update user success!</div>
-		</#if> </#if>
+		<#if msg??> 
+		<div class="alert alert-success">${msg}</div>
+		</#if> 
 		<form class="form-horizontal" method="post" id="form" action="/private/material/editView">
 			<!-- <form class="form-horizontal"> -->
 			<fieldset>

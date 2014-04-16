@@ -31,6 +31,16 @@ public class Posts extends Model<Posts> {
 				.set("publisher", user.getInt("id")).save();
 	}
 
+	public int getUserId(int pid) {
+		Posts post = dao.findFirst("select publisher from posts where id="
+				+ pid);
+		if (post == null) {
+			return -1;
+		} else {
+			return post.getInt("publisher");
+		}
+	}
+
 	public boolean updatePost(String id, String title, String content,
 			String type, int isDraft) {
 		return dao.findById(id).set("title", title).set("content", content)

@@ -1,23 +1,27 @@
 package com.cdug.controller;
 
-import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
+import com.cdug.interceptor.OwnerRequiredInterceptor;
 import com.cdug.model.Posts;
 import com.cdug.model.Users;
 import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 
-@Before({ LoginInterceptor.class, AdminRequiredInterceptor.class })
+@Before({ LoginInterceptor.class })
 public class PostManageController extends Controller {
 	public void index() {
 		Users user = getSessionAttr("loginUser");
-		if (user.isAdmin()) {
-			setAttr("posts", Posts.dao.getPosts());
+		if (user != null) {
+			if (user.isAdmin()) {
+				setAttr("posts", Posts.dao.getPosts());
+			} else {
+				setAttr("posts", Posts.dao.getPosts(user.getInt("id")));
+			}
+			render("/backpage/post/list_post.html");
 		} else {
-			setAttr("posts", Posts.dao.getPosts(user.getInt("id")));
+			redirect("/private/login/");
 		}
-		render("/backpage/post/list_post.html");
 	}
 
 	public void addPost() {
@@ -37,7 +41,8 @@ public class PostManageController extends Controller {
 		}
 
 	}
-
+	
+	@Before(OwnerRequiredInterceptor.class)
 	public void delete() {
 		String id = getPara(0);
 		if (Posts.dao.deleteById(id)) {
@@ -47,6 +52,7 @@ public class PostManageController extends Controller {
 		}
 	}
 
+	@Before(OwnerRequiredInterceptor.class)
 	public void edit() {
 		if ("GET".equals(getRequest().getMethod())) {
 			String id = getPara(0);

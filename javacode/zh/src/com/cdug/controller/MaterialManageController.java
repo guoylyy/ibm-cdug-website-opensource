@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
+import com.cdug.interceptor.OwnerRequiredInterceptor;
 import com.cdug.model.Files;
 import com.cdug.model.Materials;
 import com.cdug.model.Solutions;
@@ -17,16 +18,21 @@ import com.jfinal.core.Controller;
 import com.jfinal.core.JFinal;
 import com.jfinal.upload.UploadFile;
 
-@Before({ LoginInterceptor.class })
+@Before(LoginInterceptor.class)
 public class MaterialManageController extends Controller {
 	public void index() {
 		Users user = getSessionAttr("loginUser");
-		if(user.isAdmin()){
-			setAttr("materials", Materials.dao.getMaterials());
-		}else{
-			setAttr("materials", Materials.dao.getMaterials(user.getInt("id")));
+		if (user != null) {
+			if (user.isAdmin()) {
+				setAttr("materials", Materials.dao.getMaterials());
+			} else {
+				setAttr("materials",
+						Materials.dao.getMaterials(user.getInt("id")));
+			}
+			render("/backpage/material/list_material.html");
+		} else {
+			redirect("/private/login/");
 		}
-		render("/backpage/material/list_material.html");
 	}
 
 	public void delete() {
@@ -48,6 +54,7 @@ public class MaterialManageController extends Controller {
 		}
 	}
 
+	@Before(OwnerRequiredInterceptor.class)
 	public void editView() {
 		if ("GET".equals(getRequest().getMethod())) {
 			int mid = getParaToInt(0);
@@ -71,6 +78,7 @@ public class MaterialManageController extends Controller {
 				int rc = Materials.dao.updateMaterial(mid, title, content,
 						draft, file_ids, te_ids, so_ids);
 				if (rc != -1) {
+
 					redirect("/private/material/editView/" + rc);
 				} else {
 					render("/backpage/feedback/error.html");
@@ -101,8 +109,16 @@ public class MaterialManageController extends Controller {
 						user.getStr("name"), user.getInt("id"), draft,
 						file_ids, te_ids, so_ids);
 				if (rc != -1) {
-					redirect("/private/material/editView/" + rc);
+					setAttr("material", Materials.dao.findById(rc));
+					setAttr("solutions",
+							Solutions.dao.getSolutionsFromMaterial(rc));
+					setAttr("technicals",
+							Technicals.dao.getTechnicalsFromMaterial(rc));
+					setAttr("files", Files.dao.getFilesByMaterialId(rc));
+					setAttr("msg", "Save Success");
+					render("/backpage/material/edit.html");
 				} else {
+					setAttr("msg", "Save material fail!");
 					render("/backpage/feedback/error.html");
 				}
 

@@ -84,8 +84,8 @@ public class UserManageController extends Controller {
 
 		}
 	}
-
 	@ClearInterceptor
+	@Before(LoginInterceptor.class)
 	public void myprofile() {
 		if ("GET".equals(getRequest().getMethod())) {
 			setAttr("user", getSessionAttr("loginUser"));

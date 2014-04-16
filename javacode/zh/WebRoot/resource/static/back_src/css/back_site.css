@@ -175,5 +175,8 @@ tr.pending-user:hover span.user-actions, tr.list-users:hover td div.btn-group, t
 	margin-left:0px;
 }
 
+.well{
+	text-align:center;
+}
 
 

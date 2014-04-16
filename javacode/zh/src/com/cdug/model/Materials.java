@@ -34,6 +34,15 @@ public class Materials extends Model<Materials> {
 		this.solution = solution;
 	}
 
+	public int getUserId(int mid) {
+		Materials material =dao.findFirst("select user_id from materials where id=" + mid);
+		if(material!=null){
+			return material.getInt("user_id");
+		}else{
+			return -1;
+		}
+	}
+
 	public ArrayList<Materials> getMaterials() {
 		return (ArrayList<Materials>) dao
 				.find("select * from materials order by id desc");
