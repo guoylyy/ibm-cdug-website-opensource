@@ -8,6 +8,7 @@ import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.OwnerRequiredInterceptor;
 import com.cdug.model.Files;
+import com.cdug.model.FirstTag;
 import com.cdug.model.Materials;
 import com.cdug.model.Solutions;
 import com.cdug.model.Technicals;
@@ -50,6 +51,7 @@ public class MaterialManageController extends Controller {
 		if ("GET".equals(getRequest().getMethod())) {
 			setAttr("solutions", new Solutions().getSolutions());
 			setAttr("technicals", new Technicals().getTechnicals());
+			setAttr("tags", FirstTag.dao.getFirstTags());
 			render("/backpage/material/add_material.html");
 		}
 	}
@@ -59,8 +61,9 @@ public class MaterialManageController extends Controller {
 		if ("GET".equals(getRequest().getMethod())) {
 			int mid = getParaToInt(0);
 			setAttr("material", Materials.dao.findById(mid));
-			setAttr("solutions", Solutions.dao.getSolutionsFromMaterial(mid));
-			setAttr("technicals", Technicals.dao.getTechnicalsFromMaterial(mid));
+			//setAttr("solutions", Solutions.dao.getSolutionsFromMaterial(mid));
+			//setAttr("technicals", Technicals.dao.getTechnicalsFromMaterial(mid));
+			setAttr("tags", FirstTag.dao.getFirstTags(mid));
 			setAttr("files", Files.dao.getFilesByMaterialId(mid));
 			render("/backpage/material/edit.html");
 		} else {
@@ -69,16 +72,11 @@ public class MaterialManageController extends Controller {
 			String content = getPara("content");
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
-			String[] te_ids = UITools
-					.convertIdsValue(getParaValues("technical"));
-			String[] so_ids = UITools
-					.convertIdsValue(getParaValues("solution"));
-
+			String[] tag_ids = UITools.convertIdsValue(getParaValues("secondTag"));
 			try {
 				int rc = Materials.dao.updateMaterial(mid, title, content,
-						draft, file_ids, te_ids, so_ids);
+						draft, file_ids,tag_ids);
 				if (rc != -1) {
-
 					redirect("/private/material/editView/" + rc);
 				} else {
 					render("/backpage/feedback/error.html");
@@ -99,24 +97,18 @@ public class MaterialManageController extends Controller {
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
 			Users user = (Users) getSessionAttr("loginUser");
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
-			String[] te_ids = UITools
-					.convertIdsValue(getParaValues("technical"));
-			String[] so_ids = UITools
-					.convertIdsValue(getParaValues("solution"));
+			String[] tag_ids = UITools.convertIdsValue(getParaValues("secondTag"));
 
 			try {
 				int rc = Materials.dao.addMaterial(title, content,
 						user.getStr("name"), user.getInt("id"), draft,
-						file_ids, te_ids, so_ids);
+						file_ids,tag_ids);
 				if (rc != -1) {
-					setAttr("material", Materials.dao.findById(rc));
-					setAttr("solutions",
-							Solutions.dao.getSolutionsFromMaterial(rc));
-					setAttr("technicals",
-							Technicals.dao.getTechnicalsFromMaterial(rc));
-					setAttr("files", Files.dao.getFilesByMaterialId(rc));
-					setAttr("msg", "Save Success");
-					render("/backpage/material/edit.html");
+//					setAttr("material", Materials.dao.findById(rc));
+//					setAttr("files", Files.dao.getFilesByMaterialId(rc));
+//					setAttr("msg", "Save Success");
+					redirect("/private/material/editView/"+rc);
+					//render("/backpage/material/edit.html");
 				} else {
 					setAttr("msg", "Save material fail!");
 					render("/backpage/feedback/error.html");

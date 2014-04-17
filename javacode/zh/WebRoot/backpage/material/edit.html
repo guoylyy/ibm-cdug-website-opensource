@@ -45,33 +45,29 @@
 						</ul>
 					</div>
 				</div>
+				
+				
+				<#list tags as firstTag>
 				<div class="control-group">
-					<label class="control-label" for="role">Technicals</label>
+					<label class="control-label" for="role">${firstTag.name}</label>
 					<div class="controls">
 						<ul class="list_ul">
-							<#list technicals as te>
-							<li><#if te.isChecked()> <input type="checkbox"
-								class="technical" name="technical" checked="checked" value="${te.id}" />
-								<#else> <input type="checkbox" class="technical"
-								class="technical" value="${te.id}" name="technical"/> </#if> <span>${te.name}</span>
-							</li> </#list>
+							<#list firstTag.getSecondTags() as secondTag>
+							<li>
+								<#if secondTag.isChecked()>
+								<input type="checkbox" name="secondTag" checked="checked" class="solution"
+									value="${secondTag.id}" /> 
+								<#else>
+								<input type="checkbox" name="secondTag" class="solution"
+									value="${secondTag.id}" />
+								</#if>
+							<span>${secondTag.name}</span></li>
+							</#list>
 						</ul>
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="role">Solutions</label>
-					<div class="controls">
-						<ul class="list_ul">
-							<#list solutions as so>
-							<li><#if so.isChecked()> <input type="checkbox"
-								class="solution" name="solution" checked="checked" value="${so.id}" />
-								<#else> <input type="checkbox" name="solution" class="solution" class="solution"
-								value="${so.id}" /> </#if> <span>${so.name}</span>
-							</li> </#list>
-
-						</ul>
-					</div>
-				</div>
+				</#list>
+				
 				<div class="control-group">
 					<label class="control-label" for="active">Draft?</label>
 					<div class="controls">

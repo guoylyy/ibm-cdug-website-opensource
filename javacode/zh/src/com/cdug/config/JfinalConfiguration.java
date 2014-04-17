@@ -1,11 +1,14 @@
 package com.cdug.config;
 
 import com.cdug.model.Files;
+import com.cdug.model.FirstTag;
 import com.cdug.model.MaterialFile;
+import com.cdug.model.MaterialSecondTag;
 import com.cdug.model.MaterialSolution;
 import com.cdug.model.MaterialTechnical;
 import com.cdug.model.Materials;
 import com.cdug.model.Posts;
+import com.cdug.model.SecondTag;
 import com.cdug.model.Solutions;
 import com.cdug.model.Technicals;
 import com.cdug.model.Users;
@@ -29,7 +32,7 @@ public class JfinalConfiguration extends JFinalConfig {
 		me.setDevMode(getPropertyToBoolean("devMode", false));
 		me.setDevMode(true);
 	}	
-
+	
 	/*
 	 * Set up router
 	 */
@@ -57,8 +60,10 @@ public class JfinalConfiguration extends JFinalConfig {
 		arp.addMapping("material_file", MaterialFile.class);
 		arp.addMapping("material_technical", MaterialTechnical.class);
 		arp.addMapping("material_solution", MaterialSolution.class);
+		arp.addMapping("firsttag",FirstTag.class);
+		arp.addMapping("secondtag", SecondTag.class);
+		arp.addMapping("material_second_tag", MaterialSecondTag.class);
 		//add spring framework
-		
 	}
 
 	public void configInterceptor(Interceptors me) {
@@ -73,6 +78,6 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * test interface
 	 */
 	public static void main(String[] args) {
-		JFinal.start("WebRoot", 8083, "/", 5);
+		JFinal.start("WebRoot", 8084, "/", 5);
 	}
 }

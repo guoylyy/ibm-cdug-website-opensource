@@ -15,19 +15,19 @@
 					
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">
-					    <div class="item active">
+					    <div class="item active" id="slider1">
 					      <img src="resource/static/image/index1.png" alt="The first png">
 					      <div class="carousel-caption">
 					        <a href="news/content/14" class="image-link">2013年度大中华区主机开发者上海论坛举行...</a>
 					      </div>
 					    </div>
-					    <div class="item">
+					    <div class="item" id="slider2">
 					      <img src="resource/static/image/2012index.png" alt="The first png">
 					      <div class="carousel-caption">
 					        <a href="news/content/13" class="image-link">2012大中华区主机开发者与用户年会成功举行...</a>
 					      </div>
 					    </div>
-					    <div class="item">
+					    <div class="item" id="slider3">
 					      <img src="resource/static/image/2011index.png" alt="The first png">
 					      <div class="carousel-caption">
 					        <a href="news/content/12" class="image-link">2011大中华区大型主机应用与开发用户大会开幕...</a>
@@ -128,10 +128,18 @@
             </div>
             </div>
           </div>
-
         </div>
-
 	  		</div>
 	  </section>	
-
 </@layout>
+
+<@javascript>
+<script>
+	$.getJSON("resource/dynamic/index_config.properties",function(data){
+		var sliders = data.sliders;
+		for (int i=1;i<=sliders.length;i++){
+			
+		}
+	});
+</script>
+</@javascript>

@@ -1,102 +1,113 @@
-<#include "/backpage/template/_editor_layout.html"/>
-
-<@layout>
+<#include "/backpage/template/_editor_layout.html"/> <@layout>
 <div class="span11">
-		  <div class="row-fluid">
-			<div class="page-header">
-				<h1>New Material <small>add material</small></h1>
-			</div>
-			<form class="form-horizontal" method="post" id="form" action="private/material/addMaterial">
+	<div class="row-fluid">
+		<div class="page-header">
+			<h1>
+				New Material <small>add material</small>
+			</h1>
+		</div>
+		<form class="form-horizontal" method="post" id="form"
+			action="private/material/addMaterial">
 			<!-- <form class="form-horizontal"> -->
-				<fieldset>
-					<div class="control-group">
-						<label class="control-label" for="name">Title</label>
-						<div class="controls">
-							<input type="text" class="input-xlarge" id="name" name="title"/>
-						</div>
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="name">Title</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="name" name="title" />
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="role">Type</label>
-						<div class="controls">
-							<select  id="type-change" name="type">
-								<option value="POST" selected>Post</option>
-								<option value="FILEONLY">File Only</option>
-							</select>
-						</div>
-					</div>	
-					<div class="control-group" id="text-area">
-						<label class="control-label" for="name">Content</label>
-						<div class="controls">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="role">Type</label>
+					<div class="controls">
+						<select id="type-change" name="type">
+							<option value="POST" selected>Post</option>
+							<option value="FILEONLY">File Only</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group" id="text-area">
+					<label class="control-label" for="name">Content</label>
+					<div class="controls">
 						<textarea class="ckeditor" name="content"></textarea>
-						</div>
 					</div>
-					
-					<div class="control-group" id="text-area">
-						<label class="control-label" for="name">Files</label>
-						<div class="controls" id="upload-area">
-							<a class="btn" id="upload-file">Upload File</a>
-							<input type="file" id="file" name="file" onchange="ajaxFileUpload()" style="display:none;"/>
-						</div>
-					</div>
-					<div class="control-group" id="text-area">
-						<label class="control-label" for="name"></label>
-						<div class="controls">
-							<ul class="list_ul" id="filename-list">
-								
-							</ul>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="role">Technicals</label>
-						<div class="controls">
-							<ul class="list_ul">
-								<#list technicals as te>
-								<li>
-									<input type="checkbox" class="technical" name="technical" value="${te.id}"/>
-									<span>${te.name}</span>
-								</li>
-								</#list>
-							</ul>
-						</div>
-					</div>	
-					<div class="control-group">
-						<label class="control-label" for="role">Solutions</label>
-						<div class="controls">
-							<ul class="list_ul">
-								<#list solutions as so>
-								<li>
-									<input type="checkbox"  name="solution" class="solution" value="${so.id}"/>
-									<span>${so.name}</span>
-								</li>
-								</#list>
-								
-							</ul>
-						</div>
-					</div>	
-					<div class="control-group">
-						<label class="control-label" for="active">Draft?</label>
-						<div class="controls">
-							<input type="checkbox" id="active"  name="draft"/>
-						</div>
-					</div>
-					<div class="form-actions">
-						<input type="button" class="btn btn-success btn-large" id="save" value="Save" /> <a class="btn" href="/private/material/addMaterialView">Cancel</a>
-					</div>					
-				</fieldset>
-			</form>
-			<!-- </form> -->
-		  </div>
-        </div>
-        
-</@layout>
+				</div>
 
-<@javascript>
-	<script src="resource/static/back_src/js/ajaxfileupload.js"></script>
-	<script src="resource/static/back_src/js/page/add_material.js"></script>	
-	<script>
-function r(obj){
-	$($(obj).parent()).parent().remove();
-}
+				<div class="control-group" id="text-area">
+					<label class="control-label" for="name">Files</label>
+					<div class="controls" id="upload-area">
+						<a class="btn" id="upload-file">Upload File</a> <input type="file"
+							id="file" name="file" onchange="ajaxFileUpload()"
+							style="display: none;" />
+					</div>
+				</div>
+				<div class="control-group" id="text-area">
+					<label class="control-label" for="name"></label>
+					<div class="controls">
+						<ul class="list_ul" id="filename-list">
+
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="control-group">
+					<label class="control-label" for="role">Technicals</label>
+					<div class="controls">
+						<ul class="list_ul">
+							<#list technicals as te>
+							<li><input type="checkbox" class="technical"
+								name="technical" value="${te.id}" /> <span>${te.name}</span></li>
+							</#list>
+						</ul>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="role">Solutions</label>
+					<div class="controls">
+						<ul class="list_ul">
+							<#list solutions as so>
+							<li><input type="checkbox" name="solution" class="solution"
+								value="${so.id}" /> <span>${so.name}</span></li> </#list>
+
+						</ul>
+					</div>
+				</div> -->
+				<#list tags as firstTag>
+				<div class="control-group">
+					<label class="control-label" for="role">${firstTag.name}</label>
+					<div class="controls">
+						<ul class="list_ul">
+							<#list firstTag.getSecondTags() as secondTag>
+							<li><input type="checkbox" name="secondTag" class="solution"
+								value="${secondTag.id}" /> <span>${secondTag.name}</span></li>
+							</#list>
+						</ul>
+					</div>
+				</div>
+				</#list>
+
+				<div class="control-group">
+					<label class="control-label" for="active">Draft?</label>
+					<div class="controls">
+						<input type="checkbox" id="active" name="draft" />
+					</div>
+				</div>
+				<div class="form-actions">
+					<input type="button" class="btn btn-success btn-large" id="save"
+						value="Save" /> <a class="btn"
+						href="/private/material/addMaterialView">Cancel</a>
+				</div>
+			</fieldset>
+		</form>
+		<!-- </form> -->
+	</div>
+</div>
+
+</@layout> <@javascript>
+<script src="resource/static/back_src/js/ajaxfileupload.js"></script>
+<script src="resource/static/back_src/js/page/add_material.js"></script>
+<script>
+	function r(obj) {
+		$($(obj).parent()).parent().remove();
+	}
 </script>
 </@javascript>
 

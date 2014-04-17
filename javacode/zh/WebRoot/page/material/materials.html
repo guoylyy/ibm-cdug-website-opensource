@@ -19,30 +19,20 @@
 				</h2>
 				<div class="content">
 					<form action="material" method="post">
-					<div>
-						<ul class="material-class-list">
-							<li>产品类别：</li>
-							<#list solutions as so>
-								<#if so.isChecked()>
-								<li><input type="checkbox" checked name="solution" value="${so.id}"><span> ${so.name}</span></li>
-								<#else>
-								<li><input type="checkbox" name="solution" value="${so.id}"><span> ${so.name}</span></li>
-								</#if>
-							</#list>
-						</ul>
-					</div>
-					<div class="">
+					<#list tags as ftag>
+						<div class="">
 						<ul class="material-class-list">
 							<li>技术类别：</li>
-							<#list technicals as te>
-								<#if te.isChecked()>
-									<li><input type="checkbox" checked name="technical" value="${te.id}" "><span> ${te.name}</span></li>
+							<#list ftag.getSecondTags() as ta>
+								<#if ta.isChecked()>
+									<li><input type="checkbox" checked name="secondTag" value="${ta.id}" "><span> ${ta.name}</span></li>
 								<#else>
-									<li><input type="checkbox" name="technical" value="${te.id}" "><span> ${te.name}</span></li>
+									<li><input type="checkbox" name="secondTag" value="${ta.id}"><span> ${ta.name}</span></li>
 								</#if>
 							</#list>
 						</ul>
-					</div>
+						</div>
+					</#list>
 					<div>
 						<button class="btn btn-primary btn-search">搜索</button>
 					</div>
