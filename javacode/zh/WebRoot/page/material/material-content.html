@@ -3,7 +3,6 @@
 <@layout>
 	<#include "/page/material/_material_breadcrumbs.html"/>
 
-
     <section class="normal-section">
         <div class="container">
 			<#include "/page/material/_material_left_bar.html"/>
@@ -15,7 +14,9 @@
                 </p>
                 <hr>
                 <p>
-                    <span class="glyphicon glyphicon-time"></span> 发布于 ${material.create_time}</p>
+                    <span class="glyphicon glyphicon-time"></span> 发布于 ${material.create_time?string('yyyy-MM-dd hh:mm:ss')}
+                    &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span> 发布人 ${material.author}
+                 </p>
                 <hr>
                 
                 ${material.content}

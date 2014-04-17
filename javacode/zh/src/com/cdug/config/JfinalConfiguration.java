@@ -62,6 +62,7 @@ public class JfinalConfiguration extends JFinalConfig {
 	}
 
 	public void configInterceptor(Interceptors me) {
+		
 	}
 
 	public void configHandler(Handlers me) {

@@ -34,11 +34,23 @@ public class Materials extends Model<Materials> {
 		this.solution = solution;
 	}
 
+	public boolean addViewCount(int mid) {
+		Materials material = dao.findById(mid);
+		if (material == null) {
+			return false;
+		} else {
+			return material
+					.set("view_count", material.getInt("view_count") + 1)
+					.update();
+		}
+	}
+
 	public int getUserId(int mid) {
-		Materials material =dao.findFirst("select user_id from materials where id=" + mid);
-		if(material!=null){
+		Materials material = dao
+				.findFirst("select user_id from materials where id=" + mid);
+		if (material != null) {
 			return material.getInt("user_id");
-		}else{
+		} else {
 			return -1;
 		}
 	}
@@ -112,7 +124,7 @@ public class Materials extends Model<Materials> {
 		}
 
 		ArrayList<Materials> list = (ArrayList<Materials>) dao
-				.find("select * from materials");
+				.find("select * from materials where isDraft=0");
 
 		for (Materials m : list) {
 			String id = m.get("id") + "";
@@ -157,7 +169,7 @@ public class Materials extends Model<Materials> {
 
 		ArrayList<Materials> list = new ArrayList<>();
 		if (teids.length == 0 && soids.length == 0) {
-			list = (ArrayList<Materials>) dao.find("select * from materials");
+			list = (ArrayList<Materials>) dao.find("select * from materials where isDraft=0");
 		} else {
 			HashMap<String, String> keyMap = new HashMap<>();
 			if (teids.length > 0) {

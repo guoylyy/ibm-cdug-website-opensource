@@ -31,6 +31,15 @@ public class Posts extends Model<Posts> {
 				.set("publisher", user.getInt("id")).save();
 	}
 
+	public boolean addViewCount(int pid){
+		Posts post = dao.findById(pid);
+		if(post != null){
+			return post.set("view_count", post.getInt("view_count")+1).update();
+		}else{
+			return false;
+		}
+	}
+	
 	public int getUserId(int pid) {
 		Posts post = dao.findFirst("select publisher from posts where id="
 				+ pid);
@@ -67,7 +76,7 @@ public class Posts extends Model<Posts> {
 
 	public Page<Posts> getPostsByPage(int pageIndex, String type) {
 		return dao.paginate(pageIndex, GlobalConfig.postsPageSize, "select *",
-				"from posts where type=? order by create_time desc", type);
+				"from posts where type=? and isDraft=0 order by create_time desc", type);
 	}
 
 	public int countNews() {

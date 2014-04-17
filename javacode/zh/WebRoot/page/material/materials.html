@@ -57,9 +57,10 @@
 								<thead>
 									<tr>
 										<th>标题</th>
-										<th>技术类别</th>
-										<th>产品类别</th>
+										<th>发布人</th>
+										<th>下载量</th>
 										<th>发表时间</th>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -67,8 +68,8 @@
 									<tr class="gradeX">
 										<td><a href="material/content/${m.id}">${m.title}</a></td> 
 										<!-- <td>${m.title}</td> -->
-										<td>${m.getTechnical()}</td>
-										<td>${m.getSolution()}</td>
+										<td>${m.author}</td>
+										<td>${m.view_count}</td>
 										<td>${m.create_time?string('yyyy-MM-dd')}</td>
 									</tr>
 									</#list>

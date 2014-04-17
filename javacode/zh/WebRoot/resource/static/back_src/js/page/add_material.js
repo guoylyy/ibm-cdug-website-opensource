@@ -65,9 +65,9 @@ $(document).ready(function() {
 
 	});
 
-//	$(".remove-file").click(function() {
-//		$($(this).parent()).parent().remove();
-//	});
+	// $(".remove-file").click(function() {
+	// $($(this).parent()).parent().remove();
+	// });
 
 	function getCheckTexts(str) {
 		str = "." + str;
@@ -84,23 +84,28 @@ $(document).ready(function() {
 });
 
 function ajaxFileUpload() {
-	$.ajaxFileUpload({
-		url : '/private/material/fileUpload',
-		secureuri : false,
-		type : 'post',
-		fileElementId : 'file',
-		dataType : 'json',
-		success : function(data, status) {
-			data = data.replace(/<\/?.+?>/g, "");
-			data = eval("(" + data + ")");
-			appendFileName(data);
-		},
-		error : function(data, status, e) {
-			alert(e);
-		}
+	var fileSize = $("#file")[0].files[0].size;
+	fileSize = fileSize / 1048576;
+	if (fileSize > 50) {
+		alert("File shoule be less than 50mb!");
+	} else {
+		$.ajaxFileUpload({
+			url : '/private/material/fileUpload',
+			secureuri : false,
+			type : 'post',
+			fileElementId : 'file',
+			dataType : 'json',
+			success : function(data, status) {
+				data = data.replace(/<\/?.+?>/g, "");
+				data = eval("(" + data + ")");
+				appendFileName(data);
+			},
+			error : function(data, status, e) {
+				alert(e);
+			}
 
-	});
-	return false;
+		});
+	}
 }
 function appendFileName(data) {
 	var list = $("#filename-list");

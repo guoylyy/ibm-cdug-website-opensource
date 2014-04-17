@@ -51,7 +51,7 @@
 						<ul class="list_ul">
 							<#list technicals as te>
 							<li><#if te.isChecked()> <input type="checkbox"
-								class="technical" class="technical" checked value="${te.id}" />
+								class="technical" name="technical" checked="checked" value="${te.id}" />
 								<#else> <input type="checkbox" class="technical"
 								class="technical" value="${te.id}" name="technical"/> </#if> <span>${te.name}</span>
 							</li> </#list>
@@ -64,7 +64,7 @@
 						<ul class="list_ul">
 							<#list solutions as so>
 							<li><#if so.isChecked()> <input type="checkbox"
-								class="solution" class="solution" checked value="${so.id}" />
+								class="solution" name="solution" checked="checked" value="${so.id}" />
 								<#else> <input type="checkbox" name="solution" class="solution" class="solution"
 								value="${so.id}" /> </#if> <span>${so.name}</span>
 							</li> </#list>

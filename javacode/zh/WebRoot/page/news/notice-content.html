@@ -13,7 +13,9 @@
                 <p class="lead">by <a href="index.php">${post.author}</a>
                 </p>
                 <hr>
-                <p><span class="glyphicon glyphicon-time"></span> 发布于 ${post.create_time}</p>
+                <p><span class="glyphicon glyphicon-time"></span> 发布于 ${post.create_time?string('yyyy-MM-dd hh:mm:ss')}
+                	&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-up">访问量：${post.view_count}</span> 
+                </p>
 				<hr>
                 <div class="content">
                 	${post.content}

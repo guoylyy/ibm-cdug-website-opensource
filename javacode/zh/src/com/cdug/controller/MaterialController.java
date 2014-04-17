@@ -25,22 +25,22 @@ public class MaterialController extends Controller {
 			String[] soids = UITools.convertIdsValue(getParaValues("solution"));
 			ArrayList<Solutions> so_list = Solutions.dao.getSolutions();
 			ArrayList<Technicals> te_list = Technicals.dao.getTechnicals();
-			for(Solutions so:so_list){
-				for(String id:soids){
-					if(so.get("id").toString().equals(id)){
+			for (Solutions so : so_list) {
+				for (String id : soids) {
+					if (so.get("id").toString().equals(id)) {
 						so.setChecked(true);
 					}
 				}
 			}
-			
-			for(Technicals te:te_list){
-				for(String id:teids){
-					if(te.get("id").toString().equals(id)){
+
+			for (Technicals te : te_list) {
+				for (String id : teids) {
+					if (te.get("id").toString().equals(id)) {
 						te.setChecked(true);
 					}
 				}
 			}
-			setAttr("solutions",so_list);
+			setAttr("solutions", so_list);
 			setAttr("technicals", te_list);
 			setAttr("materials", Materials.dao.getAllMaterial(teids, soids));
 			render("/page/material/materials.html");
@@ -52,6 +52,7 @@ public class MaterialController extends Controller {
 		int id = Integer.parseInt(getPara(0));
 		setAttr("material", Materials.dao.findById(id));
 		setAttr("material_files", Files.dao.getFilesByMaterialId(id));
+		Materials.dao.addViewCount(id);
 		render("/page/material/material-content.html");
 	}
 }
