@@ -12,7 +12,7 @@
 				<#list notices.getList() as n>
 				<div class="post-row">
 					<h3 class="post-title-in-list">
-						<a href="news/content/${n.id}">${n.title}</a>
+						<a href="notice/content/${n.id}">${n.title}</a>
 					</h3>
 					<ul class="inline post-properties">
 						<li><i class="glyphicon glyphicon-calendar"></i>${n.create_time}</li>
@@ -26,14 +26,14 @@
 				<ul class="pagination">
 					<#if isFirstPage>
 					<li class="disabled"><a>«</a></li> <#else>
-					<li><a href="news/${pageIndex-1}">«</a></li> </#if> <#list pages
+					<li><a href="notice/${pageIndex-1}">«</a></li> </#if> <#list pages
 					as p> <#if pageIndex == p>
-					<li class="active"><a href="news/${p}">${p} <span
+					<li class="active"><a href="notice/${p}">${p} <span
 							class="sr-only">(current)</span></a></li> <#else>
-					<li><a href="news/${p}">${p}</a></li> </#if> </#list> <#if
+					<li><a href="notice/${p}">${p}</a></li> </#if> </#list> <#if
 					isLastPage>
 					<li class="disable"><a>»</a></li> <#else>
-					<li><a href="news/${pageIndex+1}">»</a></li> </#if>
+					<li><a href="notice/${pageIndex+1}">»</a></li> </#if>
 				</ul>
 			</div>
 		</div>

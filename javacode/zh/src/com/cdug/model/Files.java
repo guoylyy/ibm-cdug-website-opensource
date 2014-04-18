@@ -21,4 +21,9 @@ public class Files extends Model<Files> {
 						+ id + ")");
 	}
 	
+	public ArrayList<Files> getFilesByPostId(int id){
+		return (ArrayList<Files>) dao
+				.find("select * from files where id in(select file_id from post_file where post_id="
+						+ id + ")");
+	}
 }

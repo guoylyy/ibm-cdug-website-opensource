@@ -7,6 +7,7 @@ import com.cdug.model.MaterialSecondTag;
 import com.cdug.model.MaterialSolution;
 import com.cdug.model.MaterialTechnical;
 import com.cdug.model.Materials;
+import com.cdug.model.PostFile;
 import com.cdug.model.Posts;
 import com.cdug.model.SecondTag;
 import com.cdug.model.Solutions;
@@ -23,7 +24,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 
 public class JfinalConfiguration extends JFinalConfig {
-	
+
 	/*
 	 * Set up basic infomation
 	 */
@@ -31,8 +32,8 @@ public class JfinalConfiguration extends JFinalConfig {
 		loadPropertyFile("config.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", false));
 		me.setDevMode(true);
-	}	
-	
+	}
+
 	/*
 	 * Set up router
 	 */
@@ -45,7 +46,7 @@ public class JfinalConfiguration extends JFinalConfig {
 	 * Config plugins
 	 */
 	public void configPlugin(Plugins me) {
-		//Add database plugin
+		// Add database plugin
 		C3p0Plugin c3p0Plugin = new C3p0Plugin(getProperty("jdbcUrl"),
 				getProperty("user"), getProperty("password").trim());
 		me.add(c3p0Plugin);
@@ -60,18 +61,19 @@ public class JfinalConfiguration extends JFinalConfig {
 		arp.addMapping("material_file", MaterialFile.class);
 		arp.addMapping("material_technical", MaterialTechnical.class);
 		arp.addMapping("material_solution", MaterialSolution.class);
-		arp.addMapping("firsttag",FirstTag.class);
+		arp.addMapping("firsttag", FirstTag.class);
 		arp.addMapping("secondtag", SecondTag.class);
 		arp.addMapping("material_second_tag", MaterialSecondTag.class);
-		//add spring framework
+		arp.addMapping("post_file", PostFile.class);
+		// add spring framework
 	}
 
 	public void configInterceptor(Interceptors me) {
-		
+
 	}
 
 	public void configHandler(Handlers me) {
-		
+
 	}
 
 	/**

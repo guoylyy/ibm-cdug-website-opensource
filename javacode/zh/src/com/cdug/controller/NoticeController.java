@@ -1,6 +1,7 @@
 package com.cdug.controller;
 
 import com.cdug.config.GlobalConfig;
+import com.cdug.model.Files;
 import com.cdug.model.Posts;
 import com.cdug.tool.DataHanlder;
 import com.cdug.tool.UITools;
@@ -36,6 +37,7 @@ public class NoticeController extends Controller {
 		setAttr(GlobalConfig.NAV_KEY, GlobalConfig.NAV_NEWS);
 		int id = getParaToInt(0);
 		setAttr("post", Posts.dao.findById(id));
+		setAttr("files", Files.dao.getFilesByPostId(id));
 		Posts.dao.addViewCount(id);
 		render("/page/news/notice-content.html");
 	}

@@ -4,7 +4,7 @@
 <div class="span11">
 		  <div class="row-fluid">
 			<div class="page-header">
-				<h1>New Post <small>add post</small></h1>
+				<h1>Post Editor <small></small></h1>
 			</div>
 			<#if result??>
 				<#if result=="Fail">
@@ -28,7 +28,26 @@
 						<textarea class="ckeditor" name="content">${post.content}</textarea>
 						</div>
 					</div>
-					
+					<div class="control-group" id="text-area">
+					<label class="control-label" for="name">Files</label>
+					<div class="controls" id="upload-area">
+						<a class="btn" id="upload-file">Upload File</a> <input type="file"
+							id="file" name="file" onchange="ajaxFileUpload()"
+							style="display: none;" />
+					</div>
+				</div>
+				<div class="control-group" id="text-area">
+					<label class="control-label" for="name"></label>
+					<div class="controls">
+						<ul class="list_ul" id="filename-list">
+							<#list files as file>
+							<li><span class="badge filename">${file.file_name}<i
+									class="icon-remove remove-file" onclick="r(this);"></i></span><input type="text" value="${file.id}"
+								name="file" class="file-id" style="display: none;"></li>
+							</#list>
+						</ul>
+					</div>
+				</div>
 					<div class="control-group">
 						<label class="control-label" for="role">Type</label>
 						<div class="controls">
@@ -62,3 +81,8 @@
         </div>
 
 </@layout>
+
+<@javascript>
+<script src="resource/static/back_src/js/ajaxfileupload.js"></script>
+<script src="resource/static/back_src/js/page/add_post.js"></script>
+</@javascript>

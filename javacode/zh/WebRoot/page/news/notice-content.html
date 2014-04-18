@@ -1,27 +1,49 @@
-<#include "/page/template/_layout.html"/>
-
-<@layout>
-	<#include "/page/news/_news_breadcrumbs.html"/>
+<#include "/page/template/_layout.html"/> <@layout> <#include
+"/page/news/_news_breadcrumbs.html"/>
 
 <section class="normal-section">
-        <div class="container">
-            <#include "/page/news/_news_left_bar.html"/>
-             <div class="col-md-9 mainpanel">
-              <div class="inner content-panel">
-               <!-- the actual blog post: title/author/date/content -->
-                <h1>${post.title}</h1>
-                <p class="lead">by <a href="index.php">${post.author}</a>
-                </p>
-                <hr>
-                <p><span class="glyphicon glyphicon-time"></span> 发布于 ${post.create_time?string('yyyy-MM-dd hh:mm:ss')}
-                	&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-up">访问量：${post.view_count}</span> 
-                </p>
+	<div class="container">
+		<#include "/page/news/_news_left_bar.html"/>
+		<div class="col-md-9 mainpanel">
+			<div class="inner content-panel">
+				<!-- the actual blog post: title/author/date/content -->
+				<h1>${post.title}</h1>
+				<p class="lead">
+					by <a href="index.php">${post.author}</a>
+				</p>
 				<hr>
-                <div class="content">
-                	${post.content}
+				<p>
+					<span class="glyphicon glyphicon-time"></span> 发布于
+					${post.create_time?string('yyyy-MM-dd hh:mm:ss')}
+					&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-up">访问量：${post.view_count}</span>
+				</p>
+				<hr>
+				<div class="content">
+					${post.content} <#if files.size() != 0>
+					<h3>资料下载</h3>
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>文件</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<#list files as mf>
+								<tr>
+									<td>${mf.file_name}</td>
+									<td><a href="download/${mf.id}" target="_blank">下载</a></td>
+								</tr>
+								</#list>
+							</tbody>
+						</table>
+					</div>
+					<hr>
+					</#if>
 				</div>
-                <!-- the comment box -->
- <!--                <div class="well">
+				<!-- the comment box -->
+				<!--                <div class="well">
                     <h4>Leave a Comment:</h4>
                     <form role="form">
                         <div class="form-group">
@@ -30,9 +52,9 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div> -->
-                <hr>
-              </div>
-            </div>
-        </div>
-      </section>
+				<hr>
+			</div>
+		</div>
+	</div>
+</section>
 </@layout>

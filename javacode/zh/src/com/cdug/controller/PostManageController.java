@@ -2,6 +2,7 @@ package com.cdug.controller;
 
 import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.OwnerRequiredInterceptor;
+import com.cdug.model.Files;
 import com.cdug.model.Posts;
 import com.cdug.model.Users;
 import com.cdug.tool.UITools;
@@ -31,9 +32,11 @@ public class PostManageController extends Controller {
 			String title = getPara("title");
 			String content = getPara("content");
 			String type = getPara("type");
+			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
 			Users user = getSessionAttr("loginUser");
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
-			if (Posts.dao.addPost(title, content, type, isDraft, user)) {
+			if (Posts.dao
+					.addPost(title, content, type, isDraft, user, file_ids)) {
 				render("/backpage/feedback/success.html");
 			} else {
 				render("/backpage/feedback/fail.html");
@@ -41,7 +44,7 @@ public class PostManageController extends Controller {
 		}
 
 	}
-	
+
 	@Before(OwnerRequiredInterceptor.class)
 	public void delete() {
 		String id = getPara(0);
@@ -55,23 +58,27 @@ public class PostManageController extends Controller {
 	@Before(OwnerRequiredInterceptor.class)
 	public void edit() {
 		if ("GET".equals(getRequest().getMethod())) {
-			String id = getPara(0);
-			setAttr("post", new Posts().findById(id));
+			int id = getParaToInt(0);
+			setAttr("post", Posts.dao.findById(id));
+			setAttr("files", Files.dao.getFilesByPostId(id));
 			render("/backpage/post/edit_post.html");
 		} else {
 			// update
-			String pid = getPara("id");
+			int pid = getParaToInt("id");
 			String title = getPara("title");
 			String content = getPara("content");
 			String type = getPara("type");
+			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
 
-			if (Posts.dao.updatePost(pid, title, content, type, isDraft)) {
+			if (Posts.dao.updatePost(pid, title, content, type, isDraft,
+					file_ids)) {
 				setAttr("result", "Success");
 			} else {
 				setAttr("result", "Fail");
 			}
-			setAttr("post", new Posts().findById(Integer.parseInt(pid)));
+			setAttr("files", Files.dao.getFilesByPostId(pid));
+			setAttr("post", new Posts().findById(pid));
 			render("/backpage/post/edit_post.html");
 		}
 	}
