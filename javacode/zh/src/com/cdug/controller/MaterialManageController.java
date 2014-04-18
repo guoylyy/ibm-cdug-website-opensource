@@ -4,14 +4,11 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.OwnerRequiredInterceptor;
 import com.cdug.model.Files;
 import com.cdug.model.FirstTag;
 import com.cdug.model.Materials;
-import com.cdug.model.Solutions;
-import com.cdug.model.Technicals;
 import com.cdug.model.Users;
 import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
@@ -49,8 +46,8 @@ public class MaterialManageController extends Controller {
 
 	public void addMaterialView() {
 		if ("GET".equals(getRequest().getMethod())) {
-			setAttr("solutions", new Solutions().getSolutions());
-			setAttr("technicals", new Technicals().getTechnicals());
+			//setAttr("solutions", new Solutions().getSolutions());
+			//setAttr("technicals", new Technicals().getTechnicals());
 			setAttr("tags", FirstTag.dao.getFirstTags());
 			render("/backpage/material/add_material.html");
 		}
@@ -121,57 +118,57 @@ public class MaterialManageController extends Controller {
 		}
 	}
 
-	@Before(AdminRequiredInterceptor.class)
-	public void solutions() {
-		if ("GET".equals(getRequest().getMethod())) {
-			setAttr("solutions", new Solutions().getSolutions());
-			render("/backpage/material/solutions.html");
-		} else {
-			// add category
-			String name = getPara("name");
-			if (new Solutions().addSolution(name)) {
-				redirect("/private/material/solutions");
-			} else {
-				render("/backpage/feedback/error.html");
-			}
-		}
-	}
+//	@Before(AdminRequiredInterceptor.class)
+//	public void solutions() {
+//		if ("GET".equals(getRequest().getMethod())) {
+//			setAttr("solutions", new Solutions().getSolutions());
+//			render("/backpage/material/solutions.html");
+//		} else {
+//			// add category
+//			String name = getPara("name");
+//			if (new Solutions().addSolution(name)) {
+//				redirect("/private/material/solutions");
+//			} else {
+//				render("/backpage/feedback/error.html");
+//			}
+//		}
+//	}
 
-	@Before(AdminRequiredInterceptor.class)
-	public void solutionDelete() {
-		int id = getParaToInt(0);
-		if (Solutions.dao.deleteById(id)) {
-			redirect("/private/material/solutions");
-		} else {
-			render("/backpage/feedback/error.html");
-		}
-	}
-
-	@Before(AdminRequiredInterceptor.class)
-	public void technicals() {
-		if ("GET".equals(getRequest().getMethod())) {
-			setAttr("technicals", new Technicals().getTechnicals());
-			render("/backpage/material/technicals.html");
-		} else {
-			// add technicals
-			String name = getPara("name");// todo check is not duplicate
-			if (new Technicals().addTechnical(name)) {
-				redirect("/private/material/technicals");
-			} else {
-				render("/backpage/feedback/error.html");
-			}
-		}
-	}
-
-	@Before(AdminRequiredInterceptor.class)
-	public void technicalDelete() {
-		int id = getParaToInt(0);
-		if (Technicals.dao.deleteById(id)) {
-			redirect("/private/material/technicals");
-		} else {
-			render("/backpage/feedback/error.html");
-		}
-	}
+//	@Before(AdminRequiredInterceptor.class)
+//	public void solutionDelete() {
+//		int id = getParaToInt(0);
+//		if (Solutions.dao.deleteById(id)) {
+//			redirect("/private/material/solutions");
+//		} else {
+//			render("/backpage/feedback/error.html");
+//		}
+//	}
+//
+//	@Before(AdminRequiredInterceptor.class)
+//	public void technicals() {
+//		if ("GET".equals(getRequest().getMethod())) {
+//			setAttr("technicals", new Technicals().getTechnicals());
+//			render("/backpage/material/technicals.html");
+//		} else {
+//			// add technicals
+//			String name = getPara("name");// todo check is not duplicate
+//			if (new Technicals().addTechnical(name)) {
+//				redirect("/private/material/technicals");
+//			} else {
+//				render("/backpage/feedback/error.html");
+//			}
+//		}
+//	}
+//
+//	@Before(AdminRequiredInterceptor.class)
+//	public void technicalDelete() {
+//		int id = getParaToInt(0);
+//		if (Technicals.dao.deleteById(id)) {
+//			redirect("/private/material/technicals");
+//		} else {
+//			render("/backpage/feedback/error.html");
+//		}
+//	}
 
 	public void fileUpload() {
 		String contextPath = JFinal.me().getServletContext().getRealPath("/");
