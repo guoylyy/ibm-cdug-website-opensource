@@ -13,7 +13,7 @@
 				<div class="control-group">
 					<label class="control-label" for="name">Title</label>
 					<div class="controls">
-						<input type="text" class="input-xlarge" id="name" name="title" />
+						<input type="text" class="input-xlarge" id="name" required name="title" />
 					</div>
 				</div>
 				<!-- <div class="control-group">
@@ -48,28 +48,7 @@
 						</ul>
 					</div>
 				</div>
-				<!-- <div class="control-group">
-					<label class="control-label" for="role">Technicals</label>
-					<div class="controls">
-						<ul class="list_ul">
-							<#list technicals as te>
-							<li><input type="checkbox" class="technical"
-								name="technical" value="${te.id}" /> <span>${te.name}</span></li>
-							</#list>
-						</ul>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="role">Solutions</label>
-					<div class="controls">
-						<ul class="list_ul">
-							<#list solutions as so>
-							<li><input type="checkbox" name="solution" class="solution"
-								value="${so.id}" /> <span>${so.name}</span></li> </#list>
-
-						</ul>
-					</div>
-				</div> -->
+				
 				<#list tags as firstTag>
 				<div class="control-group">
 					<label class="control-label" for="role">${firstTag.name}</label>

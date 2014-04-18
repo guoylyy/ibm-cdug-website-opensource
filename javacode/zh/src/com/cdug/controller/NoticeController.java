@@ -14,6 +14,9 @@ public class NoticeController extends Controller {
 		int pageScale = UITools.getPageSize(Posts.dao.countNotice());
 		boolean isLastPage = false;
 		boolean isFirstPage = false;
+		if(pageScale == 0){
+			pageScale = 1;
+		}
 		if (pageIndex >= pageScale) {
 			pageIndex = pageScale;
 		} else if (pageIndex < 0) {

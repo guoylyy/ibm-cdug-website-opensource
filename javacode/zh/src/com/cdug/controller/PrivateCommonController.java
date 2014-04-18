@@ -35,12 +35,18 @@ public class PrivateCommonController extends Controller {
 			String username = getPara("email");
 			String password = getPara("password");
 			password = MD5Tool.GetMd5(password);
-			System.out.println(password);
 			if (Users.dao.login(username, password)) {
-				setSessionAttr("loginUser", Users.dao.getUserByEmail(username));
-				redirect("/private/");
+				if (Users.dao.isActive(username)) {
+					setSessionAttr("loginUser",
+							Users.dao.getUserByEmail(username));
+					redirect("/private/");
+				} else {
+					setAttr("msg",
+							"Your account is not active,please contact administrator!");
+					render("/backpage/login.html");
+				}
 			} else {
-				setAttr("msg", "Email or Password incorrect!");
+				setAttr("msg", "Account or Password incorrect!");
 				render("/backpage/login.html");
 			}
 		}

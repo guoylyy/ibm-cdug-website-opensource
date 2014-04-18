@@ -62,6 +62,16 @@ public class Users extends Model<Users> {
 		}
 	}
 
+	public boolean isActive(String username) {
+		Users user = dao.findFirst("select * from users where email='"
+				+ username + "'");
+		if (user.getInt("isActive") == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	public boolean isAdmin() {
 		if (this.get("role").equals("ADMIN")) {
 			return true;
@@ -78,4 +88,5 @@ public class Users extends Model<Users> {
 			return false;
 		}
 	}
+
 }

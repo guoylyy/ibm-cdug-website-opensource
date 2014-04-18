@@ -90,7 +90,7 @@ function ajaxFileUpload() {
 		alert("File shoule be less than 50mb!");
 	} else {
 		$.ajaxFileUpload({
-			url : '/private/material/fileUpload',
+			url : 'private/material/fileUpload',
 			secureuri : false,
 			type : 'post',
 			fileElementId : 'file',

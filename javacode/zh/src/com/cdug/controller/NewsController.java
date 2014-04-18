@@ -13,6 +13,9 @@ public class NewsController extends Controller {
 		int pageScale = UITools.getPageSize(Posts.dao.countNews());
 		boolean isLastPage = false;
 		boolean isFirstPage = false;
+		if(pageScale == 0){
+			pageScale = 1;
+		}
 		if (pageIndex >= pageScale) {
 			pageIndex = pageScale;
 		} else if (pageIndex < 0) {
