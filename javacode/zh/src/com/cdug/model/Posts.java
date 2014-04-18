@@ -3,7 +3,7 @@ package com.cdug.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.cdug.config.GlobalConfig;
+import com.cdug.config.JfinalConfiguration;
 import com.cdug.tool.DataHanlder;
 import com.jfinal.aop.Before;
 import com.jfinal.plugin.activerecord.Db;
@@ -106,7 +106,7 @@ public class Posts extends Model<Posts> {
 		return dao
 				.paginate(
 						pageIndex,
-						GlobalConfig.postsPageSize,
+						JfinalConfiguration.getPostsPageSize(),
 						"select *",
 						"from posts where type=? and isDraft=0 order by create_time desc",
 						type);

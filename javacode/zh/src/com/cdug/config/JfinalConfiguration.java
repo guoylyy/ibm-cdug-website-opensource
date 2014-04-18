@@ -24,13 +24,15 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 
 public class JfinalConfiguration extends JFinalConfig {
-
+	
+	private static int postsPageSize;
 	/*
 	 * Set up basic infomation
 	 */
 	public void configConstant(Constants me) {
 		loadPropertyFile("config.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", false));
+		JfinalConfiguration.setPostsPageSize(getPropertyToInt("postsPageSize", 10));
 		me.setDevMode(true);
 	}
 
@@ -81,5 +83,13 @@ public class JfinalConfiguration extends JFinalConfig {
 	 */
 	public static void main(String[] args) {
 		JFinal.start("WebRoot", 8084, "/", 5);
+	}
+
+	public static int getPostsPageSize() {
+		return postsPageSize;
+	}
+
+	public static void setPostsPageSize(int postsPageSize) {
+		JfinalConfiguration.postsPageSize = postsPageSize;
 	}
 }

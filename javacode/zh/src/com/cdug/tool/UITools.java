@@ -1,6 +1,6 @@
 package com.cdug.tool;
 
-import com.cdug.config.GlobalConfig;
+import com.cdug.config.JfinalConfiguration;
 
 public class UITools {
 	public static int convertCheckboxValue(String val) {
@@ -15,8 +15,8 @@ public class UITools {
 	}
 
 	public static int getPageSize(int count) {
-		int size = count / GlobalConfig.postsPageSize;
-		if (count % GlobalConfig.postsPageSize == 0) {
+		int size = count / JfinalConfiguration.getPostsPageSize();
+		if (count % JfinalConfiguration.getPostsPageSize() == 0) {
 			return size;
 		} else {
 			return size + 1;
