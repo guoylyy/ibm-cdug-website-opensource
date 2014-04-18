@@ -9,7 +9,7 @@
 		<#if msg??> 
 		<div class="alert alert-success">${msg}</div>
 		</#if> 
-		<form class="form-horizontal" method="post" id="form" action="/private/material/editView">
+		<form class="form-horizontal" method="post" id="form" action="private/material/editView">
 			<!-- <form class="form-horizontal"> -->
 			<fieldset>
 				<div class="control-group">
@@ -91,8 +91,8 @@
 </div>
 
 </@layout> <@javascript>
-<script src="/resource/static/back_src/js/ajaxfileupload.js"></script>
-<script src="/resource/static/back_src/js/page/add_material.js"></script>
+<script src="resource/static/back_src/js/ajaxfileupload.js"></script>
+<script src="resource/static/back_src/js/page/add_material.js"></script>
 <script>
 function r(obj){
 	$($(obj).parent()).parent().remove();

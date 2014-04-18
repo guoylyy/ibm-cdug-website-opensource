@@ -34,7 +34,7 @@ public class UserManageController extends Controller {
 			int isActive = UITools.convertCheckboxValue(getPara("active"));
 			String role = getPara("role");
 			password = MD5Tool.GetMd5(password);
-			if (new Users().addUser(email, password, name, role, new Date(),
+			if (Users.dao.addUser(email, password, name, role, new Date(),
 					isActive)) {
 				render("/backpage/feedback/success.html");
 			} else {

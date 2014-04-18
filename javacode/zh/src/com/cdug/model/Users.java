@@ -17,9 +17,14 @@ public class Users extends Model<Users> {
 	public boolean addUser(String email, String password, String name,
 			String role, Date reg_time, int isActive) {
 		// Set datetime
-		return new Users().set("email", email).set("password", password)
-				.set("name", name).set("role", role).set("reg_time", reg_time)
-				.set("isActive", isActive).save();
+		try {
+			return new Users().set("email", email).set("password", password)
+					.set("name", name).set("role", role)
+					.set("reg_time", reg_time).set("isActive", isActive).save();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 	}
 
 	public boolean updateUser(int id, String email, String password,
@@ -62,7 +67,7 @@ public class Users extends Model<Users> {
 		}
 	}
 
-	public boolean isActive(String username) {
+	public boolean isActiveUser(String username) {
 		Users user = dao.findFirst("select * from users where email='"
 				+ username + "'");
 		if (user.getInt("isActive") == 0) {

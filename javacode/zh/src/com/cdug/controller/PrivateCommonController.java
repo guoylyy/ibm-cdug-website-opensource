@@ -36,7 +36,7 @@ public class PrivateCommonController extends Controller {
 			String password = getPara("password");
 			password = MD5Tool.GetMd5(password);
 			if (Users.dao.login(username, password)) {
-				if (Users.dao.isActive(username)) {
+				if (Users.dao.isActiveUser(username)) {
 					setSessionAttr("loginUser",
 							Users.dao.getUserByEmail(username));
 					redirect("/private/");
