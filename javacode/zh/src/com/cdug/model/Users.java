@@ -39,11 +39,10 @@ public class Users extends Model<Users> {
 		}
 	}
 
-	public boolean updateUser(int id, String email, String password, String name) {
+	public boolean updateUser(int id, String password, String name) {
 		Users user = dao.findById(id);
 		if (user != null) {
-			return user.set("email", email).set("password", password)
-					.set("name", name).update();
+			return user.set("password", password).set("name", name).update();
 		} else {
 			return false;
 		}

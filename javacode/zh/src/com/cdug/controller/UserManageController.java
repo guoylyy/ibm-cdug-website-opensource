@@ -2,6 +2,7 @@ package com.cdug.controller;
 
 import java.util.Date;
 
+import com.cdug.config.GlobalConfig;
 import com.cdug.interceptor.AdminRequiredInterceptor;
 import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.UserManagementInterceptor;
@@ -20,6 +21,12 @@ public class UserManageController extends Controller {
 	 * List user in management page
 	 */
 	public void index() {
+		String flag = getPara(0);
+		if(flag != null){
+			if(flag.equals(GlobalConfig.SUCCESS)){
+				setAttr("msg", "Operation Success!");
+			}
+		}
 		setAttr("users", new Users().getUsers());
 		render("/backpage/user/list_user.html");
 	}
@@ -36,7 +43,7 @@ public class UserManageController extends Controller {
 			password = MD5Tool.GetMd5(password);
 			if (Users.dao.addUser(email, password, name, role, new Date(),
 					isActive)) {
-				render("/backpage/feedback/success.html");
+				redirect("/private/user/success");
 			} else {
 				render("/backpage/feedback/error.html");
 			}
@@ -46,9 +53,9 @@ public class UserManageController extends Controller {
 	public void delete() {
 		String uid = getPara(0);
 		if (new Users().deleteById(uid)) {
-			renderText("success");
+			redirect("/private/user/success");
 		} else {
-			renderText("fail");
+			render("/backpage/feedback/error.html");
 		}
 
 	}
@@ -102,7 +109,7 @@ public class UserManageController extends Controller {
 					&& name.equals(user.get("name"))) {
 				setAttr("result", "Success");
 			} else {
-				if (Users.dao.updateUser(user.getInt("id"), email, password,
+				if (Users.dao.updateUser(user.getInt("id"), password,
 						name)) {
 					setAttr("result", "Success");
 				} else {

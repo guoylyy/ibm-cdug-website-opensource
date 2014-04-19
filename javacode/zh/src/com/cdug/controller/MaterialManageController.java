@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.cdug.config.GlobalConfig;
 import com.cdug.interceptor.LoginInterceptor;
 import com.cdug.interceptor.OwnerRequiredInterceptor;
 import com.cdug.model.Files;
@@ -57,9 +58,13 @@ public class MaterialManageController extends Controller {
 	public void editView() {
 		if ("GET".equals(getRequest().getMethod())) {
 			int mid = getParaToInt(0);
+			String flag = getPara(1);
+			if(flag != null){
+				if(flag.equals(GlobalConfig.SUCCESS)){
+					setAttr("msg", "Operation Success!");
+				}
+			}
 			setAttr("material", Materials.dao.findById(mid));
-			//setAttr("solutions", Solutions.dao.getSolutionsFromMaterial(mid));
-			//setAttr("technicals", Technicals.dao.getTechnicalsFromMaterial(mid));
 			setAttr("tags", FirstTag.dao.getFirstTags(mid));
 			setAttr("files", Files.dao.getFilesByMaterialId(mid));
 			render("/backpage/material/edit.html");
@@ -74,7 +79,7 @@ public class MaterialManageController extends Controller {
 				int rc = Materials.dao.updateMaterial(mid, title, content,
 						draft, file_ids,tag_ids);
 				if (rc != -1) {
-					redirect("/private/material/editView/" + rc);
+					redirect("/private/material/editView/" + rc +"-success");
 				} else {
 					render("/backpage/feedback/error.html");
 				}
@@ -101,11 +106,7 @@ public class MaterialManageController extends Controller {
 						user.getStr("name"), user.getInt("id"), draft,
 						file_ids,tag_ids);
 				if (rc != -1) {
-//					setAttr("material", Materials.dao.findById(rc));
-//					setAttr("files", Files.dao.getFilesByMaterialId(rc));
-//					setAttr("msg", "Save Success");
-					redirect("/private/material/editView/"+rc);
-					//render("/backpage/material/edit.html");
+					redirect("/private/material/editView/"+rc+"-success");
 				} else {
 					setAttr("msg", "Save material fail!");
 					render("/backpage/feedback/error.html");
