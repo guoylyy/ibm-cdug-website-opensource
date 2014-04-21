@@ -86,8 +86,14 @@ public class UserManageController extends Controller {
 			String name = getPara("name");
 			int isActive = UITools.convertCheckboxValue(getPara("active"));
 			String role = getPara("role");
-			setAttr("user", new Users().findById(id));
+			Users user = Users.dao.findById(id);
+			if (password.equals(user.getStr("password"))){
+				password = user.getStr("password");
+			}else{
+				password = MD5Tool.GetMd5(password);
+			}
 			if (Users.dao.updateUser(id, email, password, name, role, isActive)) {
+				setAttr("user", Users.dao.findById(id));
 				setAttr("result", "Success");
 				render("/backpage/user/profile.html");
 			} else {
@@ -110,12 +116,16 @@ public class UserManageController extends Controller {
 			String password = getPara("password");
 			String name = getPara("name");
 			Users user = getSessionAttr("loginUser");
-			password = MD5Tool.GetMd5(password);
 			if (email.equals(user.get("email"))
 					&& password.equals(user.get("password"))
 					&& name.equals(user.get("name"))) {
 				setAttr("result", "Success");
 			} else {
+				if(password.equals(user.getStr("password"))){
+					password = user.getStr("password");
+				}else{
+					password = MD5Tool.GetMd5(password);
+				}
 				if (Users.dao.updateUser(user.getInt("id"), password, name)) {
 					setAttr("result", "Success");
 				} else {

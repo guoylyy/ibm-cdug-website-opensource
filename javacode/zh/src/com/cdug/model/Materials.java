@@ -10,6 +10,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.IAtom;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.tx.Tx;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 @SuppressWarnings("serial")
 public class Materials extends Model<Materials> {
@@ -87,7 +88,8 @@ public class Materials extends Model<Materials> {
 						.set("second_tag_id", id).save();
 			}
 			if (dao.findById(mid).set("title", title).set("content", content)
-					.set("isDraft", isDraft).update()) {
+					.set("isDraft", isDraft).set("update_time", new Date())
+					.update()) {
 				return mid;
 			} else {
 				return -1;

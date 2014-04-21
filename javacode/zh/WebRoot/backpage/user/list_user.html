@@ -46,9 +46,9 @@
 								<li><a href="private/user/delete/${user.id}"><i class="icon-trash"></i> Delete</a></li>
 								<li class="nav-header">Permissions</li>
 								<#if user.role == 'USER'>
-									<li><a href="private/user/mark/${user.id}-ADMIN"><i class="icon-lock"></i> Make <strong>Admin</strong></a></li>
+									<li><a href="private/user/mark/${user.id}-ADMIN"><i class="icon-lock"></i> Change to <strong>Admin</strong></a></li>
 								<#elseif user.role == 'ADMIN'>
-									<li><a href="private/user/mark/${user.id}-USER""><i class="icon-lock"></i> Make <strong>User</strong></a></li>
+									<li><a href="private/user/mark/${user.id}-USER""><i class="icon-lock"></i> Change to <strong>User</strong></a></li>
 								</#if>
 							</ul>
 						</div>
