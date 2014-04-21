@@ -149,7 +149,7 @@ p.buttons{
 .content p{
 }
 .about-content p{
-	text-indent: 2em;
+	text-indent: 0em;
 }
 table p{
 	text-indent: 0em;
@@ -171,7 +171,6 @@ table p{
     overflow: hidden;
     width: 80%;
     white-space: nowrap;
-
 }
 
 
@@ -222,7 +221,6 @@ ul.post-properties li{
 .material-class-list{
     list-style: none;
     padding-bottom: 5px;
-    
     height: 25px;
     padding-left: 5px;
 }
@@ -246,6 +244,9 @@ ul.post-properties li{
 }
 #example{
     margin-top:5px;
+}
+#member-table li{
+	margin-left:-20px;
 }
 
 /*

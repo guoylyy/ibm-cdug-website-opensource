@@ -27,9 +27,9 @@
 				<#list materials as m>
 				<tr class="list-users">
 					<td>${m.id}</td>
-					<td>${m.title}</td>
-					<td>${m.create_time?string('yyyy-MM-dd')}</td>
-					<td>${m.update_time?string('yyyy-MM-dd')}</td>
+					<td><a href="private/material/editView/${m.id}">${m.title}</a></td>
+					<td>${m.create_time?string('yyyy-MM-dd hh:mm:ss')}</td>
+					<td>${m.update_time?string('yyyy-MM-dd hh:mm:ss')}</td>
 					<td>${m.author}</td>
 					<td>
 						<#if m.isDraft == 0>

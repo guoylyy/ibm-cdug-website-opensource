@@ -33,6 +33,11 @@ public class MaterialManageController extends Controller {
 			redirect("/private/login/");
 		}
 	}
+	
+	public void tags(){
+		setAttr("tags", FirstTag.dao.getFirstTags());
+		render("/backpage/material/tags.html");
+	}
 
 	public void delete() {
 		String id = getPara(0);

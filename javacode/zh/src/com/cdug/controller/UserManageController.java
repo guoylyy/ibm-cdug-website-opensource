@@ -22,13 +22,19 @@ public class UserManageController extends Controller {
 	 */
 	public void index() {
 		String flag = getPara(0);
-		if(flag != null){
-			if(flag.equals(GlobalConfig.SUCCESS)){
+		if (flag != null) {
+			if (flag.equals(GlobalConfig.SUCCESS)) {
 				setAttr("msg", "Operation Success!");
 			}
 		}
-		setAttr("users", new Users().getUsers());
-		render("/backpage/user/list_user.html");
+		Users user = getSessionAttr("loginUser");
+		if (user != null) {
+			setAttr("users", new Users().getUsers(user.getInt("id")));
+			render("/backpage/user/list_user.html");
+		} else {
+			redirect("/private/login/");
+		}
+
 	}
 
 	public void addUser() {
@@ -91,6 +97,7 @@ public class UserManageController extends Controller {
 
 		}
 	}
+
 	@ClearInterceptor
 	@Before(LoginInterceptor.class)
 	public void myprofile() {
@@ -109,8 +116,7 @@ public class UserManageController extends Controller {
 					&& name.equals(user.get("name"))) {
 				setAttr("result", "Success");
 			} else {
-				if (Users.dao.updateUser(user.getInt("id"), password,
-						name)) {
+				if (Users.dao.updateUser(user.getInt("id"), password, name)) {
 					setAttr("result", "Success");
 				} else {
 					setAttr("result", "Fail");

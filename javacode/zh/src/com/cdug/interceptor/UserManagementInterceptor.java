@@ -7,7 +7,6 @@ public class UserManagementInterceptor implements Interceptor {
 	public void intercept(ActionInvocation ai){
 		ai.invoke();
 		System.out.println(ai.getActionKey());
-		
 	}
 	
 

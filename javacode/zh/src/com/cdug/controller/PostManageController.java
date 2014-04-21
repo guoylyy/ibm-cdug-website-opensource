@@ -37,7 +37,7 @@ public class PostManageController extends Controller {
 			int isDraft = UITools.convertCheckboxValue(getPara("draft"));
 			if (Posts.dao
 					.addPost(title, content, type, isDraft, user, file_ids)) {
-				render("/backpage/feedback/success.html");
+				redirect("/private/post");
 			} else {
 				render("/backpage/feedback/fail.html");
 			}

@@ -17,7 +17,7 @@ public class Posts extends Model<Posts> {
 
 	public ArrayList<Posts> getPosts() {
 		return (ArrayList<Posts>) Posts.dao
-				.find("select * from posts order by id desc");
+				.find("select * from posts order by create_time desc");
 	}
 
 	public ArrayList<Posts> getPosts(int uid) {

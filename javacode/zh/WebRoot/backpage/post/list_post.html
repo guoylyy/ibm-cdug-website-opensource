@@ -16,7 +16,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Title</th>
-						<th>Preview</th>
+						<!-- <th>Preview</th> -->
 						<th>Type</th>
 						<th>Status</th>
 						<th>DateTime</th>
@@ -27,8 +27,8 @@
 				<#list posts as post>
 				<tr class="list-users">
 					<td>${post.id}</td>
-					<td>${post.title}</td>
-					<td class="tr-content">${post.getContentPreview()}</td>
+					<td><a href="private/post/edit/${post.id}">${post.title}</a></td>
+					<!-- <td class="tr-content">${post.getContentPreview()}</td> -->
 					<td>${post.type}</td>
 					<td>
 						<#if post.isDraft == 1>
@@ -37,7 +37,7 @@
 							<span class="label label-success">Active</span>
 						</#if>
 					</td>
-					<td>${post.create_time?string('yyyy-MM-dd')}</td>
+					<td>${post.create_time?string('yyyy-MM-dd hh:mm:ss')}</td>
 					
 					<td>
 						<div class="btn-group">
