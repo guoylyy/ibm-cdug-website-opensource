@@ -13,6 +13,7 @@ import com.cdug.model.Materials;
 import com.cdug.model.Users;
 import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.core.Controller;
 import com.jfinal.core.JFinal;
 import com.jfinal.upload.UploadFile;
@@ -175,7 +176,7 @@ public class MaterialManageController extends Controller {
 //			render("/backpage/feedback/error.html");
 //		}
 //	}
-
+	@ClearInterceptor
 	public void fileUpload() {
 		String contextPath = JFinal.me().getServletContext().getRealPath("/");
 		String savePath = contextPath + "/resource/dynamic/upload/";
@@ -199,10 +200,5 @@ public class MaterialManageController extends Controller {
 		renderJson(result);
 	}
 
-	public void file() {
-		Files file = Files.dao.findById(1);
-		setAttr("file", file);
-		renderJson();
-	}
 
 }
