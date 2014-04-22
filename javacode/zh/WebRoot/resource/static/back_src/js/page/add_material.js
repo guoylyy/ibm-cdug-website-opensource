@@ -11,58 +11,27 @@ $(document).ready(function() {
 	$("#upload-file").click(function() {
 		$("#file").click();
 	});
-
-	$("#save").click(function() {
-
-		// var data =[];
-		for (instance in CKEDITOR.instances) {
-			CKEDITOR.instances[instance].updateElement();
+	function trim(str) {
+		return str.replace(/(^\s*)|(\s*$)/g, "");
+	}
+	function check() {
+		if (trim($("#title").val()).length == 0) {
+			alert("Title can't be empty!");
+			return false;
 		}
-		// alert($("#form").serialize());
-		$("#form").submit();
-
+		return true;
+	}
+	function updateContentData(){
+		var data = CKEDITOR.instances['ckeditor'].getData();
+		$("#content").val(data);
+	}
+	
+	$("#save").click(function() {
+		updateContentData();
+		if (check()) {
+			$("#form").submit();
+		}
 		return '';
-		// var title = $("input[name='title']").val();
-		// var type = $("select[name='type']").val();
-		// var content = CKEDITOR.instances.content.getData();
-		// var files = $(".file-id");
-		// var file_ids = [];
-		// for(var i=0; i<files.length;i++){
-		// file_ids.push($(files[i]).val());
-		// }
-		// var so_ids = getCheckTexts("solution");
-		// var te_ids = getCheckTexts("technical");
-		// var isDraft = $("input[name='draft']").attr("checked");
-		//		
-		// data.push("title="+title);
-		// data.push("type="+type);
-		// data.push("file_ids="+file_ids.join(","));
-		// data.push("so_ids="+so_ids);
-		// data.push("te_ids="+te_ids);
-		// data.push("isDraft="+isDraft);
-		// data.push("content="+content);
-		//		
-		// data = data.join("&");
-		//		
-		// //save to db
-		// $.ajax({
-		// url:'/private/material/addMaterial',
-		// type:'post',
-		// data:data,
-		// dataType:'json',
-		// success:function(data){
-		// if(data.result='success'){
-		// alert("Success add material");
-		// window.location.href= data.redirect;
-		// }else{
-		// alert("Unexpected error happen!");
-		// }
-		// },
-		// error:function(data){
-		// alert("Unexpected error happen!");
-		// }
-		// });
-
 	});
 
 	// $(".remove-file").click(function() {

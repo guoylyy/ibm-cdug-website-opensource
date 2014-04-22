@@ -10,7 +10,6 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.IAtom;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.tx.Tx;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 @SuppressWarnings("serial")
 public class Materials extends Model<Materials> {
@@ -153,7 +152,7 @@ public class Materials extends Model<Materials> {
 					.find("select * from materials where id in(select material_id from material_second_tag where second_tag_id in("
 							+ ids + ") group by material_id) and isDraft=0");
 		} else {
-			list = new ArrayList<>();
+			list = getAllMaterial();//new ArrayList<>();
 		}
 		return list;
 	}

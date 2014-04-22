@@ -13,7 +13,7 @@
 					<div class="alert alert-success">Update post success!</div>
 				</#if>		
 			</#if>
-			<form class="form-horizontal" method="post" action="private/post/edit">
+			<form class="form-horizontal" method="post" id="form" action="private/post/edit">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="title">Title</label>
@@ -25,7 +25,8 @@
 					<div class="control-group">
 						<label class="control-label" for="content">Content</label>
 						<div class="controls">
-						<textarea class="ckeditor" name="content">${post.content}</textarea>
+						<textarea class="ckeditor" id="ckeditor">${post.content}</textarea>
+						<input name="content" id="content" type="text"  style="display:none"/>
 						</div>
 					</div>
 					<div class="control-group" id="text-area">
@@ -73,7 +74,7 @@
 						</div>
 					</div>
 					<div class="form-actions">
-						<input type="submit" class="btn btn-success btn-large" value="Save" /> <a class="btn" href="private/post">Cancel</a>
+						<input type="button" id="save" class="btn btn-success btn-large" value="Save" /> <a class="btn" href="private/post">Cancel</a>
 					</div>					
 				</fieldset>
 			</form>

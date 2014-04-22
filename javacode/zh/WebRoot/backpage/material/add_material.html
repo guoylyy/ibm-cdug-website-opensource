@@ -13,7 +13,7 @@
 				<div class="control-group">
 					<label class="control-label" for="name">Title</label>
 					<div class="controls">
-						<input type="text" class="input-xlarge" id="name" required name="title" />
+						<input type="text" class="input-xlarge" id="title" required name="title" />
 					</div>
 				</div>
 				<!-- <div class="control-group">
@@ -28,7 +28,8 @@
 				<div class="control-group" id="text-area">
 					<label class="control-label" for="name">Content</label>
 					<div class="controls">
-						<textarea class="ckeditor" name="content"></textarea>
+						<textarea class="ckeditor" id="ckeditor"></textarea>
+						<input name="content" id="content" type="text" style="display:none"/>
 					</div>
 				</div>
 
