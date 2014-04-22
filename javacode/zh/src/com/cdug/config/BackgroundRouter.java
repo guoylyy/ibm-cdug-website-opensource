@@ -1,6 +1,7 @@
 package com.cdug.config;
 
 import com.cdug.controller.MaterialManageController;
+import com.cdug.controller.PictureManagerController;
 import com.cdug.controller.PostManageController;
 import com.cdug.controller.PrivateCommonController;
 import com.cdug.controller.UserManageController;
@@ -12,5 +13,6 @@ public class BackgroundRouter extends Routes{
 		add("/private/material",MaterialManageController.class);
 		add("/private/post",PostManageController.class);
 		add("/private/user",UserManageController.class);
+		add("/private/pic",PictureManagerController.class);
 	}
 }

@@ -26,6 +26,7 @@ encoding//WebRoot/page/news/notice-content.html=UTF-8
 encoding//WebRoot/page/news/notice-index.html=UTF-8
 encoding//WebRoot/page/template/_header.html=UTF-8
 encoding//WebRoot/resource/conf/index_config.properties=UTF-8
+encoding//WebRoot/resource/static/back_src/js/config.js=UTF-8
 encoding//WebRoot/resource/static/back_src/js/page/add_material.js=UTF-8
 encoding//WebRoot/resource/static/back_src/js/page/add_post.js=UTF-8
 encoding//src/com/cdug/config/JfinalConfiguration.java=UTF-8
