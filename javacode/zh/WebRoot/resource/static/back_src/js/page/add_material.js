@@ -98,3 +98,14 @@ function appendFileName(data) {
 
 	list.append(str);
 }
+function r(obj){
+	if(confirm_delete()){
+		$($(obj).parent()).parent().remove();
+	}
+}
+
+function confirm_delete(){
+	if(confirm("Are you sure delete this item?"))
+	    return true;
+	return false;
+}
