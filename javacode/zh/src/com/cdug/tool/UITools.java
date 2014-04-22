@@ -24,8 +24,10 @@ public class UITools {
 	}
 
 	public static String[] convertIdsValue(Object val) {
-
-		if (val instanceof String) {
+		if (val == null) {
+			String[] rc = {};
+			return rc;
+		} else if (val instanceof String) {
 			String[] rc = new String[1];
 			rc[0] = val.toString();
 			return rc;

@@ -33,8 +33,8 @@
 					<label class="control-label" for="name">Files</label>
 					<div class="controls" id="upload-area">
 						<a class="btn" id="upload-file">Upload File</a> <input type="file"
-							id="file" name="file" onchange="ajaxFileUpload()"
-							style="display: none;" />
+							id="file" name="up-file" value="test" style="display: none;"
+							 data-url="private/material/fileUpload/" />
 					</div>
 				</div>
 				<div class="control-group" id="text-area">
@@ -84,6 +84,8 @@
 </@layout>
 
 <@javascript>
-<script src="resource/static/back_src/js/ajaxfileupload.js"></script>
+<script src="resource/static/back_src/js/vendor/jquery.ui.widget.js"></script>
+	<script src="resource/static/back_src/js/jquery.iframe-transport.js"></script>
+	<script src="resource/static/back_src/js/jquery.fileupload.js"></script>
 <script src="resource/static/back_src/js/page/add_post.js"></script>
 </@javascript>

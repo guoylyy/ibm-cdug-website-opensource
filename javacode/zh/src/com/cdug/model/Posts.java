@@ -70,7 +70,6 @@ public class Posts extends Model<Posts> {
 		updatePostFiles(file_ids, id);
 		return dao.findById(id).set("title", title).set("content", content)
 				.set("type", type).set("isDraft", isDraft).update();
-
 	}
 
 	@Before(Tx.class)
@@ -78,8 +77,10 @@ public class Posts extends Model<Posts> {
 		// Delete multiple ot multiple relationship
 		Db.update("delete from post_file where post_id=" + post_id);
 		for (String fid : file_ids) {
-			PostFile.dao.set("post_id", post_id)
-					.set("file_id", Integer.parseInt(fid)).save();
+			if (fid.length() > 0) {
+				PostFile.dao.set("post_id", post_id)
+						.set("file_id", Integer.parseInt(fid)).save();
+			}
 		}
 		return true;
 	}

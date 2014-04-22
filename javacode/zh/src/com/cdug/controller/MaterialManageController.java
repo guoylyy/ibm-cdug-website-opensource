@@ -187,15 +187,16 @@ public class MaterialManageController extends Controller {
 		if (file.isFile() || !file.exists()) {
 			file.mkdir();
 		}
-		UploadFile uploadFile = getFile("file", savePath);
+		UploadFile uploadFile = getFile("up-file", savePath);
 		String originName = uploadFile.getFileName();
 		String newName = System.currentTimeMillis() + uploadFile.getFileName();
 		uploadFile.getFile().renameTo(new File(savePath + newName));
 
 		Files file1 = new Files().addFile(originName, dateString + "/"
 				+ newName, "txt");
-		setAttr("file", file1);
-		renderJson();
+		String result = file1.toJson();
+		//setAttr("file", file1);
+		renderJson(result);
 	}
 
 	public void file() {
