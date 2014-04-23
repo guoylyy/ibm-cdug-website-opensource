@@ -83,7 +83,7 @@
 	jQuery(function($) {
 		$(document).ready(
 				function() {
-					$('#example').dataTable({
+					var Otable = $('#example').dataTable({
 						"sPaginationType" : "bs_four_button"
 					});
 					$('#example').each(
@@ -101,7 +101,7 @@
 										'div[id$=_length] select');
 								length_sel.addClass('form-control input-sm');
 							});
-
+					Otable.fnSort( [ [3,'desc'] ] );
 				});
 	});
 </script>

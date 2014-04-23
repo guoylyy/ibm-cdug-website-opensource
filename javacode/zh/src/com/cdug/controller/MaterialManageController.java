@@ -1,6 +1,8 @@
 package com.cdug.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,6 +13,7 @@ import com.cdug.model.Files;
 import com.cdug.model.FirstTag;
 import com.cdug.model.Materials;
 import com.cdug.model.Users;
+import com.cdug.tool.DataHanlder;
 import com.cdug.tool.UITools;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.ClearInterceptor;
@@ -34,8 +37,8 @@ public class MaterialManageController extends Controller {
 			redirect("/private/login/");
 		}
 	}
-	
-	public void tags(){
+
+	public void tags() {
 		setAttr("tags", FirstTag.dao.getFirstTags());
 		render("/backpage/material/tags.html");
 	}
@@ -53,8 +56,8 @@ public class MaterialManageController extends Controller {
 
 	public void addMaterialView() {
 		if ("GET".equals(getRequest().getMethod())) {
-			//setAttr("solutions", new Solutions().getSolutions());
-			//setAttr("technicals", new Technicals().getTechnicals());
+			// setAttr("solutions", new Solutions().getSolutions());
+			// setAttr("technicals", new Technicals().getTechnicals());
 			setAttr("tags", FirstTag.dao.getFirstTags());
 			render("/backpage/material/add_material.html");
 		}
@@ -65,8 +68,8 @@ public class MaterialManageController extends Controller {
 		if ("GET".equals(getRequest().getMethod())) {
 			int mid = getParaToInt(0);
 			String flag = getPara(1);
-			if(flag != null){
-				if(flag.equals(GlobalConfig.SUCCESS)){
+			if (flag != null) {
+				if (flag.equals(GlobalConfig.SUCCESS)) {
 					setAttr("msg", "Operation Success!");
 				}
 			}
@@ -80,12 +83,13 @@ public class MaterialManageController extends Controller {
 			String content = getPara("content");
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
-			String[] tag_ids = UITools.convertIdsValue(getParaValues("secondTag"));
+			String[] tag_ids = UITools
+					.convertIdsValue(getParaValues("secondTag"));
 			try {
 				int rc = Materials.dao.updateMaterial(mid, title, content,
-						draft, file_ids,tag_ids);
+						draft, file_ids, tag_ids);
 				if (rc != -1) {
-					redirect("/private/material/editView/" + rc +"-success");
+					redirect("/private/material/editView/" + rc + "-success");
 				} else {
 					render("/backpage/feedback/error.html");
 				}
@@ -105,14 +109,15 @@ public class MaterialManageController extends Controller {
 			int draft = UITools.convertCheckboxValue(getPara("draft"));
 			Users user = (Users) getSessionAttr("loginUser");
 			String[] file_ids = UITools.convertIdsValue(getParaValues("file"));
-			String[] tag_ids = UITools.convertIdsValue(getParaValues("secondTag"));
+			String[] tag_ids = UITools
+					.convertIdsValue(getParaValues("secondTag"));
 
 			try {
 				int rc = Materials.dao.addMaterial(title, content,
 						user.getStr("name"), user.getInt("id"), draft,
-						file_ids,tag_ids);
+						file_ids, tag_ids);
 				if (rc != -1) {
-					redirect("/private/material/editView/"+rc+"-success");
+					redirect("/private/material/editView/" + rc + "-success");
 				} else {
 					setAttr("msg", "Save material fail!");
 					render("/backpage/feedback/error.html");
@@ -125,62 +130,63 @@ public class MaterialManageController extends Controller {
 		}
 	}
 
-//	@Before(AdminRequiredInterceptor.class)
-//	public void solutions() {
-//		if ("GET".equals(getRequest().getMethod())) {
-//			setAttr("solutions", new Solutions().getSolutions());
-//			render("/backpage/material/solutions.html");
-//		} else {
-//			// add category
-//			String name = getPara("name");
-//			if (new Solutions().addSolution(name)) {
-//				redirect("/private/material/solutions");
-//			} else {
-//				render("/backpage/feedback/error.html");
-//			}
-//		}
-//	}
+	// @Before(AdminRequiredInterceptor.class)
+	// public void solutions() {
+	// if ("GET".equals(getRequest().getMethod())) {
+	// setAttr("solutions", new Solutions().getSolutions());
+	// render("/backpage/material/solutions.html");
+	// } else {
+	// // add category
+	// String name = getPara("name");
+	// if (new Solutions().addSolution(name)) {
+	// redirect("/private/material/solutions");
+	// } else {
+	// render("/backpage/feedback/error.html");
+	// }
+	// }
+	// }
 
-//	@Before(AdminRequiredInterceptor.class)
-//	public void solutionDelete() {
-//		int id = getParaToInt(0);
-//		if (Solutions.dao.deleteById(id)) {
-//			redirect("/private/material/solutions");
-//		} else {
-//			render("/backpage/feedback/error.html");
-//		}
-//	}
-//
-//	@Before(AdminRequiredInterceptor.class)
-//	public void technicals() {
-//		if ("GET".equals(getRequest().getMethod())) {
-//			setAttr("technicals", new Technicals().getTechnicals());
-//			render("/backpage/material/technicals.html");
-//		} else {
-//			// add technicals
-//			String name = getPara("name");// todo check is not duplicate
-//			if (new Technicals().addTechnical(name)) {
-//				redirect("/private/material/technicals");
-//			} else {
-//				render("/backpage/feedback/error.html");
-//			}
-//		}
-//	}
-//
-//	@Before(AdminRequiredInterceptor.class)
-//	public void technicalDelete() {
-//		int id = getParaToInt(0);
-//		if (Technicals.dao.deleteById(id)) {
-//			redirect("/private/material/technicals");
-//		} else {
-//			render("/backpage/feedback/error.html");
-//		}
-//	}
+	// @Before(AdminRequiredInterceptor.class)
+	// public void solutionDelete() {
+	// int id = getParaToInt(0);
+	// if (Solutions.dao.deleteById(id)) {
+	// redirect("/private/material/solutions");
+	// } else {
+	// render("/backpage/feedback/error.html");
+	// }
+	// }
+	//
+	// @Before(AdminRequiredInterceptor.class)
+	// public void technicals() {
+	// if ("GET".equals(getRequest().getMethod())) {
+	// setAttr("technicals", new Technicals().getTechnicals());
+	// render("/backpage/material/technicals.html");
+	// } else {
+	// // add technicals
+	// String name = getPara("name");// todo check is not duplicate
+	// if (new Technicals().addTechnical(name)) {
+	// redirect("/private/material/technicals");
+	// } else {
+	// render("/backpage/feedback/error.html");
+	// }
+	// }
+	// }
+	//
+	// @Before(AdminRequiredInterceptor.class)
+	// public void technicalDelete() {
+	// int id = getParaToInt(0);
+	// if (Technicals.dao.deleteById(id)) {
+	// redirect("/private/material/technicals");
+	// } else {
+	// render("/backpage/feedback/error.html");
+	// }
+	// }
 	@ClearInterceptor
 	public void fileUpload() {
 		String contextPath = JFinal.me().getServletContext().getRealPath("/");
 		String savePath = contextPath + "/resource/dynamic/upload/";
 		Date today = new Date();
+		// Create a folder
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = formatter.format(today).toString();
 		savePath = savePath + dateString + "/";
@@ -188,17 +194,30 @@ public class MaterialManageController extends Controller {
 		if (file.isFile() || !file.exists()) {
 			file.mkdir();
 		}
+		String timeMillis = System.currentTimeMillis() + "";
+		savePath = savePath + timeMillis + "/";
+		file = new File(savePath + timeMillis);
+		if (file.isFile() || !file.exists()) {
+			file.mkdir();
+		}
+
 		UploadFile uploadFile = getFile("up-file", savePath);
-		String originName = uploadFile.getFileName();
-		String newName = System.currentTimeMillis() + uploadFile.getFileName();
-		uploadFile.getFile().renameTo(new File(savePath + newName));
-
-		Files file1 = new Files().addFile(originName, dateString + "/"
-				+ newName, "txt");
-		String result = file1.toJson();
-		//setAttr("file", file1);
-		renderJson(result);
+		File savedFile = new File(uploadFile.getSaveDirectory()
+				+ uploadFile.getFileName());
+		try {
+			@SuppressWarnings("resource")
+			FileInputStream fis = new FileInputStream(savedFile);
+			
+			String size = DataHanlder.getSizeString(fis.available());
+			Files file1 = new Files().addFile(uploadFile.getFileName(), dateString
+					+ "/" + timeMillis + "/" + uploadFile.getFileName(), "txt",size);
+			String result = file1.toJson();
+			renderJson(result);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			renderJson("{\"result\":\"fail\"");
+		}  
+		
 	}
-
 
 }

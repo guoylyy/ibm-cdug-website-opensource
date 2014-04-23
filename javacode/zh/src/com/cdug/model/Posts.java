@@ -69,7 +69,8 @@ public class Posts extends Model<Posts> {
 			String type, int isDraft, String[] file_ids) {
 		updatePostFiles(file_ids, id);
 		return dao.findById(id).set("title", title).set("content", content)
-				.set("type", type).set("isDraft", isDraft).update();
+				.set("type", type).set("isDraft", isDraft)
+				.set("update_time", new Date()).update();
 	}
 
 	@Before(Tx.class)

@@ -141,7 +141,9 @@ p.buttons{
 }
 .content h3,.content h2,.content h1,.content h4{
     border-bottom: 1px solid rgba(55, 124, 168, 0.3);
-    padding-bottom: 5px;
+    padding-top:3px;
+    padding-bottom: 8px;
+    margin-bottom:2px;
     padding-left: 2px;
     color:#196090;
     margin-bottom: 10px;

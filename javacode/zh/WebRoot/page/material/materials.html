@@ -22,7 +22,7 @@
 					<#list tags as ftag>
 						<div class="">
 						<ul class="material-class-list">
-							<li>技术类别：</li>
+							<li>${ftag.name}</li>
 							<#list ftag.getSecondTags() as ta>
 								<#if ta.isChecked()>
 									<li><input type="checkbox" checked name="secondTag" value="${ta.id}" "><span> ${ta.name}</span></li>

@@ -11,7 +11,8 @@ public class Users extends Model<Users> {
 	public static final Users dao = new Users();
 
 	public ArrayList<Users> getUsers(int id) {
-		return (ArrayList<Users>) Users.dao.find("select * from users where id not in("+id+")");
+		return (ArrayList<Users>) Users.dao
+				.find("select * from users where id not in(" + id + ")");
 	}
 
 	public boolean addUser(String email, String password, String name,
