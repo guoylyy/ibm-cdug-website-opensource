@@ -19,17 +19,30 @@
 				<hr>
                 <div class="content">
                 	${post.content}
+                	<h3>资料下载</h3>
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>文件</th>
+									<th>大小</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<#list files as mf>
+								<tr>
+									<td>${mf.file_name}</td>
+									<td>${mf.file_size}</td>
+									<td><a href="download/${mf.id}" target="_blank">下载</a></td>
+								</tr>
+								</#list>
+							</tbody>
+						</table>
+					</div>
+					<hr>
 				</div>
-                <!-- the comment box -->
- <!--                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div> -->
+         
                 <hr>
               </div>
             </div>
