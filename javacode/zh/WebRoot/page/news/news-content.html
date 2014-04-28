@@ -19,6 +19,8 @@
 				<hr>
                 <div class="content">
                 	${post.content}
+                	
+                	<#if files.size()!=0>
                 	<h3>资料下载</h3>
 					<div class="table-responsive">
 						<table class="table table-bordered">
@@ -40,6 +42,7 @@
 							</tbody>
 						</table>
 					</div>
+					</#if>
 					<hr>
 				</div>
          

@@ -1,6 +1,7 @@
 package com.cdug.controller;
 
 import com.cdug.config.GlobalConfig;
+import com.cdug.model.Files;
 import com.cdug.model.Posts;
 import com.cdug.tool.DataHanlder;
 import com.cdug.tool.UITools;
@@ -41,6 +42,7 @@ public class NewsController extends Controller {
 		int id = getParaToInt(0);
 		setAttr("post", Posts.dao.findById(id));
 		Posts.dao.addViewCount(id);
+		setAttr("files", Files.dao.getFilesByPostId(id));
 		render("/page/news/news-content.html");
 	}
 

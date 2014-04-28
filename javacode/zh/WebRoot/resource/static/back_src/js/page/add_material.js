@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var isUploading = false;
+	
 	$("#type-change").change(function() {
 		if ($(this).val() == 'POST') {
 			$("#text-area").show();
@@ -40,10 +42,15 @@ $(document).ready(function() {
 
 	$("#file").fileupload({
 		add:function(e,data){
-			 if(data.files[0].size > 2000000) {
+			 if(data.files[0].size > 200000000) {
 				 $("#upload-result").text("上传的文件过大,文件必须小于200mb!");
              }else{
-            	 data.submit();
+            	 if(!isUploading){
+            		 isUploading = true;
+            		 data.submit();
+            	 }else{
+            		 alert("上传中,请等待上传完成后再添加文件!");
+            	 }
              }
 		},
 		progressall: function (e, data) {
@@ -56,7 +63,8 @@ $(document).ready(function() {
 	        	$("#upload-result").text(progress+"%");
 	        }
 	        if(progress==100){
-	        	$("#upload-result").text("上传成功");
+	        	isUploading = false;
+	        	$("#upload-result").text("正在完成...");
 	        }
 	    },
 		done:function(e,result){
@@ -90,33 +98,7 @@ $(document).ready(function() {
 
 });
 
-function ajaxFileUpload() {
-	var fileSize = 1000;//$("#file").files[0].size;
-	fileSize = fileSize / 1048576;
-	if (fileSize > 50) {
-		alert("File shoule be less than 50mb!");
-	} else {
-		$("#file").uploadify('upload');
-//		$.ajaxFileUpload({
-//			url : 'private/material/fileUpload',
-//			secureuri : false,
-//			type : 'post',
-//			fileElementId : 'file',
-//			dataType : 'text',
-//			success : function(data, status) {
-//				data = ''+ data + '';
-//				data = data.replace(/<[^>].*?>/g,"");
-//				data = eval("(" + data + ")");
-//				appendFileName(data);
-//			},
-//			error : function(data, status, e) {
-//				alert(e);
-//			}
-//
-//		});
-		
-	}
-}
+
 function appendFileName(data) {
 	var list = $("#filename-list");
 	var str = "<li><span class=\"badge filename\">"
@@ -126,6 +108,7 @@ function appendFileName(data) {
 			+ "\" name=\"file\" class=\"file-id\" style=\"display:none;\"/></li>";
 
 	list.append(str);
+	$("#upload-result").text("上传成功");
 }
 function r(obj){
 	if(confirm_delete()){

@@ -1,5 +1,6 @@
 package com.cdug.config;
 
+import com.cdug.interceptor.GlobalSetup;
 import com.cdug.model.Files;
 import com.cdug.model.FirstTag;
 import com.cdug.model.MaterialFile;
@@ -65,7 +66,7 @@ public class JfinalConfiguration extends JFinalConfig {
 	}
 
 	public void configInterceptor(Interceptors me) {
-
+		me.add(new GlobalSetup());
 	}
 
 	public void configHandler(Handlers me) {
