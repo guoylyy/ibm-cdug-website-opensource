@@ -33,6 +33,10 @@
 						<a class="btn" id="upload-file">Upload File</a> <input type="file"
 							id="file" name="up-file" value="test" style="display: none;"
 							 data-url="private/material/fileUpload/" />
+						<span id="upload-result" style="line-height:20px;" ></span>
+						<div id="progress" style="height: 10px;width: 200px;">
+    						<div class="bar" style="width:1%;height:20px;background:green;"></div>
+						</div>
 					</div>
 				</div>
 				<div class="control-group" id="text-area">
@@ -40,7 +44,7 @@
 					<div class="controls">
 						<ul class="list_ul" id="filename-list">
 							<#list files as file>
-							<li><span class="badge filename">${file.file_name}<i
+							<li><span class="badge badge-success filename">${file.file_name}<i
 									class="icon-remove remove-file" onclick="r(this);"></i></span><input type="text" value="${file.id}"
 								name="file" class="file-id" style="display: none;"></li>
 							</#list>

@@ -56,11 +56,7 @@ public class JfinalConfiguration extends JFinalConfig {
 		arp.addMapping("materials", Materials.class);
 		arp.addMapping("files", Files.class);
 		arp.addMapping("users", Users.class);
-//		arp.addMapping("solutions", Solutions.class);
-//		arp.addMapping("technicals", Technicals.class);
 		arp.addMapping("material_file", MaterialFile.class);
-//		arp.addMapping("material_technical", MaterialTechnical.class);
-//		arp.addMapping("material_solution", MaterialSolution.class);
 		arp.addMapping("firsttag", FirstTag.class);
 		arp.addMapping("secondtag", SecondTag.class);
 		arp.addMapping("material_second_tag", MaterialSecondTag.class);

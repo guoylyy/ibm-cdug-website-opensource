@@ -39,10 +39,39 @@ $(document).ready(function() {
 	// });
 
 	$("#file").fileupload({
-		'auto':false,
+		add:function(e,data){
+			 if(data.files[0].size > 2000000) {
+				 $("#upload-result").text("上传的文件过大,文件必须小于200mb!");
+             }else{
+            	 data.submit();
+             }
+		},
+		progressall: function (e, data) {
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#progress .bar').css(
+	            'width',
+	            progress + '%'
+	        );
+	        if(progress<100){
+	        	$("#upload-result").text(progress+"%");
+	        }
+	        if(progress==100){
+	        	$("#upload-result").text("上传成功");
+	        }
+	    },
 		done:function(e,result){
-			appendFileName(result.result)
+			appendFileName(result.result);
+		},
+		fail:function(e,data){
+			$("#upload-result").text("上传失败");
+			$("#progress .bar").css("width","1%");
 		}
+		
+	});
+	
+	$("#upload-file").click(function(){
+		$("#upload-result").text("未开始上传");
+		$("#progress .bar").css("width","1%");
 	});
 	
 	function getCheckTexts(str) {
