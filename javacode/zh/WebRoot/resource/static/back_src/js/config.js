@@ -31,7 +31,7 @@ CKEDITOR.editorConfig = function( config ) {
 		 config.shiftEnterMode = CKEDITOR.ENTER_BR;// 
 		 //图片处理
 		 config.pasteFromWordRemoveStyles = true;
-		 config.filebrowserImageUploadUrl = "/private/pic/picUpload";
+		 config.filebrowserImageUploadUrl = "private/pic/picUpload";
 		 
 		 // 去掉ckeditor“保存”按钮
 		 config.removePlugins = 'save';
