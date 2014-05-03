@@ -64,14 +64,14 @@ public class DataHanlder {
 
 	public static String getSizeString(int kbsize) {
 		double result = (double) kbsize / 1000;
-		String unit = "kb";
+		String unit = "KB";
 		if (result > 1000) {
 			result = (double) result / 1000;
 			if (result < 1000) {
-				unit = "mb";
+				unit = "MB";
 			} else {
 				result = (double) result / 1000;
-				unit = "gb";
+				unit = "GB";
 			}
 		}
 		return String.format("%1$.2f",result)+ " " + unit;

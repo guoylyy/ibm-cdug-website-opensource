@@ -31,6 +31,7 @@ encoding//WebRoot/resource/conf/index_config.properties=UTF-8
 encoding//WebRoot/resource/static/back_src/js/config.js=UTF-8
 encoding//WebRoot/resource/static/back_src/js/page/add_material.js=UTF-8
 encoding//WebRoot/resource/static/back_src/js/page/add_post.js=UTF-8
+encoding//WebRoot/resource/static/css/site.css=UTF-8
 encoding//src/com/cdug/config/JfinalConfiguration.java=UTF-8
 encoding//src/com/cdug/controller/PostManageController.java=UTF-8
 encoding//src/com/cdug/controller/PrivateCommonController.java=UTF-8

@@ -2094,3 +2094,6 @@ java.lang.InterruptedException: sleep interrupted
 	at java.lang.Thread.sleep(Native Method)
 	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
 	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-05-03 16:46:43
+[WARN]-[Thread: qtp2133203837-20]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /private/post/edit/private/pic/picUpload?CKEditor=ckeditor&CKEditorFuncNum=1&langCode=en
