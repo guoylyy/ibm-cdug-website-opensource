@@ -74,14 +74,6 @@ public class Materials extends Model<Materials> {
 				MaterialFile.dao.set("material_id", mid)
 						.set("file_id", Integer.parseInt(id)).save();
 			}
-			// for (String id : soids) {
-			// MaterialSolution.dao.set("material_id", mid)
-			// .set("solution_id", Integer.parseInt(id)).save();
-			// }
-			// for (String id : teids) {
-			// MaterialTechnical.dao.set("material_id", mid)
-			// .set("technical_id", Integer.parseInt(id)).save();
-			// }
 			for (String id : tag_ids) {
 				MaterialSecondTag.dao.set("material_id", mid)
 						.set("second_tag_id", id).save();

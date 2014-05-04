@@ -19,7 +19,7 @@
 					<!-- <th>Preview</th> -->
 					<th>Type</th>
 					<th>Status</th>
-					<th>DateTime</th>
+					<th>Update Time</th>
 					<th>Operations</th>
 				</tr>
 			</thead>
@@ -33,7 +33,7 @@
 					<td><#if post.isDraft == 1> <span class="label">Draft</span>
 						<#else> <span class="label label-success">Active</span> </#if>
 					</td>
-					<td>${post.create_time?string('dd/MM/yyyy hh:mm:ss')}</td>
+					<td>${post.update_time?string('yyyy-MM-dd hh:mm:ss')}</td>
 
 					<td>
 						<div class="btn-group">
