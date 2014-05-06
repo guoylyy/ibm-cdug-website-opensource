@@ -13,6 +13,9 @@
 					<div class="alert alert-success">Update post success!</div>
 				</#if>		
 			</#if>
+			<#if msg??> 
+			<div class="alert alert-success">${msg}</div>
+			</#if> 
 			<form class="form-horizontal" method="post" id="form" action="private/post/edit">
 				<fieldset>
 					<div class="control-group">

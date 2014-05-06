@@ -60,7 +60,7 @@
 										<!-- <td>${m.title}</td> -->
 										<td>${m.author}</td>
 										<td>${m.view_count}</td>
-										<td>${m.update_time?string('yyyy-MM-dd')}</td>
+										<td>${m.update_time?string('yyyy-MM-dd hh:mm:ss')}</td>
 									</tr>
 									</#list>
 								</tbody>
@@ -84,7 +84,7 @@
 	jQuery(function($) {
 		$(document).ready(
 				function() {
-					$('#example').dataTable({
+					var Otable = $('#example').dataTable({
 						"sPaginationType" : "bs_four_button"
 					});
 					$('#example').each(
@@ -102,7 +102,7 @@
 										'div[id$=_length] select');
 								length_sel.addClass('form-control input-sm');
 							});
-
+					Otable.fnSort( [ [3,'desc'] ] );
 				});
 	});
 </script>

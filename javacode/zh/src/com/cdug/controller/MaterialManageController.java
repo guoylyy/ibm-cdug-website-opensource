@@ -31,6 +31,12 @@ public class MaterialManageController extends Controller {
 				setAttr("materials",
 						Materials.dao.getMaterials(user.getInt("id")));
 			}
+			String flag = getPara(0);
+			if (flag != null) {
+				if (flag.equals(GlobalConfig.SUCCESS)) {
+					setAttr("msg", "Operation Success!");
+				}
+			}
 			render("/backpage/material/list_material.html");
 		} else {
 			redirect("/private/login/");
@@ -55,8 +61,6 @@ public class MaterialManageController extends Controller {
 
 	public void addMaterialView() {
 		if ("GET".equals(getRequest().getMethod())) {
-			// setAttr("solutions", new Solutions().getSolutions());
-			// setAttr("technicals", new Technicals().getTechnicals());
 			setAttr("tags", FirstTag.dao.getFirstTags());
 			render("/backpage/material/add_material.html");
 		}
@@ -116,7 +120,8 @@ public class MaterialManageController extends Controller {
 						user.getStr("name"), user.getInt("id"), draft,
 						file_ids, tag_ids);
 				if (rc != -1) {
-					redirect("/private/material/editView/" + rc + "-success");
+					//redirect("/private/material/editView/" + rc + "-success");
+					redirect("/private/material/success");
 				} else {
 					setAttr("msg", "Save material fail!");
 					render("/backpage/feedback/error.html");
