@@ -177,21 +177,13 @@ public class Materials extends Model<Materials> {
 	private boolean deleteRelatedRows(int id) {
 		final int mid = id;
 		final int fileCount = MaterialFile.dao.count(mid);
-		// final int solutionCount = MaterialSolution.dao.count(mid);
-		// final int techincalCount = MaterialTechnical.dao.count(mid);
 		final int tagsCount = MaterialSecondTag.dao.count(mid);
 		boolean succeed = Db.tx(new IAtom() {
 			@Override
 			public boolean run() throws SQLException {
-				// int count1 = Db
-				// .update("delete from material_solution where material_id="
-				// + mid + "");
 				int count1 = Db
 						.update("delete from material_file where material_id="
 								+ mid);
-				// int count3 = Db
-				// .update("delete from material_technical where material_id="
-				// + mid);
 				int count2 = Db
 						.update("delete from material_second_tag where material_id="
 								+ mid);
@@ -204,8 +196,6 @@ public class Materials extends Model<Materials> {
 	public boolean deleteMaterial(int id) {
 		final int mid = id;
 		final int fileCount = MaterialFile.dao.count(mid);
-		// final int solutionCount = MaterialSolution.dao.count(mid);
-		// final int techincalCount = MaterialTechnical.dao.count(mid);
 		final int tagsCount = MaterialSecondTag.dao.count(mid);
 
 		boolean succeed = Db.tx(new IAtom() {
