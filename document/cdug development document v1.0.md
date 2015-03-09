@@ -265,12 +265,12 @@ CKEDITOR.editorConfig = function( config ) {
 > /WebRoot/WEB-INF/config.properties
 
 ```
-jdbcUrl = jdbc:mysql://10.60.43.10/cdug_zh? //数据库访问配置characterEncoding=GBK&zeroDateTimeBehavior=convertToNull
+jdbcUrl = jdbc:mysql://localhost/cdug_zh? //数据库访问配置characterEncoding=GBK&zeroDateTimeBehavior=convertToNull
 user = root        //数据库用户名
-password = 123456  //数据库密码
+password = xxxx  //数据库密码
 devMode = true    //是否是开发模式
 postsPageSize =10  //网站新闻公告分页limit
-baseURL= http://cdug.tongji.edu.cn/zh/   //这是网站的根目录配置
+baseURL= http://cdug.tongji.edu.cn/zh/   //这是配置网站的根目录配置
 ```
 
 ###服务器配置
